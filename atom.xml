@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>ObjectNotFound Wiki</title>
+  
+  
+  <link href="http://wiki.zhouweitong.site/atom.xml" rel="self"/>
+  
+  <link href="http://wiki.zhouweitong.site/"/>
+  <updated>2023-02-04T14:22:42.244Z</updated>
+  <id>http://wiki.zhouweitong.site/</id>
+  
+  <author>
+    <name>ObjectNotFound</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>快速删除无用的Docker Image</title>
+    <link href="http://wiki.zhouweitong.site/wiki/Docker/%E5%BF%AB%E9%80%9F%E5%88%A0%E9%99%A4%E6%97%A0%E7%94%A8%E7%9A%84Image/"/>
+    <id>http://wiki.zhouweitong.site/wiki/Docker/%E5%BF%AB%E9%80%9F%E5%88%A0%E9%99%A4%E6%97%A0%E7%94%A8%E7%9A%84Image/</id>
+    <published>2023-02-03T02:07:00.000Z</published>
+    <updated>2023-02-04T14:22:42.244Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Docker提供了可以快速删除无用镜像的命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker image prune</span><br></pre></td></tr></table></figure><p>可直接运行，效果：删除所有悬空的（Dangling）镜像</p><ul><li>Dangling Image 指无镜像名或无镜像版本的镜像，比如：<code>xxx:&lt;none&gt;</code>、<code>&lt;none&gt;:xxx</code>、<code>&lt;none&gt;:&lt;none&gt;</code> 均是Danging Image</li></ul><hr><p>注意：是 <code>image</code>，不是 <code>images</code></p><ul><li><code>docker images</code> 只用于查看已pull镜像详情</li><li><code>docker image</code> 用于对镜像进行操作</li></ul><hr>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;css&quot; href=&quot;https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css&quot;&gt;&lt;link rel=&quot;st</summary>
+      
+    
+    
+    
+    <category term="Docker" scheme="http://wiki.zhouweitong.site/categories/Docker/"/>
+    
+    
+    <category term="Docker" scheme="http://wiki.zhouweitong.site/tags/Docker/"/>
+    
+    <category term="CI/CD" scheme="http://wiki.zhouweitong.site/tags/CI-CD/"/>
+    
+    <category term="Docker Image" scheme="http://wiki.zhouweitong.site/tags/Docker-Image/"/>
+    
+    <category term="Linux" scheme="http://wiki.zhouweitong.site/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Flatpak 基础使用</title>
+    <link href="http://wiki.zhouweitong.site/wiki/Fedora%20Silverblue/Flatpak/Flatpak%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/"/>
+    <id>http://wiki.zhouweitong.site/wiki/Fedora%20Silverblue/Flatpak/Flatpak%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</id>
+    <published>2023-02-02T12:38:00.000Z</published>
+    <updated>2023-02-04T14:22:42.244Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>Flatpak 分为两种软件包：</p><ul><li>Application（App）：应用本体；</li><li>Runtime：应用所需的运行时；</li></ul><p>“运行时”有多种类型，比如：</p><ol><li>支持GUI显示的基本运行时（“没它打不开”），比如FreeDesktop Platform、Gnome Platform；</li><li>支持特定应用程序正常运行的其他软件或库（“没它用不了”），如：FFMpeg、OpenH264、Mesa；</li><li>特定应用程序所需要的程序包（“没它用不好”），如：TeX环境、Rust语言（编译器）、Go语言（编译器）；</li></ol><p>应用不一定只有运行时依赖，也可以有“扩展”（Extensions），扩展可以是运行时（多是上述列表的2和3两类），也可以是其他应用</p><hr><p>Flatpak 有两种安装范围：</p><ul><li>System：系统级安装，需要root权限，安装的应用 系统上所有的用户均可见；</li><li>User：用户级安装，安装的应用 仅当前用户（触发安装的用户）可见；</li></ul><hr><p>每个App或Runtime都有一个ID，类似Andorid下App的包名，例如：</p><ul><li>（App） Blender： <code>org.blender.Blender</code></li><li>（Runtime） Gnome Platform：<code>org.gnome.Platform</code></li></ul><p>加入架构和版本号，就构成了 ID三元组：</p><ul><li><code>org.blender.Blender/x86_64/stable</code></li><li><code>org.gnome.Platform/x86_64/43</code></li></ul><p>加入软件包类型，就构成了 该App对应的Flatpak ostree分支名：</p><ul><li><code>app/org.blender.Blender/x86_64/stable</code></li><li><code>org.gnome.Platform/x86_64/43</code></li></ul><h2 id="列出"><a href="#列出" class="headerlink" title="列出"></a>列出</h2><p>只列出App：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flatpak list</span><br></pre></td></tr></table></figure><p>或者</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flatpak --app</span><br></pre></td></tr></table></figure><p>只列出Runtime：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flatpak list --runtime</span><br></pre></td></tr></table></figure><p>列出System App：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flatpak list --system</span><br></pre></td></tr></table></figure><p>列出User Runtime：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flatpak list --user --runtime</span><br></pre></td></tr></table></figure><h2 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h2><p>卸载特定App或Runtime：</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;css&quot; href=&quot;https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css&quot;&gt;&lt;link rel=&quot;st</summary>
+      
+    
+    
+    
+    <category term="Fedora Silverblue" scheme="http://wiki.zhouweitong.site/categories/Fedora-Silverblue/"/>
+    
+    <category term="Flatpak" scheme="http://wiki.zhouweitong.site/categories/Fedora-Silverblue/Flatpak/"/>
+    
+    
+    <category term="Linux" scheme="http://wiki.zhouweitong.site/tags/Linux/"/>
+    
+    <category term="Fedora" scheme="http://wiki.zhouweitong.site/tags/Fedora/"/>
+    
+    <category term="Fedora Silverblue" scheme="http://wiki.zhouweitong.site/tags/Fedora-Silverblue/"/>
+    
+    <category term="Flatpak" scheme="http://wiki.zhouweitong.site/tags/Flatpak/"/>
+    
+    <category term="Flathub" scheme="http://wiki.zhouweitong.site/tags/Flathub/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>欢迎访问 ObjectNotFound 个人知识库</title>
+    <link href="http://wiki.zhouweitong.site/wiki/index/"/>
+    <id>http://wiki.zhouweitong.site/wiki/index/</id>
+    <published>2023-01-18T09:00:00.000Z</published>
+    <updated>2023-02-04T14:22:42.244Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>本知识库以类 Wiki 形式进行组织，内容可能包括：</p><ul><li>独立的笔记，例如编程语言的语法笔记；</li><li>对一些概念的主观理解，例如如何理解商品的价值与价格；</li><li>零散的技巧，例如如何通过一条命令删除机器Docker上未使用的所有镜像；</li><li>读后感、观后感、游戏剧情分析等，例如原神&#x2F;明日方舟世界观分析、死亡搁浅剧情概要等；</li></ul><p>不同类别的知识放入不同的二级分类中，可通过“分类”页面检索。</p><p>由于本知识库的个人性质，因此：</p><ul><li><strong>不接受直接的内容编辑和贡献</strong>，非常欢迎有此想法的读者在评论区写出详细内容；</li><li><strong>不接受“向 Wiki 增加 xxx 条目”类似的请求</strong>；</li><li><strong>内容可能存在错漏</strong>，非常欢迎读者在评论区指出；</li><li><strong>内容带有主观色彩和个人立场</strong>，部分情况下无法无视；</li></ul><p>特别注意：知识库内的条目有可能在改写、完善后作为博客（主站）文章发布，因此<strong>如果曾经访问过或收藏过的页面不存在了，可以去主站找找有没有相关的博客文章</strong>。</p><p>以下是部分一级分类的详细介绍：</p><ul><li>多国语：指日常生活中沟通交流所使用的自然语言。</li><li>网络安全：指网络安全竞赛（夺旗赛CTF等）、网络安全技术、网络安全行业等。</li><li>编程语言：指程序开发时所用到的各类程序语言。此模块会记录一些语言的语法、例程、技巧及开发注意事项等。</li><li>数学：指算法、额外的数学知识、额外的信息理论知识等。</li><li>游戏开发：指游戏程序开发、游戏引擎、游戏玩法分类与设计、游戏剧情策划、游戏数值策划等。</li><li>设计：指平面设计、UI设计、UX设计、字体设计、网页设计、人物设计、服装设计等。</li><li>绘画：指绘画理论、线稿修饰、透视上色、数字绘景、3D辅助作画、厚涂半厚涂及赛璐璐风格剖析等。</li><li>舞台技术：指现场拾音调音、打光（调光）、导播、直播、舞台弹幕互动等。</li><li>音乐与音频：指乐理、声音理论、效果器、合成器、修音、后期处理、母带、电音分类与制作等。</li><li>传媒：指影视剪辑、影视特效、人像处理、广告包装、营销、色彩修正、视频压制、视频字幕等。</li><li>技术美术：指DCC（与的上述分类重复的除外）、三维技术、渲染技术、特效（与上述分类重复的除外）、计算机图形学（上述分类重复的除外）等。</li><li>流媒体技术：指音视频直播技术、流媒体编解码技术等。</li><li>人工智能与机器学习：指人工智能理论、机器学习理论、神经网络分类、人工智能框架、人工智能开发、人工智能法律等。</li><li>区块链：指区块链理论、加密货币、智能合约、区块链存储、区块链开发等。</li><li>文学与考证：指书摘、书评、世界观描述、科幻体系架构、神秘学、宗教文化等。</li><li>名词注解：指零散的、不成体系的“百科全书”式的词条，对一个或多个名词的个人理解进行记录。</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;css&quot; href=&quot;https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css&quot;&gt;&lt;link rel=&quot;st</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>X to Y</title>
+    <link href="http://wiki.zhouweitong.site/wiki/%E5%90%8D%E8%AF%8D%E6%B3%A8%E8%A7%A3/X%20to%20Y/"/>
+    <id>http://wiki.zhouweitong.site/wiki/%E5%90%8D%E8%AF%8D%E6%B3%A8%E8%A7%A3/X%20to%20Y/</id>
+    <published>2023-01-18T09:00:00.000Z</published>
+    <updated>2023-02-04T14:22:42.244Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>常见的缩写：</p><ul><li>2：“to”，谐音</li><li>G：“Government”，政府</li><li>E：“Employee”，职工&#x2F;雇员</li><li>C：“Costumer”，消费者</li><li>B：“Business”，商业&#x2F;公司</li></ul><p>举例说明：</p><ul><li>B2C：Business to Costumer，即公司给消费者提供服务。公司生产产品供消费者购买使用属于此类。</li><li>B2B：Business to Business，即公司给公司提供服务。原材料公司将产品进行粗加工后提供给其他公司做精细加工属于此类。</li><li>B2G：Business to Government，即公司给政府提供服务。云计算公司给政府提供云计算基础设施属于此类。</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;css&quot; href=&quot;https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css&quot;&gt;&lt;link rel=&quot;st</summary>
+      
+    
+    
+    
+    <category term="名词解释" scheme="http://wiki.zhouweitong.site/categories/%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A/"/>
+    
+    
+    <category term="名词解释" scheme="http://wiki.zhouweitong.site/tags/%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A/"/>
+    
+    <category term="B2B" scheme="http://wiki.zhouweitong.site/tags/B2B/"/>
+    
+    <category term="B2C" scheme="http://wiki.zhouweitong.site/tags/B2C/"/>
+    
+    <category term="B2G" scheme="http://wiki.zhouweitong.site/tags/B2G/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>第X国际</title>
+    <link href="http://wiki.zhouweitong.site/wiki/%E5%90%8D%E8%AF%8D%E6%B3%A8%E8%A7%A3/%E7%AC%ACX%E5%9B%BD%E9%99%85/"/>
+    <id>http://wiki.zhouweitong.site/wiki/%E5%90%8D%E8%AF%8D%E6%B3%A8%E8%A7%A3/%E7%AC%ACX%E5%9B%BD%E9%99%85/</id>
+    <published>2023-01-18T09:00:00.000Z</published>
+    <updated>2023-02-04T14:22:42.244Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote><p>主观理解</p></blockquote><p>历史上存在第一国际、第二国际、第三国际、第二半国际、第四国际、第五国际这六种提法。</p><ul><li><p>第一国际：又称“国际工人联合会”，由马克思领导，于1864年成立，于1876年解散。历史意义集中在思想的宣传和发展方面。巴黎公社运动由第一国际的法国支部参加和领导。<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[第一国际 - 百度百科](https://baike.baidu.com/item/第一国际)">[1]</span></a></sup></p></li><li><p>第二国际：又称“社会主义国际”，由恩格斯领导，于1889年成立，于1914年解散，活跃于第一次世界大战前夕。其中1895年恩格斯逝世后，机会主义开始泛滥，因此1896年第二国际修正主义开始形成。<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[第二国际 - 百度百科](https://baike.baidu.com/item/第二国际)">[2]</span></a></sup> <sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[第二国际修正主义 - 百度百科 ](https://baike.baidu.com/item/第二国际修正主义/1272709)">[3]</span></a></sup></p></li><li><p>第三国际：又称“共产国际”，由布尔什维克领导，于1919年成立，于1943年解散。中国于1922年加入第三国际，于1940年中断联系。<sup id="fnref:4"><a href="#fn:4" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[第三国际 - 百度百科 ](https://baike.baidu.com/item/第三国际/1356131)">[4]</span></a></sup></p></li><li><p>第二半国际：又称“维也纳国际”，于1921年成立，于1923年与伯尔尼国际合并为社会主义工人国际。<sup id="fnref:5"><a href="#fn:5" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[第二半国际 - 百度百科](https://baike.baidu.com/item/第二半国际/6302528)">[5]</span></a></sup></p></li><li><p>第四国际：又称“世界社会主义革命党”，由托洛茨基领导，于1938年成立，活跃至今。活跃期间组织发生多次分裂。<sup id="fnref:6"><a href="#fn:6" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[第四国际 - 百度百科](https://baike.baidu.com/item/第四国际)">[6]</span></a></sup></p></li><li><p>第五国际：并不是单一的组织，而是泛指第四国际后部分社会主义和无产阶级尝试创建新的国际联盟的努力。“争取第五国际联盟”于1990年改为现用名称，现已解散并合并入英国工党。<sup id="fnref:7"><a href="#fn:7" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[第五国际 - 百度百科](https://baike.baidu.com/item/第五国际)">[7]</span></a></sup> <sup id="fnref:8"><a href="#fn:8" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[争取第五国际联盟 - 维基百科，自由的百科全书](https://zh.wikipedia.org/wiki/争取第五国际联盟)">[8]</span></a></sup></p></li></ul><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://baike.baidu.com/item/%E7%AC%AC%E4%B8%80%E5%9B%BD%E9%99%85">第一国际 - 百度百科</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://baike.baidu.com/item/%E7%AC%AC%E4%BA%8C%E5%9B%BD%E9%99%85">第二国际 - 百度百科</a><a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://baike.baidu.com/item/%E7%AC%AC%E4%BA%8C%E5%9B%BD%E9%99%85%E4%BF%AE%E6%AD%A3%E4%B8%BB%E4%B9%89/1272709">第二国际修正主义 - 百度百科 </a><a href="#fnref:3" rev="footnote"> ↩</a></span></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">4.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://baike.baidu.com/item/%E7%AC%AC%E4%B8%89%E5%9B%BD%E9%99%85/1356131">第三国际 - 百度百科 </a><a href="#fnref:4" rev="footnote"> ↩</a></span></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">5.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://baike.baidu.com/item/%E7%AC%AC%E4%BA%8C%E5%8D%8A%E5%9B%BD%E9%99%85/6302528">第二半国际 - 百度百科</a><a href="#fnref:5" rev="footnote"> ↩</a></span></li><li id="fn:6"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">6.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://baike.baidu.com/item/%E7%AC%AC%E5%9B%9B%E5%9B%BD%E9%99%85">第四国际 - 百度百科</a><a href="#fnref:6" rev="footnote"> ↩</a></span></li><li id="fn:7"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">7.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://baike.baidu.com/item/%E7%AC%AC%E4%BA%94%E5%9B%BD%E9%99%85">第五国际 - 百度百科</a><a href="#fnref:7" rev="footnote"> ↩</a></span></li><li id="fn:8"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">8.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://zh.wikipedia.org/wiki/%E4%BA%89%E5%8F%96%E7%AC%AC%E4%BA%94%E5%9B%BD%E9%99%85%E8%81%94%E7%9B%9F">争取第五国际联盟 - 维基百科，自由的百科全书</a><a href="#fnref:8" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;css&quot; href=&quot;https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css&quot;&gt;&lt;link rel=&quot;st</summary>
+      
+    
+    
+    
+    <category term="名词解释" scheme="http://wiki.zhouweitong.site/categories/%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A/"/>
+    
+    
+    <category term="名词解释" scheme="http://wiki.zhouweitong.site/tags/%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A/"/>
+    
+    <category term="第一国际" scheme="http://wiki.zhouweitong.site/tags/%E7%AC%AC%E4%B8%80%E5%9B%BD%E9%99%85/"/>
+    
+    <category term="第二国际" scheme="http://wiki.zhouweitong.site/tags/%E7%AC%AC%E4%BA%8C%E5%9B%BD%E9%99%85/"/>
+    
+    <category term="第三国际" scheme="http://wiki.zhouweitong.site/tags/%E7%AC%AC%E4%B8%89%E5%9B%BD%E9%99%85/"/>
+    
+    <category term="第四国际" scheme="http://wiki.zhouweitong.site/tags/%E7%AC%AC%E5%9B%9B%E5%9B%BD%E9%99%85/"/>
+    
+    <category term="第五国际" scheme="http://wiki.zhouweitong.site/tags/%E7%AC%AC%E4%BA%94%E5%9B%BD%E9%99%85/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>费控</title>
+    <link href="http://wiki.zhouweitong.site/wiki/%E5%90%8D%E8%AF%8D%E6%B3%A8%E8%A7%A3/%E8%B4%B9%E6%8E%A7/"/>
+    <id>http://wiki.zhouweitong.site/wiki/%E5%90%8D%E8%AF%8D%E6%B3%A8%E8%A7%A3/%E8%B4%B9%E6%8E%A7/</id>
+    <published>2023-01-18T09:00:00.000Z</published>
+    <updated>2023-02-04T14:22:42.244Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>“成本费用控制”的简称，是指企业在生产经营过程中，按照既定的成本费用目标，对构成成本费用的诸要素进行的规划、限制和调节，及时纠正偏差，控制成本费用超支，把实际耗费控制在成本费用计划范围内<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[成本费用控制_百度百科](https://baike.baidu.com/item/%E6%88%90%E6%9C%AC%E8%B4%B9%E7%94%A8%E6%8E%A7%E5%88%B6/11039238?fromtitle=%E8%B4%B9%E6%8E%A7&fromid=15968442)">[1]</span></a></sup>。</p><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://baike.baidu.com/item/%E6%88%90%E6%9C%AC%E8%B4%B9%E7%94%A8%E6%8E%A7%E5%88%B6/11039238?fromtitle=%E8%B4%B9%E6%8E%A7&amp;fromid=15968442">成本费用控制_百度百科</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;css&quot; href=&quot;https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css&quot;&gt;&lt;link rel=&quot;st</summary>
+      
+    
+    
+    
+    <category term="名词解释" scheme="http://wiki.zhouweitong.site/categories/%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A/"/>
+    
+    
+    <category term="名词解释" scheme="http://wiki.zhouweitong.site/tags/%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A/"/>
+    
+    <category term="费控" scheme="http://wiki.zhouweitong.site/tags/%E8%B4%B9%E6%8E%A7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>P1-行列式</title>
+    <link href="http://wiki.zhouweitong.site/wiki/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0_1/"/>
+    <id>http://wiki.zhouweitong.site/wiki/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0_1/</id>
+    <published>2023-01-18T09:00:00.000Z</published>
+    <updated>2023-02-04T14:22:42.244Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>线性代数是数学的其中一个分支。主要研究向量、向量空间（线性空间）、线性变换及有限维度的线性方程组。<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[线性代数（数学分支学科）_百度百科](https://baike.baidu.com/item/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/800)">[1]</span></a></sup>  <strong>线性</strong>指的是线性关系，即两个或多个变量（数学元素）间的关系程一次形式。例如：n元一次方程组、形如 $f(x+y) &#x3D; f(x) + f(y)$ 的函数关系等。<strong>代数</strong> 指的是用符号代替具体数值进行计算，化具体为抽象。</p><p>本提纲基于教材《工程数学线性代数（第六版）》（同济大学数学系），采用其表述及顺序。</p><h2 id="行列式"><a href="#行列式" class="headerlink" title="行列式"></a>行列式</h2><p>用通用的方法表示二元一次方程组：</p><p>$$<br>\{ \begin{matrix}<br>a_{11} x_1 + a_{12} x_2 &#x3D; b_1,<br>\\<br>a_{21} x_1 + a_{22} x_2 &#x3D; b_2.<br>\end{matrix}<br>$$</p><p>提取未知数前的系数，<font color=red>按顺序</font>可以组成数表：</p><p>$$<br>\begin{matrix}<br>a_{11} \ a_{12}<br>\\<br>a_{21} \ a_{22}<br>\end{matrix}<br>$$</p><p>用 <strong>| |</strong> 包裹数表，表达行列式：</p><p>$$<br>\begin{vmatrix}<br>\color{red}{a_{11}} \ \color{blue}{a_{12}}<br>\\<br>\color{blue}{a_{21}} \ \color{red}{a_{22}}<br>\end{vmatrix}<br>$$</p><p>上式中红色的两个元素所在的线（从左上角到右下角）称为 <strong>主对角线</strong>，蓝色的两个元素所在的线（从右上角到左下角）称为 <strong>副对角线</strong>。</p><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://baike.baidu.com/item/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/800">线性代数（数学分支学科）_百度百科</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;css&quot; href=&quot;https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css&quot;&gt;&lt;link rel=&quot;st</summary>
+      
+    
+    
+    
+    <category term="数学" scheme="http://wiki.zhouweitong.site/categories/%E6%95%B0%E5%AD%A6/"/>
+    
+    <category term="线性代数" scheme="http://wiki.zhouweitong.site/categories/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
+    
+    
+    <category term="数学" scheme="http://wiki.zhouweitong.site/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+    <category term="线性代数" scheme="http://wiki.zhouweitong.site/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
+    
+    <category term="行列式" scheme="http://wiki.zhouweitong.site/tags/%E8%A1%8C%E5%88%97%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>概念</title>
+    <link href="http://wiki.zhouweitong.site/wiki/%E5%A4%9A%E5%9B%BD%E8%AF%AD/%E4%B8%AD%E6%96%87/%E6%A6%82%E5%BF%B5/"/>
+    <id>http://wiki.zhouweitong.site/wiki/%E5%A4%9A%E5%9B%BD%E8%AF%AD/%E4%B8%AD%E6%96%87/%E6%A6%82%E5%BF%B5/</id>
+    <published>2023-01-18T09:00:00.000Z</published>
+    <updated>2023-02-04T14:22:42.244Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="语流音变"><a href="#语流音变" class="headerlink" title="语流音变"></a>语流音变</h2><p>在语流中，由于受到相邻音节的相邻音素的影响，一些音节中的声母、韵母或声调会发生语音的变化，我们称之为语流音变。<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="https://baike.baidu.com/item/%E8%AF%AD%E6%B5%81%E9%9F%B3%E5%8F%98/5667409">[1]</span></a></sup> “音变”，指的是声音发生了变化。“语流”，人在说话的时候并非发出一个个单独的字音，而是由字成词、连词成句。</p><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">https://baike.baidu.com/item/%E8%AF%AD%E6%B5%81%E9%9F%B3%E5%8F%98/5667409<a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;css&quot; href=&quot;https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css&quot;&gt;&lt;link rel=&quot;st</summary>
+      
+    
+    
+    
+    <category term="多国语" scheme="http://wiki.zhouweitong.site/categories/%E5%A4%9A%E5%9B%BD%E8%AF%AD/"/>
+    
+    <category term="中文" scheme="http://wiki.zhouweitong.site/categories/%E5%A4%9A%E5%9B%BD%E8%AF%AD/%E4%B8%AD%E6%96%87/"/>
+    
+    
+    <category term="中文" scheme="http://wiki.zhouweitong.site/tags/%E4%B8%AD%E6%96%87/"/>
+    
+    <category term="多国语" scheme="http://wiki.zhouweitong.site/tags/%E5%A4%9A%E5%9B%BD%E8%AF%AD/"/>
+    
+    <category term="语言" scheme="http://wiki.zhouweitong.site/tags/%E8%AF%AD%E8%A8%80/"/>
+    
+    <category term="概念" scheme="http://wiki.zhouweitong.site/tags/%E6%A6%82%E5%BF%B5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>方言及区别</title>
+    <link href="http://wiki.zhouweitong.site/wiki/%E5%A4%9A%E5%9B%BD%E8%AF%AD/%E6%97%A5%E8%AF%AD/%E6%96%B9%E8%A8%80%E5%8F%8A%E5%8C%BA%E5%88%AB/"/>
+    <id>http://wiki.zhouweitong.site/wiki/%E5%A4%9A%E5%9B%BD%E8%AF%AD/%E6%97%A5%E8%AF%AD/%E6%96%B9%E8%A8%80%E5%8F%8A%E5%8C%BA%E5%88%AB/</id>
+    <published>2023-01-18T09:00:00.000Z</published>
+    <updated>2023-02-04T14:22:42.244Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>日语分支与方言众多<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="http://m.fx361.com/news/2017/0906/2229969.html">[1]</span></a></sup> 。比较有名的如 <strong>大阪话（关西方言）、北海道方言、博多方言</strong> 等。</p><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">http://m.fx361.com/news/2017/0906/2229969.html<a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;css&quot; href=&quot;https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css&quot;&gt;&lt;link rel=&quot;st</summary>
+      
+    
+    
+    
+    <category term="多国语" scheme="http://wiki.zhouweitong.site/categories/%E5%A4%9A%E5%9B%BD%E8%AF%AD/"/>
+    
+    <category term="日语" scheme="http://wiki.zhouweitong.site/categories/%E5%A4%9A%E5%9B%BD%E8%AF%AD/%E6%97%A5%E8%AF%AD/"/>
+    
+    
+    <category term="多国语" scheme="http://wiki.zhouweitong.site/tags/%E5%A4%9A%E5%9B%BD%E8%AF%AD/"/>
+    
+    <category term="语言" scheme="http://wiki.zhouweitong.site/tags/%E8%AF%AD%E8%A8%80/"/>
+    
+    <category term="日语" scheme="http://wiki.zhouweitong.site/tags/%E6%97%A5%E8%AF%AD/"/>
+    
+    <category term="方言" scheme="http://wiki.zhouweitong.site/tags/%E6%96%B9%E8%A8%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>法语字母</title>
+    <link href="http://wiki.zhouweitong.site/wiki/%E5%A4%9A%E5%9B%BD%E8%AF%AD/%E6%B3%95%E8%AF%AD/%E6%B3%95%E8%AF%AD%E5%AD%97%E6%AF%8D/"/>
+    <id>http://wiki.zhouweitong.site/wiki/%E5%A4%9A%E5%9B%BD%E8%AF%AD/%E6%B3%95%E8%AF%AD/%E6%B3%95%E8%AF%AD%E5%AD%97%E6%AF%8D/</id>
+    <published>2023-01-18T09:00:00.000Z</published>
+    <updated>2023-02-04T14:22:42.244Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;css&quot; href=&quot;https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css&quot;&gt;&lt;link rel=&quot;st</summary>
+      
+    
+    
+    
+    <category term="多国语" scheme="http://wiki.zhouweitong.site/categories/%E5%A4%9A%E5%9B%BD%E8%AF%AD/"/>
+    
+    <category term="法语" scheme="http://wiki.zhouweitong.site/categories/%E5%A4%9A%E5%9B%BD%E8%AF%AD/%E6%B3%95%E8%AF%AD/"/>
+    
+    
+    <category term="多国语" scheme="http://wiki.zhouweitong.site/tags/%E5%A4%9A%E5%9B%BD%E8%AF%AD/"/>
+    
+    <category term="语言" scheme="http://wiki.zhouweitong.site/tags/%E8%AF%AD%E8%A8%80/"/>
+    
+    <category term="法语" scheme="http://wiki.zhouweitong.site/tags/%E6%B3%95%E8%AF%AD/"/>
+    
+    <category term="字母" scheme="http://wiki.zhouweitong.site/tags/%E5%AD%97%E6%AF%8D/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>常见缩略语</title>
+    <link href="http://wiki.zhouweitong.site/wiki/%E5%A4%9A%E5%9B%BD%E8%AF%AD/%E8%8B%B1%E8%AF%AD/%E5%B8%B8%E8%A7%81%E7%BC%A9%E7%95%A5%E8%AF%AD/"/>
+    <id>http://wiki.zhouweitong.site/wiki/%E5%A4%9A%E5%9B%BD%E8%AF%AD/%E8%8B%B1%E8%AF%AD/%E5%B8%B8%E8%A7%81%E7%BC%A9%E7%95%A5%E8%AF%AD/</id>
+    <published>2023-01-18T09:00:00.000Z</published>
+    <updated>2023-02-04T14:22:42.244Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><ul><li>w.r.t：也写作WRT或w&#x2F;r&#x2F;t或r&#x2F;t，表示“至于说…”、“关于…”、“对…来说”。<ul><li>例一：<code>WRT the docs, there&#39;s an issue.</code> 至于那些文档，其中有个问题。</li><li>例二：<code>Code is where the &quot;rubber meets the road&quot; w/r/t performance.</code> 代码是关系到性能“有所偏差”的地方。</li></ul></li><li></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;css&quot; href=&quot;https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css&quot;&gt;&lt;link rel=&quot;st</summary>
+      
+    
+    
+    
+    <category term="多国语" scheme="http://wiki.zhouweitong.site/categories/%E5%A4%9A%E5%9B%BD%E8%AF%AD/"/>
+    
+    <category term="英语" scheme="http://wiki.zhouweitong.site/categories/%E5%A4%9A%E5%9B%BD%E8%AF%AD/%E8%8B%B1%E8%AF%AD/"/>
+    
+    
+    <category term="多国语" scheme="http://wiki.zhouweitong.site/tags/%E5%A4%9A%E5%9B%BD%E8%AF%AD/"/>
+    
+    <category term="语言" scheme="http://wiki.zhouweitong.site/tags/%E8%AF%AD%E8%A8%80/"/>
+    
+    <category term="英语" scheme="http://wiki.zhouweitong.site/tags/%E8%8B%B1%E8%AF%AD/"/>
+    
+    <category term="缩略语" scheme="http://wiki.zhouweitong.site/tags/%E7%BC%A9%E7%95%A5%E8%AF%AD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>EQ调节误区</title>
+    <link href="http://wiki.zhouweitong.site/wiki/%E9%9F%B3%E4%B9%90%E4%B8%8E%E9%9F%B3%E9%A2%91/%E6%95%88%E6%9E%9C%E5%99%A8/EQ%E8%B0%83%E8%8A%82%E8%AF%AF%E5%8C%BA/"/>
+    <id>http://wiki.zhouweitong.site/wiki/%E9%9F%B3%E4%B9%90%E4%B8%8E%E9%9F%B3%E9%A2%91/%E6%95%88%E6%9E%9C%E5%99%A8/EQ%E8%B0%83%E8%8A%82%E8%AF%AF%E5%8C%BA/</id>
+    <published>2023-01-18T09:00:00.000Z</published>
+    <updated>2023-02-04T14:22:42.244Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote><p>来源：BV1yA411H7id</p></blockquote><ul><li><p>“EQ调节范围应小于3db或者6db”：不正确。应该依照素材的特性，确定EQ的调节范围。</p></li><li><p>“EQ应该多做减法（降低声音响度）少做加法（提升声音响度）”：不正确。加法和减法没有必然的使用要求，多数情况下加法合成器更加符合工作流程。</p></li><li><p>过度扫频：错误。任何过度使用EQ的操作都是错误的，淹没声音特点，而且会习惯性的使用不必要的EQ。-&gt; 只在需要进行EQ处理的时候使用EQ</p></li><li><p>做EQ时尽量不要Solo，注意“上下文”。</p></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;css&quot; href=&quot;https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css&quot;&gt;&lt;link rel=&quot;st</summary>
+      
+    
+    
+    
+    <category term="音乐与音频" scheme="http://wiki.zhouweitong.site/categories/%E9%9F%B3%E4%B9%90%E4%B8%8E%E9%9F%B3%E9%A2%91/"/>
+    
+    <category term="效果器" scheme="http://wiki.zhouweitong.site/categories/%E9%9F%B3%E4%B9%90%E4%B8%8E%E9%9F%B3%E9%A2%91/%E6%95%88%E6%9E%9C%E5%99%A8/"/>
+    
+    
+    <category term="音乐与音频" scheme="http://wiki.zhouweitong.site/tags/%E9%9F%B3%E4%B9%90%E4%B8%8E%E9%9F%B3%E9%A2%91/"/>
+    
+    <category term="效果器" scheme="http://wiki.zhouweitong.site/tags/%E6%95%88%E6%9E%9C%E5%99%A8/"/>
+    
+    <category term="EQ" scheme="http://wiki.zhouweitong.site/tags/EQ/"/>
+    
+    <category term="制作技巧" scheme="http://wiki.zhouweitong.site/tags/%E5%88%B6%E4%BD%9C%E6%8A%80%E5%B7%A7/"/>
+    
+  </entry>
+  
+</feed>
