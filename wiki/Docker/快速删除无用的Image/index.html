@@ -17,7 +17,7 @@
 <meta property="og:description" content="Docker提供了可以快速删除无用镜像的命令： 1docker image prune  可直接运行，效果：删除所有悬空的（Dangling）镜像  Dangling Image 指无镜像名或无镜像版本的镜像，比如：xxx:&lt;none&gt;、&lt;none&gt;:xxx、&lt;none&gt;:&lt;none&gt; 均是Danging Image   注意：是 image，不是">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-02-03T02:07:00.000Z">
-<meta property="article:modified_time" content="2023-02-04T14:22:42.244Z">
+<meta property="article:modified_time" content="2023-02-05T02:46:30.497Z">
 <meta property="article:author" content="ObjectNotFound">
 <meta property="article:tag" content="Docker">
 <meta property="article:tag" content="CI&#x2F;CD">
@@ -605,10 +605,16 @@
 <hr>
 <p>注意：是 <code>image</code>，不是 <code>images</code></p>
 <ul>
-<li><code>docker images</code> 只用于查看已pull镜像详情</li>
+<li><code>docker images</code> 只用于查看已拉取的镜像详情</li>
 <li><code>docker image</code> 用于对镜像进行操作</li>
 </ul>
 <hr>
+<p><code>docker image prune</code> 有三个重要参数：</p>
+<ul>
+<li><code>-f</code>：直接执行不警告</li>
+<li><code>-a</code>：除了删除Dangling Image外，还删除未被任何容器使用的镜像</li>
+<li><code>--filter</code>：过滤器，用于选择性删除</li>
+</ul>
 
             </div>
         
