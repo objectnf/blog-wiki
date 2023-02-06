@@ -1,0 +1,4 @@
+http://objectnf.github.io/post/hello-world/
+http://objectnf.github.io/categories/index.html
+http://objectnf.github.io/tags/index.html
+http://objectnf.github.io/
