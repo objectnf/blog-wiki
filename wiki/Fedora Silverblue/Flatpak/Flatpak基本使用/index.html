@@ -17,7 +17,7 @@
 <meta property="og:description" content="概念Flatpak 分为两种软件包：  Application（App）：应用本体； Runtime：应用所需的运行时；  “运行时”有多种类型，比如：  支持GUI显示的基本运行时（“没它打不开”），比如FreeDesktop Platform、Gnome Platform； 支持特定应用程序正常运行的其他软件或库（“没它用不了”），如：FFMpeg、OpenH264、Mesa； 特定应用程序所">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-02-02T12:38:00.000Z">
-<meta property="article:modified_time" content="2023-02-07T09:07:03.570Z">
+<meta property="article:modified_time" content="2023-02-07T09:37:21.479Z">
 <meta property="article:author" content="ObjectNotFound">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Fedora">
@@ -653,8 +653,10 @@
 <h2 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h2><p>卸载特定App或Runtime：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flatpak uninstall 软件ID</span><br></pre></td></tr></table></figure>
 
-<p><strong>卸载所有无用（useless）的运行时和扩展</strong>:</p>
+<p>**卸载所有无用（useless）的运行时和扩展（相当于 <code>apt-get autoremove</code>**）:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flatpak uninstall --unused</span><br></pre></td></tr></table></figure>
+
+<h2 id="升级"><a href="#升级" class="headerlink" title="升级"></a>升级</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flatpak update</span><br></pre></td></tr></table></figure>
 
 
 
