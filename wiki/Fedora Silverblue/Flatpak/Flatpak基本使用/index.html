@@ -17,7 +17,7 @@
 <meta property="og:description" content="概念Flatpak 分为两种软件包：  Application（App）：应用本体； Runtime：应用所需的运行时；  “运行时”有多种类型，比如：  支持GUI显示的基本运行时（“没它打不开”），比如FreeDesktop Platform、Gnome Platform； 支持特定应用程序正常运行的其他软件或库（“没它用不了”），如：FFMpeg、OpenH264、Mesa； 特定应用程序所">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-02-02T12:38:00.000Z">
-<meta property="article:modified_time" content="2023-02-04T14:22:42.244Z">
+<meta property="article:modified_time" content="2023-02-07T09:07:03.570Z">
 <meta property="article:author" content="ObjectNotFound">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Fedora">
@@ -607,7 +607,12 @@
 <li>支持特定应用程序正常运行的其他软件或库（“没它用不了”），如：FFMpeg、OpenH264、Mesa；</li>
 <li>特定应用程序所需要的程序包（“没它用不好”），如：TeX环境、Rust语言（编译器）、Go语言（编译器）；</li>
 </ol>
-<p>应用不一定只有运行时依赖，也可以有“扩展”（Extensions），扩展可以是运行时（多是上述列表的2和3两类），也可以是其他应用</p>
+<p>“应用”有多种类型，比如：</p>
+<ol>
+<li>主要应用，即可直接打开或运行的应用，例如：VLC、Blender；</li>
+<li>应用的扩展，如应用依赖另一个应用得以运行、应用的语言文件等，例如：Wine、Blender语言文件；</li>
+</ol>
+<p>主要应用安装时，主要应用的运行时依赖和扩展依赖也会被安装；</p>
 <hr>
 <p>Flatpak 有两种安装范围：</p>
 <ul>
@@ -630,11 +635,11 @@
 <li><code>app/org.blender.Blender/x86_64/stable</code></li>
 <li><code>org.gnome.Platform/x86_64/43</code></li>
 </ul>
-<h2 id="列出"><a href="#列出" class="headerlink" title="列出"></a>列出</h2><p>只列出App：</p>
+<h2 id="列出已安装的软件包"><a href="#列出已安装的软件包" class="headerlink" title="列出已安装的软件包"></a>列出已安装的软件包</h2><p>只列出App：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flatpak list</span><br></pre></td></tr></table></figure>
 
-<p>或者</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flatpak --app</span><br></pre></td></tr></table></figure>
+<p>也可以：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flatpak list --app</span><br></pre></td></tr></table></figure>
 
 <p>只列出Runtime：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flatpak list --runtime</span><br></pre></td></tr></table></figure>
@@ -646,6 +651,15 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flatpak list --user --runtime</span><br></pre></td></tr></table></figure>
 
 <h2 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h2><p>卸载特定App或Runtime：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flatpak uninstall 软件ID</span><br></pre></td></tr></table></figure>
+
+<p><strong>卸载所有无用（useless）的运行时和扩展</strong>:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flatpak uninstall --unused</span><br></pre></td></tr></table></figure>
+
+
+
+
+
 
             </div>
         
