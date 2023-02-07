@@ -6,7 +6,7 @@
   <link href="http://wiki.zhouweitong.site/atom.xml" rel="self"/>
   
   <link href="http://wiki.zhouweitong.site/"/>
-  <updated>2023-02-05T02:46:30.497Z</updated>
+  <updated>2023-02-07T08:44:10.738Z</updated>
   <id>http://wiki.zhouweitong.site/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://wiki.zhouweitong.site/wiki/Docker/%E5%BF%AB%E9%80%9F%E5%88%A0%E9%99%A4%E6%97%A0%E7%94%A8%E7%9A%84Image/"/>
     <id>http://wiki.zhouweitong.site/wiki/Docker/%E5%BF%AB%E9%80%9F%E5%88%A0%E9%99%A4%E6%97%A0%E7%94%A8%E7%9A%84Image/</id>
     <published>2023-02-03T02:07:00.000Z</published>
-    <updated>2023-02-05T02:46:30.497Z</updated>
+    <updated>2023-02-07T08:44:10.738Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Docker提供了可以快速删除无用镜像的命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker image prune</span><br></pre></td></tr></table></figure><p>可直接运行，效果：删除所有悬空的（Dangling）镜像</p><ul><li>Dangling Image 指无镜像名或无镜像版本的镜像，比如：<code>xxx:&lt;none&gt;</code>、<code>&lt;none&gt;:xxx</code>、<code>&lt;none&gt;:&lt;none&gt;</code> 均是Danging Image</li></ul><hr><p>注意：是 <code>image</code>，不是 <code>images</code></p><ul><li><code>docker images</code> 只用于查看已拉取的镜像详情</li><li><code>docker image</code> 用于对镜像进行操作</li></ul><hr><p><code>docker image prune</code> 有三个重要参数：</p><ul><li><code>-f</code>：直接执行不警告</li><li><code>-a</code>：除了删除Dangling Image外，还删除未被任何容器使用的镜像</li><li><code>--filter</code>：过滤器，用于选择性删除</li></ul>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="docker-image-prune"><a href="#docker-image-prune" class="headerlink" title="docker image prune"></a>docker image prune</h2><p>Docker提供了可以快速删除无用镜像的命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker image prune</span><br></pre></td></tr></table></figure><p>可直接运行，效果：删除所有悬空的（Dangling）镜像</p><ul><li>Dangling Image 指无镜像名或无镜像版本的镜像，比如：<code>xxx:&lt;none&gt;</code>、<code>&lt;none&gt;:xxx</code>、<code>&lt;none&gt;:&lt;none&gt;</code> 均是Danging Image</li></ul><hr><p>注意：是 <code>image</code>，不是 <code>images</code></p><ul><li><code>docker images</code> 只用于查看已拉取的镜像详情</li><li><code>docker image</code> 用于对镜像进行操作</li></ul><hr><p><code>docker image prune</code> 有三个重要参数：</p><ul><li><code>-f</code>：直接执行不确认</li><li><code>-a</code>：除了删除Dangling Image外，还删除未被任何容器使用的镜像</li><li><code>--filter</code>：过滤器，用于选择性删除<ul><li><p><code>--filter until=时间戳</code>：在该时间戳之前的镜像会被处理</p><ul><li><code>--filter until=48h</code>：近48小时内的镜像不处理</li><li><code>--filter until=2023-01-01T04:00:00</code>：在2023&#x2F;01&#x2F;01 04:00:00之后的镜像不处理</li></ul></li><li><p><code>--filter label=标签名</code>：有这个标签的镜像才处理</p><ul><li><code>--filter label!=标签名</code>：没有这个标签的镜像才处理</li><li><code>--filter label=标签名=标签值</code>，<code>--filter label!=标签名=标签值</code>：指定标签的值</li></ul></li></ul></li></ul><h2 id="docker-container-prune"><a href="#docker-container-prune" class="headerlink" title="docker container prune"></a>docker container prune</h2><p>与<code>docker image prune</code>类似，但是对容器进行操作：删除所有停止（Stopped）的容器。</p><p>有两个参数：</p><ul><li><code>-f</code>：直接执行不确认</li><li><code>--filter</code>：过滤器，用法同<code>docker image prune --filter</code></li></ul>]]></content>
     
     
       
