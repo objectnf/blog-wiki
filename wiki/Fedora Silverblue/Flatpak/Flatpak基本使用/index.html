@@ -9,15 +9,15 @@
         <meta name="keywords" content="Linux,Fedora,Fedora Silverblue,Flatpak">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="列出已安装的软件包只列出App： 1flatpak list  也可以： 1flatpak list --app  只列出Runtime： 1flatpak list --runtime  列出System App： 1flatpak list --system  列出User Runtime： 1flatpak list --user --runtime  卸载卸载特定App或Runtime：">
+    <meta name="description" content="列出已安装的软件包只列出App： 1flatpak list  也可以： 1flatpak list --app  只列出Runtime： 1flatpak list --runtime  列出System App： 1flatpak list --system  列出User Runtime： 1flatpak list --user --runtime  卸载软件包卸载特定App或Runtim">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Flatpak基础使用">
 <meta property="og:url" content="http://wiki.zhouweitong.site/wiki/Fedora%20Silverblue/Flatpak/Flatpak%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="ObjectNotFound Wiki">
-<meta property="og:description" content="列出已安装的软件包只列出App： 1flatpak list  也可以： 1flatpak list --app  只列出Runtime： 1flatpak list --runtime  列出System App： 1flatpak list --system  列出User Runtime： 1flatpak list --user --runtime  卸载卸载特定App或Runtime：">
+<meta property="og:description" content="列出已安装的软件包只列出App： 1flatpak list  也可以： 1flatpak list --app  只列出Runtime： 1flatpak list --runtime  列出System App： 1flatpak list --system  列出User Runtime： 1flatpak list --user --runtime  卸载软件包卸载特定App或Runtim">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-02-10T07:22:00.000Z">
-<meta property="article:modified_time" content="2023-02-10T09:35:06.860Z">
+<meta property="article:modified_time" content="2023-02-10T13:18:16.061Z">
 <meta property="article:author" content="ObjectNotFound">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Fedora">
@@ -628,18 +628,25 @@
 <p>列出User Runtime：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flatpak list --user --runtime</span><br></pre></td></tr></table></figure>
 
-<h2 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h2><p>卸载特定App或Runtime：</p>
+<h2 id="卸载软件包"><a href="#卸载软件包" class="headerlink" title="卸载软件包"></a>卸载软件包</h2><p>卸载特定App或Runtime：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flatpak uninstall 软件ID</span><br></pre></td></tr></table></figure>
 
 <p><strong>卸载所有无用（useless）的运行时和扩展（相当于 <code>apt-get autoremove</code>）</strong>:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flatpak uninstall --unused</span><br></pre></td></tr></table></figure>
 
-<h2 id="升级"><a href="#升级" class="headerlink" title="升级"></a>升级</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flatpak update</span><br></pre></td></tr></table></figure>
+<h2 id="升级软件包"><a href="#升级软件包" class="headerlink" title="升级软件包"></a>升级软件包</h2><p>升级所有已安装软件包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flatpak update</span><br></pre></td></tr></table></figure>
 
+<p>升级所有User范围内的软件包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flatpak update --user</span><br></pre></td></tr></table></figure>
 
+<p>升级某个特定的软件包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flatpak update &lt;ID&gt;</span><br></pre></td></tr></table></figure>
 
+<h2 id="搜索软件包"><a href="#搜索软件包" class="headerlink" title="搜索软件包"></a>搜索软件包</h2><p>类似<code>apt search</code>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flatpak search &lt;keyword&gt;</span><br></pre></td></tr></table></figure>
 
-
+<p>关键字可以是ID内出现的字符串（与ID相关），也可能是软件包描述内出现的字符串（与描述有关）；</p>
 
             </div>
         
