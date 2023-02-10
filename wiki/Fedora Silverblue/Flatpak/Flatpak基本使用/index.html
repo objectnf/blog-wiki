@@ -17,7 +17,7 @@
 <meta property="og:description" content="列出已安装的软件包只列出App： 1flatpak list  也可以： 1flatpak list --app  只列出Runtime： 1flatpak list --runtime  列出System App： 1flatpak list --system  列出User Runtime： 1flatpak list --user --runtime  卸载卸载特定App或Runtime：">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-02-10T07:22:00.000Z">
-<meta property="article:modified_time" content="2023-02-10T07:24:39.645Z">
+<meta property="article:modified_time" content="2023-02-10T09:35:06.860Z">
 <meta property="article:author" content="ObjectNotFound">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Fedora">
@@ -631,7 +631,7 @@
 <h2 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h2><p>卸载特定App或Runtime：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flatpak uninstall 软件ID</span><br></pre></td></tr></table></figure>
 
-<p>**卸载所有无用（useless）的运行时和扩展（相当于 <code>apt-get autoremove</code>**）:</p>
+<p><strong>卸载所有无用（useless）的运行时和扩展（相当于 <code>apt-get autoremove</code>）</strong>:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flatpak uninstall --unused</span><br></pre></td></tr></table></figure>
 
 <h2 id="升级"><a href="#升级" class="headerlink" title="升级"></a>升级</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flatpak update</span><br></pre></td></tr></table></figure>
