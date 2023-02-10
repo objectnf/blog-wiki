@@ -16,8 +16,8 @@
 <meta property="og:site_name" content="ObjectNotFound Wiki">
 <meta property="og:description" content="列出已安装的软件包只列出App： 1flatpak list  也可以： 1flatpak list --app  只列出Runtime： 1flatpak list --runtime  列出System App： 1flatpak list --system  列出User Runtime： 1flatpak list --user --runtime  卸载软件包卸载特定App或Runtim">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-02-10T07:22:00.000Z">
-<meta property="article:modified_time" content="2023-02-10T13:18:16.061Z">
+<meta property="article:published_time" content="2023-02-10T14:40:00.000Z">
+<meta property="article:modified_time" content="2023-02-10T14:44:00.270Z">
 <meta property="article:author" content="ObjectNotFound">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Fedora">
@@ -474,7 +474,7 @@
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Fedora-Silverblue/">Fedora Silverblue</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Fedora-Silverblue/Flatpak/">Flatpak</a></p>
                             <p class="item-title"><a href="/wiki/Fedora%20Silverblue/Flatpak/Flatpak%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="title">Flatpak基础使用</a></p>
-                            <p class="item-date"><time datetime="2023-02-10T07:22:00.000Z" itemprop="datePublished">2023-02-10</time></p>
+                            <p class="item-date"><time datetime="2023-02-10T14:40:00.000Z" itemprop="datePublished">2023-02-10</time></p>
                         </div>
                     </li>
                 
@@ -493,7 +493,7 @@
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Fedora-Silverblue/">Fedora Silverblue</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Fedora-Silverblue/Flatpak/">Flatpak</a></p>
                             <p class="item-title"><a href="/wiki/Fedora%20Silverblue/Flatpak/Flatpak%E6%A6%82%E5%BF%B5/" class="title">Flatpak概念</a></p>
-                            <p class="item-date"><time datetime="2023-02-10T07:20:00.000Z" itemprop="datePublished">2023-02-10</time></p>
+                            <p class="item-date"><time datetime="2023-02-10T14:10:00.000Z" itemprop="datePublished">2023-02-10</time></p>
                         </div>
                     </li>
                 
@@ -585,7 +585,7 @@
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/wiki/Fedora%20Silverblue/Flatpak/Flatpak%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">
-            <time datetime="2023-02-10T07:22:00.000Z" itemprop="datePublished">2023-02-10</time>
+            <time datetime="2023-02-10T14:40:00.000Z" itemprop="datePublished">2023-02-10</time>
         </a>
     </div>
 
@@ -647,6 +647,27 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flatpak search &lt;keyword&gt;</span><br></pre></td></tr></table></figure>
 
 <p>关键字可以是ID内出现的字符串（与ID相关），也可能是软件包描述内出现的字符串（与描述有关）；</p>
+<p>在某一个源内搜索软件包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 找带关键字的所有软件包 -&gt; grep过滤出特定的源</span></span><br><span class="line">flatpak search &lt;keyword&gt; | grep &lt;repo_name&gt;</span><br><span class="line"><span class="comment"># 列出特定源里的所有软件包 -&gt; grep过滤出特定的软件包（需要keyword与ID相关）</span></span><br><span class="line">flathub remote-ls &lt;repo_name&gt; | grep &lt;keyword&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装软件包"><a href="#安装软件包" class="headerlink" title="安装软件包"></a>安装软件包</h2><p>在不知道软件包的ID时，可以直接使用关键字，flatpak会查找所有匹配的项并询问要安装哪个：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flatpak install &lt;keyword&gt;</span><br></pre></td></tr></table></figure>
+
+<p>知道软件包的ID时，可根据ID直接安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flatpak install &lt;ID&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>控制安装软件的范围：加<code>--system</code>或<code>--user</code></li>
+<li>控制安装软件的版本（即<strong>安装某个旧版本而不是最新版</strong>）：使用ID三元组<ul>
+<li>flatpak可自动检测当前系统的架构，三元组可简写为二元组，例如：<code>org.blender.Blender/x86_64/stable</code> -&gt; <code>org.blender.Blender//stable</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="修复软件包"><a href="#修复软件包" class="headerlink" title="修复软件包"></a>修复软件包</h2><p>软件包的文件丢失或出错，可以联网快速修复：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flatpak repair</span><br></pre></td></tr></table></figure>
+
+<p>修复操作包括校验安装的所有软件包、重新下载安装文件缺失或出错的软件包、删除没被任何ostree commit引用的文件，等。</p>
+<p>可以使用<code>--system</code>和<code>--user</code>指定修复的范围。</p>
 
             </div>
         
