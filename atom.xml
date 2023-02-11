@@ -6,7 +6,7 @@
   <link href="http://wiki.zhouweitong.site/atom.xml" rel="self"/>
   
   <link href="http://wiki.zhouweitong.site/"/>
-  <updated>2023-02-10T15:06:45.971Z</updated>
+  <updated>2023-02-11T03:39:39.355Z</updated>
   <id>http://wiki.zhouweitong.site/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://wiki.zhouweitong.site/wiki/Arch%20Linux/Arch%E5%AE%89%E8%A3%85%E9%80%9F%E6%9F%A5%E8%A1%A8/"/>
     <id>http://wiki.zhouweitong.site/wiki/Arch%20Linux/Arch%E5%AE%89%E8%A3%85%E9%80%9F%E6%9F%A5%E8%A1%A8/</id>
     <published>2023-02-10T15:00:00.000Z</published>
-    <updated>2023-02-10T15:06:45.971Z</updated>
+    <updated>2023-02-11T03:39:39.355Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote><p>TODO：整个安装流程</p></blockquote>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="LiveCD下载后操作"><a href="#LiveCD下载后操作" class="headerlink" title="LiveCD下载后操作"></a>LiveCD下载后操作</h2><p>无需求时可跳过：</p><ul><li>校验iso镜像：<a href="https://archlinux.org/download/#checksums">https://archlinux.org/download/#checksums</a><ul><li>sha256校验，或者</li><li>pgp校验（必须从 <code>archlinux.org</code> 域名下载pgp签名文件</li></ul></li><li>烧录iso镜像为光盘 或者 制作USB启动盘<ul><li>Rufus；</li><li>balenaEtcher；</li></ul></li></ul><h2 id="LiveCD启动后操作"><a href="#LiveCD启动后操作" class="headerlink" title="LiveCD启动后操作"></a>LiveCD启动后操作</h2><ul><li><em>标准qwerty键盘时可跳过</em> 修改键盘键位</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 获得键位布局ID</span></span><br><span class="line"><span class="built_in">ls</span> /usr/share/kbd/keymaps/**/*.map.gz</span><br><span class="line"><span class="comment"># 加载键位布局</span></span><br><span class="line">loadkeys &lt;keymap_id&gt;</span><br></pre></td></tr></table></figure><ul><li><em>熟悉BIOS设置和BIOS启动选项时可跳过</em> 检测启动模式</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 文件夹存在：是UEFI BIOS模式</span></span><br><span class="line"><span class="comment"># 文件夹不存在：是Legacy BIOS模式</span></span><br><span class="line"><span class="built_in">ls</span> /sys/firmware/efi/efivars</span><br></pre></td></tr></table></figure><blockquote><p>TODO：整个安装流程</p></blockquote>]]></content>
     
     
       
