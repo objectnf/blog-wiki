@@ -17,7 +17,7 @@
 <meta property="og:description" content="列出已安装的软件包只列出App： 1flatpak list  也可以： 1flatpak list --app  只列出Runtime： 1flatpak list --runtime  列出System App： 1flatpak list --system  列出User Runtime： 1flatpak list --user --runtime  卸载软件包卸载特定App或Runtim">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-02-10T14:40:00.000Z">
-<meta property="article:modified_time" content="2023-02-12T03:29:07.503Z">
+<meta property="article:modified_time" content="2023-02-12T08:52:55.366Z">
 <meta property="article:author" content="ObjectNotFound">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Fedora">
@@ -672,6 +672,9 @@
 </ul>
 </li>
 </ul>
+<p>有些情况下，软件包所在的源（Repo）系统中并没有添加（比如第三方源，或者本地源），此时若软件包提供者提供了flatpakref文件，软件包可以在不添加源的情况下安装。、</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flatpak install &lt;flatpakref_url&gt;</span><br></pre></td></tr></table></figure>
+
 <h2 id="修复软件包"><a href="#修复软件包" class="headerlink" title="修复软件包"></a>修复软件包</h2><p>软件包的文件丢失或出错，可以联网快速修复：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flatpak repair</span><br></pre></td></tr></table></figure>
 
@@ -695,8 +698,57 @@
 <h2 id="强制退出正在运行的软件包"><a href="#强制退出正在运行的软件包" class="headerlink" title="强制退出正在运行的软件包"></a>强制退出正在运行的软件包</h2><p>与<code>kill</code>不同，不能用于发送信号，只能用于强制停止软件包运行；</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flatpak <span class="built_in">kill</span> &lt;ID&gt;</span><br></pre></td></tr></table></figure>
 
-<h2 id="使用命令行运行软件包"><a href="#使用命令行运行软件包" class="headerlink" title="使用命令行运行软件包"></a>使用命令行运行软件包</h2><blockquote>
-<p>TODO：权限与重设权限，flatpakref，repo设置，run，enter</p>
+<h2 id="使用命令行运行软件包"><a href="#使用命令行运行软件包" class="headerlink" title="使用命令行运行软件包"></a>使用命令行运行软件包</h2><p>有时需要对软件包进行这些操作：</p>
+<ul>
+<li>查看软件包对stdout的输出（log等）；</li>
+<li>给软件包增加启动参数（例如给Discord软件包增加<code>--proxy-server=&lt;url&gt;</code>使Discord通过代理连接服务器）；</li>
+<li>修改、增加或删除软件包中的环境变量；</li>
+<li>强制使软件包使用某个运行时；</li>
+<li>修改软件包的入口点（使用自定义的软件包启动命令）；</li>
+<li>临时赋予软件包某些权限，如允许访问某些文件系统（路径等）、允许访问特定设备（共享内存等）……</li>
+</ul>
+<p>直接运行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flatpak run &lt;ID&gt;</span><br></pre></td></tr></table></figure>
+
+<p>增加启动参数：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">flatpak run &lt;ID&gt; &lt;params&gt;</span><br><span class="line"><span class="comment"># 例如：</span></span><br><span class="line">flatpak run com.discordapp.Discord --proxy-server=http://127.0.0.1:7890</span><br></pre></td></tr></table></figure>
+
+<p>其他的命令参数：</p>
+<ul>
+<li>环境变量<ul>
+<li>修改或增加：<code>--env=&lt;var_name&gt;=&lt;var_value&gt;</code></li>
+<li>删除：<code>--unset-env=&lt;var_name&gt;</code></li>
+</ul>
+</li>
+<li>入口点<ul>
+<li>修改运行软件包时执行什么命令：<code>--command=&lt;command&gt;</code></li>
+</ul>
+</li>
+<li>强制指定运行时（需要ID或ID三元组）<ul>
+<li><code>--runtime=&lt;ID&gt;</code></li>
+</ul>
+</li>
+<li>临时修改权限相关设置<ul>
+<li>文件系统：<code>--filesystem</code>，<code>--nofilesystem</code></li>
+<li>规则：<code>--add-policy</code>，<code>--remove-policy</code></li>
+<li>设备：<code>--device</code>，<code>--nodevice</code></li>
+<li>Socket：<code>--socket</code>，<code>--nosocket</code></li>
+<li>……</li>
+</ul>
+</li>
+<li>其他选项可参照官方文档了解</li>
+</ul>
+<h2 id="软件包的权限"><a href="#软件包的权限" class="headerlink" title="软件包的权限"></a>软件包的权限</h2><p>要查看某个软件包获取了哪些权限：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flatpak permission-show &lt;ID&gt;</span><br></pre></td></tr></table></figure>
+
+<p>修改软件包的权限：不推荐直接使用命令行修改，可以使用软件包 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://flathub.org/apps/details/com.github.tchx84.Flatseal">Flatseal</a></p>
+<p>若软件包出现权限问题，可尝试重置软件包权限解决：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flatpak permission-reset &lt;ID&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>TODO：repo设置，enter</p>
 </blockquote>
 
             </div>

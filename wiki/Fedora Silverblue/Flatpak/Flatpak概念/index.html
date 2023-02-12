@@ -9,15 +9,15 @@
         <meta name="keywords" content="Linux,Fedora,Fedora Silverblue,Flatpak,概念">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="App和RuntimeFlatpak 分为两种软件包：  Application（App）：应用本体； Runtime：应用所需的运行时；  “运行时”均是支持GUI显示的基本运行时（“没它打不开”），与桌面环境相关，目前主要有以下四种：  FreeDesktop：最基础的运行时，提供D-Bus、GTK3、X11、Wayland等 org.freedesktop.Platform org.free">
+    <meta name="description" content="App和RuntimeFlatpak 分为两种软件包：  Application（App）：应用本体； Runtime：应用所需的运行时；  “运行时”均是支持GUI显示的基本运行时（“没它打不开”），与桌面环境相关，一个“应用本体”只依赖一个“运行时”。 “运行时”目前主要有以下四种：  FreeDesktop：最基础的运行时，提供D-Bus、GTK3、X11、Wayland等 org.free">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Flatpak概念">
 <meta property="og:url" content="http://wiki.zhouweitong.site/wiki/Fedora%20Silverblue/Flatpak/Flatpak%E6%A6%82%E5%BF%B5/index.html">
 <meta property="og:site_name" content="ObjectNotFound Wiki">
-<meta property="og:description" content="App和RuntimeFlatpak 分为两种软件包：  Application（App）：应用本体； Runtime：应用所需的运行时；  “运行时”均是支持GUI显示的基本运行时（“没它打不开”），与桌面环境相关，目前主要有以下四种：  FreeDesktop：最基础的运行时，提供D-Bus、GTK3、X11、Wayland等 org.freedesktop.Platform org.free">
+<meta property="og:description" content="App和RuntimeFlatpak 分为两种软件包：  Application（App）：应用本体； Runtime：应用所需的运行时；  “运行时”均是支持GUI显示的基本运行时（“没它打不开”），与桌面环境相关，一个“应用本体”只依赖一个“运行时”。 “运行时”目前主要有以下四种：  FreeDesktop：最基础的运行时，提供D-Bus、GTK3、X11、Wayland等 org.free">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-02-10T14:10:00.000Z">
-<meta property="article:modified_time" content="2023-02-10T15:06:45.975Z">
+<meta property="article:modified_time" content="2023-02-12T08:52:55.366Z">
 <meta property="article:author" content="ObjectNotFound">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Fedora">
@@ -628,7 +628,8 @@
 <li>Application（App）：应用本体；</li>
 <li>Runtime：应用所需的运行时；</li>
 </ul>
-<p>“运行时”均是支持GUI显示的基本运行时（“没它打不开”），与桌面环境相关，目前主要有以下四种：</p>
+<p>“运行时”均是支持GUI显示的基本运行时（“没它打不开”），与桌面环境相关，一个“应用本体”只依赖一个“运行时”。</p>
+<p>“运行时”目前主要有以下四种：</p>
 <ol>
 <li>FreeDesktop：最基础的运行时，提供D-Bus、GTK3、X11、Wayland等<ul>
 <li><code>org.freedesktop.Platform</code></li>
