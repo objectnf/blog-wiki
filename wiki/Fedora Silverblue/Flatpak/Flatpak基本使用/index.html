@@ -17,7 +17,7 @@
 <meta property="og:description" content="列出已安装的软件包只列出App： 1flatpak list  也可以： 1flatpak list --app  只列出Runtime： 1flatpak list --runtime  列出System App： 1flatpak list --system  列出User Runtime： 1flatpak list --user --runtime  卸载软件包卸载特定App或Runtim">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-02-10T14:40:00.000Z">
-<meta property="article:modified_time" content="2023-02-10T15:06:45.975Z">
+<meta property="article:modified_time" content="2023-02-12T03:29:07.503Z">
 <meta property="article:author" content="ObjectNotFound">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Fedora">
@@ -677,8 +677,26 @@
 
 <p>修复操作包括校验安装的所有软件包、重新下载安装文件缺失或出错的软件包、删除没被任何ostree commit引用的文件，等。</p>
 <p>可以使用<code>--system</code>和<code>--user</code>指定修复的范围。</p>
-<blockquote>
-<p>TODO：历史，权限与重设权限，flatpakref，repo设置，info，ps，kill，run，enter</p>
+<h2 id="查询flatpak操作历史"><a href="#查询flatpak操作历史" class="headerlink" title="查询flatpak操作历史"></a>查询flatpak操作历史</h2><p>会列出flatpak的拉取（pull）、部署（depoly）、卸载（uninstall）等动作的历史记录；</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flatpak <span class="built_in">history</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="查询软件包的详细信息"><a href="#查询软件包的详细信息" class="headerlink" title="查询软件包的详细信息"></a>查询软件包的详细信息</h2><p>需要是已安装的软件包的ID；</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flatpak info &lt;ID&gt;</span><br></pre></td></tr></table></figure>
+
+<p>会给出类似下面的输出（<code>LANG=en-US.UTF-8</code>）：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Blender - Free and open source 3D creation suite</span><br><span class="line"></span><br><span class="line">          ID: org.blender.Blender</span><br><span class="line">         Ref: app/org.blender.Blender/x86_64/stable</span><br><span class="line">        Arch: x86_64</span><br><span class="line">      Branch: stable</span><br><span class="line">     Version: 3.4.1</span><br><span class="line">     License: GPL-3.0</span><br><span class="line">      Origin: flathub</span><br><span class="line">  Collection: org.flathub.Stable</span><br><span class="line">Installation: system</span><br><span class="line">   Installed: 879.3?MB</span><br><span class="line">     Runtime: org.freedesktop.Platform/x86_64/22.08</span><br><span class="line">         Sdk: org.freedesktop.Sdk/x86_64/22.08</span><br><span class="line"></span><br><span class="line">      Commit: 477316037ec442424b97d3d5fddc898d5908f47af6b3976ded5d070f8ed72d38</span><br><span class="line">      Parent: 9bcff42b740d86faf8e64484ed5bcab9b0598c47ee0eebb604c7c52f1a9c2233</span><br><span class="line">     Subject: [fix #18] enable spnav socket (e10330e0)</span><br><span class="line">        Date: 2022-12-28 14:15:54 +0000</span><br></pre></td></tr></table></figure>
+
+<h2 id="查询哪些软件包正在运行"><a href="#查询哪些软件包正在运行" class="headerlink" title="查询哪些软件包正在运行"></a>查询哪些软件包正在运行</h2><p>需要以<strong>和运行软件时相同的用户身份</strong>进行查询（查询userA正在运行的软件包就<code>su userA</code>）；</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flatpak ps</span><br></pre></td></tr></table></figure>
+
+<p>有时只需要软件包ID或者是只需要PID，可以使用参数<code>--columns=&lt;column_name&gt;</code>进行输出限定；<code>column_name</code>是输出列的英文名称；</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 只看PID列</span></span><br><span class="line">flatpak ps --columns=pid</span><br><span class="line"><span class="comment"># 只看ID和PID两个列</span></span><br><span class="line">flatpak ps --columns=application,pid</span><br></pre></td></tr></table></figure>
+
+<h2 id="强制退出正在运行的软件包"><a href="#强制退出正在运行的软件包" class="headerlink" title="强制退出正在运行的软件包"></a>强制退出正在运行的软件包</h2><p>与<code>kill</code>不同，不能用于发送信号，只能用于强制停止软件包运行；</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flatpak <span class="built_in">kill</span> &lt;ID&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用命令行运行软件包"><a href="#使用命令行运行软件包" class="headerlink" title="使用命令行运行软件包"></a>使用命令行运行软件包</h2><blockquote>
+<p>TODO：权限与重设权限，flatpakref，repo设置，run，enter</p>
 </blockquote>
 
             </div>
