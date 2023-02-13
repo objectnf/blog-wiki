@@ -6,7 +6,7 @@
   <link href="http://wiki.zhouweitong.site/atom.xml" rel="self"/>
   
   <link href="http://wiki.zhouweitong.site/"/>
-  <updated>2023-02-13T02:22:14.741Z</updated>
+  <updated>2023-02-13T08:08:23.156Z</updated>
   <id>http://wiki.zhouweitong.site/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Flatpak概念</title>
+    <link href="http://wiki.zhouweitong.site/wiki/Fedora%20Silverblue/Flatpak/Flatpak%E6%A6%82%E5%BF%B5/"/>
+    <id>http://wiki.zhouweitong.site/wiki/Fedora%20Silverblue/Flatpak/Flatpak%E6%A6%82%E5%BF%B5/</id>
+    <published>2023-02-13T08:00:00.000Z</published>
+    <updated>2023-02-13T08:08:23.156Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="为什么使用Flatpak？"><a href="#为什么使用Flatpak？" class="headerlink" title="为什么使用Flatpak？"></a>为什么使用Flatpak？</h2><ul><li>问题：已经有了<code>apt</code>、<code>dnf</code>等这种系统级的包管理器，为什么还要使用Flatpak？<ol><li>Flatpak给软件提供<strong>相对独立的运行环境（沙箱）</strong>，并<strong>提供权限控制功能</strong>，避免软件破坏或任意修改系统；</li><li>Flatpak很大程度上<strong>解决了软件的兼容性问题</strong>，让“新系统跑旧软件”或“旧系统跑新软件”成为可能；因此Flatpak可以在非滚动更新的发行版上安装 比系统源内版本更高的软件；</li><li>Flatpak支持诸多发行版，在不同的发行版上能够<strong>获得几乎相同的软件使用体验</strong>；</li><li>Flatpak允许<strong>同一个软件的不同版本在系统内共存</strong>；</li><li>Flatpak允许<strong>非root用户在单用户作用域内安装软件</strong>；</li><li>……</li></ol></li><li>问题：我在用Snap或者AppImage，它们和Flatpak有什么区别嘛？<ol><li>Flatpak性能中等，略优于Snap，略差于AppImage；</li><li>Flatpak、AppImage不需要服务（Service），而Snap需要Snapd；</li><li>Flatpak、Snap提供权限控制功能，而AppImage不提供；</li><li>Flatpak、Snap统一提供所有软件包的更新，而AppImage需要打包者自行适配应用内更新或利用第三方工具更新；</li><li>Flatpak、Snap在发行版的预装情况方面有区别：<ul><li>Flatpak预装在这些发行版中：<ul><li>Fedora (Workstation&#x2F;Silverblue&#x2F;Kinoite)</li><li>Manjaro</li><li>Endless OS</li><li>Linux Mint</li><li>Rocky Linux (GNOME)</li><li>AlmaLinux (GNOME)</li><li>CentOS (GNOME)</li><li>EuroLinux (GNOME)</li><li>Pop!_OS</li><li>elementary OS</li><li>Clear Linux (Desktop)</li><li>PureOS</li><li>Zorin OS</li><li>MX Linux</li><li>KDE neon</li><li>……</li></ul></li><li>而Snap预装在这些发行版中：<ul><li>Ubuntu系列 (Ubuntu Desktop, Ubuntu Server, KUbuntu, XUbuntu……)</li><li>KDE neon</li><li>Manjaro</li><li>Solus</li><li>Zorin OS</li><li>……</li></ul></li></ul></li><li>Flatpak和Snap均得到了两个软件中心（GNOME Software Center、KDE Plasma Discover）的支持，而Appimage需要使用第三方软件中心（如<a href="https://github.com/prateekmedia/appimagepool">prateekmedia&#x2F;appimagepool</a>、<a href="https://github.com/app-outlet/app-outlet">app-outlet&#x2F;app-outlet（同样支持Flatpak）</a>）</li><li>……</li></ol></li></ul><h2 id="什么时候不用Flatpak？"><a href="#什么时候不用Flatpak？" class="headerlink" title="什么时候不用Flatpak？"></a>什么时候不用Flatpak？</h2><ul><li><strong>软件与系统结合非常紧密、不适合在沙箱中运行时</strong>不应该使用Flatpak安装（或者说，这种情况下软件很难打包成Flatpak）。例如：GParted、Wireshark、Virt-Manager；应当考虑系统软件包管理器（<code>apt</code>、<code>dnf</code>等）；</li><li><strong>需要软件的便携性时</strong>不应该使用Flatpak；应当考虑将程序打包成单个文件的AppImage；</li><li>**</li></ul><h2 id="App和Runtime"><a href="#App和Runtime" class="headerlink" title="App和Runtime"></a>App和Runtime</h2><p>Flatpak 分为两种软件包：</p><ul><li>Application（App）：应用本体；</li><li>Runtime：应用所需的运行时；</li></ul><p>“运行时”均是支持GUI显示的基本运行时（“没它打不开”），与桌面环境相关，一个“应用本体”只依赖一个“运行时”。</p><p>“运行时”目前主要有以下四种：</p><ol><li>FreeDesktop：最基础的运行时，提供D-Bus、GTK3、X11、Wayland等<ul><li><code>org.freedesktop.Platform</code></li><li><code>org.freedesktop.Sdk</code></li></ul></li><li>GNOME：GNOME&#x3D;FreeDesktop+GNOME_Specific；提供Gjs、GStreamer、GVFS等；<ul><li><code>org.gnome.Platform</code></li><li><code>org.gnome.Sdk</code></li></ul></li><li>KDE：KDE&#x3D;FreeDesktop+KDE_Specific；提供Qt等；<ul><li><code>org.kde.Platform</code></li><li><code>org.kde.Sdk</code></li></ul></li><li>elementary：elementary&#x3D;GNOME+elementary_Specific；提供elementaryOS专属的图标、Granite等；<ul><li><code>io.elementary.Platform</code></li><li><code>io.elementary.Sdk</code></li></ul></li></ol><h2 id="ID"><a href="#ID" class="headerlink" title="ID"></a>ID</h2><p>每个App或Runtime都有一个ID，类似Andorid下App的包名，例如：</p><ul><li>（App） Blender： <code>org.blender.Blender</code></li><li>（Runtime） Gnome Platform：<code>org.gnome.Platform</code></li></ul><p>加入架构和版本号，就构成了 ID三元组：</p><ul><li><code>org.blender.Blender/x86_64/stable</code></li><li><code>org.gnome.Platform/x86_64/43</code></li></ul><p>加入软件包类型，就构成了 该App对应的Flatpak ostree分支名：</p><ul><li><code>app/org.blender.Blender/x86_64/stable</code></li><li><code>runtime/org.gnome.Platform/x86_64/43</code></li></ul><h2 id="App和Extension"><a href="#App和Extension" class="headerlink" title="App和Extension"></a>App和Extension</h2><p>另一种对软件包的分类是：</p><ul><li>Application（App）：（主要）应用，即可直接打开或运行的应用，例如：VLC、Blender；</li><li>Extension：应用的扩展，有多种情况：<ul><li>支持特定应用正常运行的其他软件或库（“没它用不了”），如：Wine、FFMpeg、Mesa；</li><li>特定应用所需的程序包（“没它用不好”），如：TeX环境、Rust语言（编译器）、Go语言（编译器）；</li><li>软件自身的一部分，如：Blender的语言文件；</li></ul></li></ul><p>对应第一种分类时，App和Runtime都可以有Extension。Extension有自己的ID，命名规则是在App或Runtime的包名后加上Extension名：</p><ul><li>App的Extension，例如：&#96;</li></ul><p>应用安装时，应用依赖的运行时和扩展也会被安装；</p><h2 id="安装范围"><a href="#安装范围" class="headerlink" title="安装范围"></a>安装范围</h2><p>Flatpak 有两种安装范围：</p><ul><li>System：系统级安装，<strong>需要root权限</strong>，安装的应用 系统上所有的用户均可见；</li><li>User：用户级安装，安装的应用 仅当前用户（触发安装的用户）可见；</li></ul><blockquote><p>TODO：flatpackrepo，flatpakref，ostree相关</p></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;css&quot; href=&quot;https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css&quot;&gt;&lt;link rel=&quot;st</summary>
+      
+    
+    
+    
+    <category term="Fedora Silverblue" scheme="http://wiki.zhouweitong.site/categories/Fedora-Silverblue/"/>
+    
+    <category term="Flatpak" scheme="http://wiki.zhouweitong.site/categories/Fedora-Silverblue/Flatpak/"/>
+    
+    
+    <category term="Linux" scheme="http://wiki.zhouweitong.site/tags/Linux/"/>
+    
+    <category term="Fedora" scheme="http://wiki.zhouweitong.site/tags/Fedora/"/>
+    
+    <category term="Flatpak" scheme="http://wiki.zhouweitong.site/tags/Flatpak/"/>
+    
+    <category term="Fedora Silverblue" scheme="http://wiki.zhouweitong.site/tags/Fedora-Silverblue/"/>
+    
+    <category term="概念" scheme="http://wiki.zhouweitong.site/tags/%E6%A6%82%E5%BF%B5/"/>
+    
+  </entry>
   
   <entry>
     <title>Flatpak基础使用</title>
@@ -75,40 +109,6 @@
     <category term="发行版安装" scheme="http://wiki.zhouweitong.site/tags/%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%89%E8%A3%85/"/>
     
     <category term="速查表" scheme="http://wiki.zhouweitong.site/tags/%E9%80%9F%E6%9F%A5%E8%A1%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Flatpak概念</title>
-    <link href="http://wiki.zhouweitong.site/wiki/Fedora%20Silverblue/Flatpak/Flatpak%E6%A6%82%E5%BF%B5/"/>
-    <id>http://wiki.zhouweitong.site/wiki/Fedora%20Silverblue/Flatpak/Flatpak%E6%A6%82%E5%BF%B5/</id>
-    <published>2023-02-10T14:10:00.000Z</published>
-    <updated>2023-02-13T07:51:31.139Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="为什么使用Flatpak？"><a href="#为什么使用Flatpak？" class="headerlink" title="为什么使用Flatpak？"></a>为什么使用Flatpak？</h2><ul><li>问题：已经有了<code>apt</code>、<code>dnf</code>这种系统级的包管理器，为什么还要使用Flatpak？<ol><li>Flatpak给软件提供<strong>相对独立的运行环境（沙箱）</strong>，并<strong>提供权限控制功能</strong>，避免软件破坏或任意修改系统；</li><li>Flatpak很大程度上<strong>解决了软件的兼容性问题</strong>，让“新系统跑旧软件”或“旧系统跑新软件”成为可能；因此Flatpak可以在非滚动更新的发行版上安装 比系统源内版本更高的软件；</li><li>Flatpak支持诸多发行版，在不同的发行版上能够<strong>获得几乎相同的软件使用体验</strong>；</li><li>Flatpak允许<strong>同一个软件的不同版本在系统内共存</strong>；</li><li>Flatpak允许<strong>非root用户在单用户作用域内安装软件</strong>；</li><li>……</li></ol></li><li>问题：我在用Snap或者AppImage，它们和Flatpak有什么区别嘛？<ol><li>Flatpak性能中等，略优于Snap，略差于AppImage；</li><li>Flatpak、AppImage不需要服务（Service），而Snap需要Snapd；</li><li>Flatpak、Snap提供权限控制功能，而AppImage不提供；</li><li>Flatpak、Snap统一提供所有软件包的更新，而AppImage需要打包者自行适配应用内更新或利用第三方工具更新；</li><li>Flatpak、Snap在发行版的预装情况方面有区别：<ul><li>Flatpak预装在这些发行版中：<ul><li>Fedora (Workstation&#x2F;Silverblue&#x2F;Kinoite)</li><li>Manjaro</li><li>Endless OS</li><li>Linux Mint</li><li>Rocky Linux (GNOME)</li><li>AlmaLinux (GNOME)</li><li>CentOS (GNOME)</li><li>EuroLinux (GNOME)</li><li>Pop!_OS</li><li>elementary OS</li><li>Clear Linux (Desktop)</li><li>PureOS</li><li>Zorin OS</li><li>MX Linux</li><li>KDE neon</li><li>……</li></ul></li><li>而Snap预装在这些发行版中：<ul><li>Ubuntu系列 (Ubuntu Desktop, Ubuntu Server, KUbuntu, XUbuntu……)</li><li>KDE neon</li><li>Manjaro</li><li>Solus</li><li>Zorin OS</li><li>……</li></ul></li></ul></li><li>Flatpak和Snap均得到了两个软件中心（GNOME Software Center、KDE Plasma Discover）的支持，而Appimage需要使用第三方软件中心（如<a href="https://github.com/prateekmedia/appimagepool">prateekmedia&#x2F;appimagepool</a>、<a href="https://github.com/app-outlet/app-outlet">app-outlet&#x2F;app-outlet（同样支持Flatpak）</a>）</li><li>……</li></ol></li></ul><h2 id="什么时候不用Flatpak？"><a href="#什么时候不用Flatpak？" class="headerlink" title="什么时候不用Flatpak？"></a>什么时候不用Flatpak？</h2><p>- </p><h2 id="App和Runtime"><a href="#App和Runtime" class="headerlink" title="App和Runtime"></a>App和Runtime</h2><p>Flatpak 分为两种软件包：</p><ul><li>Application（App）：应用本体；</li><li>Runtime：应用所需的运行时；</li></ul><p>“运行时”均是支持GUI显示的基本运行时（“没它打不开”），与桌面环境相关，一个“应用本体”只依赖一个“运行时”。</p><p>“运行时”目前主要有以下四种：</p><ol><li>FreeDesktop：最基础的运行时，提供D-Bus、GTK3、X11、Wayland等<ul><li><code>org.freedesktop.Platform</code></li><li><code>org.freedesktop.Sdk</code></li></ul></li><li>GNOME：GNOME&#x3D;FreeDesktop+GNOME_Specific；提供Gjs、GStreamer、GVFS等；<ul><li><code>org.gnome.Platform</code></li><li><code>org.gnome.Sdk</code></li></ul></li><li>KDE：KDE&#x3D;FreeDesktop+KDE_Specific；提供Qt等；<ul><li><code>org.kde.Platform</code></li><li><code>org.kde.Sdk</code></li></ul></li><li>elementary：elementary&#x3D;GNOME+elementary_Specific；提供elementaryOS专属的图标、Granite等；<ul><li><code>io.elementary.Platform</code></li><li><code>io.elementary.Sdk</code></li></ul></li></ol><h2 id="ID"><a href="#ID" class="headerlink" title="ID"></a>ID</h2><p>每个App或Runtime都有一个ID，类似Andorid下App的包名，例如：</p><ul><li>（App） Blender： <code>org.blender.Blender</code></li><li>（Runtime） Gnome Platform：<code>org.gnome.Platform</code></li></ul><p>加入架构和版本号，就构成了 ID三元组：</p><ul><li><code>org.blender.Blender/x86_64/stable</code></li><li><code>org.gnome.Platform/x86_64/43</code></li></ul><p>加入软件包类型，就构成了 该App对应的Flatpak ostree分支名：</p><ul><li><code>app/org.blender.Blender/x86_64/stable</code></li><li><code>runtime/org.gnome.Platform/x86_64/43</code></li></ul><h2 id="App和Extension"><a href="#App和Extension" class="headerlink" title="App和Extension"></a>App和Extension</h2><p>另一种对软件包的分类是：</p><ul><li>Application（App）：（主要）应用，即可直接打开或运行的应用，例如：VLC、Blender；</li><li>Extension：应用的扩展，有多种情况：<ul><li>支持特定应用正常运行的其他软件或库（“没它用不了”），如：Wine、FFMpeg、Mesa；</li><li>特定应用所需的程序包（“没它用不好”），如：TeX环境、Rust语言（编译器）、Go语言（编译器）；</li><li>软件自身的一部分，如：Blender的语言文件；</li></ul></li></ul><p>对应第一种分类时，App和Runtime都可以有Extension。Extension有自己的ID，命名规则是在App或Runtime的包名后加上Extension名：</p><ul><li>App的Extension，例如：&#96;</li></ul><p>应用安装时，应用依赖的运行时和扩展也会被安装；</p><h2 id="安装范围"><a href="#安装范围" class="headerlink" title="安装范围"></a>安装范围</h2><p>Flatpak 有两种安装范围：</p><ul><li>System：系统级安装，<strong>需要root权限</strong>，安装的应用 系统上所有的用户均可见；</li><li>User：用户级安装，安装的应用 仅当前用户（触发安装的用户）可见；</li></ul><blockquote><p>TODO：flatpackrepo，flatpakref，ostree相关</p></blockquote>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;css&quot; href=&quot;https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css&quot;&gt;&lt;link rel=&quot;st</summary>
-      
-    
-    
-    
-    <category term="Fedora Silverblue" scheme="http://wiki.zhouweitong.site/categories/Fedora-Silverblue/"/>
-    
-    <category term="Flatpak" scheme="http://wiki.zhouweitong.site/categories/Fedora-Silverblue/Flatpak/"/>
-    
-    
-    <category term="Linux" scheme="http://wiki.zhouweitong.site/tags/Linux/"/>
-    
-    <category term="Fedora" scheme="http://wiki.zhouweitong.site/tags/Fedora/"/>
-    
-    <category term="Flatpak" scheme="http://wiki.zhouweitong.site/tags/Flatpak/"/>
-    
-    <category term="Fedora Silverblue" scheme="http://wiki.zhouweitong.site/tags/Fedora-Silverblue/"/>
-    
-    <category term="概念" scheme="http://wiki.zhouweitong.site/tags/%E6%A6%82%E5%BF%B5/"/>
     
   </entry>
   
