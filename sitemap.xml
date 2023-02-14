@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://wiki.zhouweitong.site/wiki/%E9%A9%BE%E7%85%A7/%E7%A7%91%E7%9B%AE%E4%B8%80/%E7%A7%91%E7%9B%AE%E4%B8%80%20%E5%8F%A3%E8%AF%80/</loc>
+    
+    <lastmod>2023-02-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://wiki.zhouweitong.site/wiki/Fedora%20Silverblue/Flatpak/Flatpak%E6%A6%82%E5%BF%B5/</loc>
     
     <lastmod>2023-02-14</lastmod>
@@ -30,15 +39,6 @@
   
   <url>
     <loc>http://wiki.zhouweitong.site/wiki/AI%E7%BB%98%E7%94%BB/NovelAI/%E5%88%B6%E4%BD%9C%E5%8F%8A%E8%BF%90%E8%A1%8CWebUI%EF%BC%88NovelAI%EF%BC%89Docker%E9%95%9C%E5%83%8F/</loc>
-    
-    <lastmod>2023-02-14</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://wiki.zhouweitong.site/wiki/%E9%A9%BE%E7%85%A7/%E7%A7%91%E7%9B%AE%E4%B8%80/%E7%A7%91%E7%9B%AE%E4%B8%80%20%E5%8F%A3%E8%AF%80/</loc>
     
     <lastmod>2023-02-14</lastmod>
     

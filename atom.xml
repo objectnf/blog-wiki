@@ -6,7 +6,7 @@
   <link href="http://wiki.zhouweitong.site/atom.xml" rel="self"/>
   
   <link href="http://wiki.zhouweitong.site/"/>
-  <updated>2023-02-14T12:25:41.586Z</updated>
+  <updated>2023-02-14T14:51:08.433Z</updated>
   <id>http://wiki.zhouweitong.site/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>科目一 口诀</title>
+    <link href="http://wiki.zhouweitong.site/wiki/%E9%A9%BE%E7%85%A7/%E7%A7%91%E7%9B%AE%E4%B8%80/%E7%A7%91%E7%9B%AE%E4%B8%80%20%E5%8F%A3%E8%AF%80/"/>
+    <id>http://wiki.zhouweitong.site/wiki/%E9%A9%BE%E7%85%A7/%E7%A7%91%E7%9B%AE%E4%B8%80/%E7%A7%91%E7%9B%AE%E4%B8%80%20%E5%8F%A3%E8%AF%80/</id>
+    <published>2023-02-14T12:30:00.000Z</published>
+    <updated>2023-02-14T14:51:08.433Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><ul><li><p>申请驾驶证年龄要求</p><ul><li><strong>最小18，最大不限</strong></li><li>70以上，每年体检</li></ul></li><li><p>驾驶证有效期</p><ul><li><strong>6 10 长</strong></li><li>刚拿时6年过期，然后换证10年过期，再换证长期有效</li></ul></li><li><p><strong>遇周期，找12</strong></p><ul><li>驾驶证周期是12个月</li><li>驾驶证实习期是12个月</li></ul></li><li><p><strong>遇时间，找9、3</strong></p><ul><li>选项有90日就选90日</li><li>没有90日就选30日</li></ul></li><li><p><strong>遇有效期，找3年</strong></p><ul><li>准考证有效期3年</li><li>实习期上高速找3年经验者陪同</li><li>因事不能审验延期3年</li></ul></li><li><p>大客中客牵引车，普通驾照也没辙</p></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;css&quot; href=&quot;https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css&quot;&gt;&lt;link rel=&quot;st</summary>
+      
+    
+    
+    
+    <category term="驾照" scheme="http://wiki.zhouweitong.site/categories/%E9%A9%BE%E7%85%A7/"/>
+    
+    <category term="科目一" scheme="http://wiki.zhouweitong.site/categories/%E9%A9%BE%E7%85%A7/%E7%A7%91%E7%9B%AE%E4%B8%80/"/>
+    
+    
+    <category term="驾照" scheme="http://wiki.zhouweitong.site/tags/%E9%A9%BE%E7%85%A7/"/>
+    
+    <category term="科目一" scheme="http://wiki.zhouweitong.site/tags/%E7%A7%91%E7%9B%AE%E4%B8%80/"/>
+    
+    <category term="口诀" scheme="http://wiki.zhouweitong.site/tags/%E5%8F%A3%E8%AF%80/"/>
+    
+    <category term="理论题" scheme="http://wiki.zhouweitong.site/tags/%E7%90%86%E8%AE%BA%E9%A2%98/"/>
+    
+  </entry>
   
   <entry>
     <title>Arch安装速查表</title>
@@ -81,38 +113,6 @@
     <category term="Stable Diffusion" scheme="http://wiki.zhouweitong.site/tags/Stable-Diffusion/"/>
     
     <category term="Novel AI" scheme="http://wiki.zhouweitong.site/tags/Novel-AI/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>科目一 口诀</title>
-    <link href="http://wiki.zhouweitong.site/wiki/%E9%A9%BE%E7%85%A7/%E7%A7%91%E7%9B%AE%E4%B8%80/%E7%A7%91%E7%9B%AE%E4%B8%80%20%E5%8F%A3%E8%AF%80/"/>
-    <id>http://wiki.zhouweitong.site/wiki/%E9%A9%BE%E7%85%A7/%E7%A7%91%E7%9B%AE%E4%B8%80/%E7%A7%91%E7%9B%AE%E4%B8%80%20%E5%8F%A3%E8%AF%80/</id>
-    <published>2023-02-14T02:20:00.000Z</published>
-    <updated>2023-02-14T07:25:27.750Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;css&quot; href=&quot;https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css&quot;&gt;&lt;link rel=&quot;st</summary>
-      
-    
-    
-    
-    <category term="驾照" scheme="http://wiki.zhouweitong.site/categories/%E9%A9%BE%E7%85%A7/"/>
-    
-    <category term="科目一" scheme="http://wiki.zhouweitong.site/categories/%E9%A9%BE%E7%85%A7/%E7%A7%91%E7%9B%AE%E4%B8%80/"/>
-    
-    
-    <category term="驾照" scheme="http://wiki.zhouweitong.site/tags/%E9%A9%BE%E7%85%A7/"/>
-    
-    <category term="科目一" scheme="http://wiki.zhouweitong.site/tags/%E7%A7%91%E7%9B%AE%E4%B8%80/"/>
-    
-    <category term="口诀" scheme="http://wiki.zhouweitong.site/tags/%E5%8F%A3%E8%AF%80/"/>
-    
-    <category term="理论题" scheme="http://wiki.zhouweitong.site/tags/%E7%90%86%E8%AE%BA%E9%A2%98/"/>
     
   </entry>
   
