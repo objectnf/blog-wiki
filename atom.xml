@@ -6,7 +6,7 @@
   <link href="http://wiki.zhouweitong.site/atom.xml" rel="self"/>
   
   <link href="http://wiki.zhouweitong.site/"/>
-  <updated>2023-02-13T09:00:57.926Z</updated>
+  <updated>2023-02-14T07:25:27.750Z</updated>
   <id>http://wiki.zhouweitong.site/</id>
   
   <author>
@@ -15,6 +15,76 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>制作及运行WebUI（NovelAI）Docker镜像</title>
+    <link href="http://wiki.zhouweitong.site/wiki/AI%E7%BB%98%E7%94%BB/NovelAI/%E5%88%B6%E4%BD%9C%E5%8F%8A%E8%BF%90%E8%A1%8CWebUI%EF%BC%88NovelAI%EF%BC%89Docker%E9%95%9C%E5%83%8F/"/>
+    <id>http://wiki.zhouweitong.site/wiki/AI%E7%BB%98%E7%94%BB/NovelAI/%E5%88%B6%E4%BD%9C%E5%8F%8A%E8%BF%90%E8%A1%8CWebUI%EF%BC%88NovelAI%EF%BC%89Docker%E9%95%9C%E5%83%8F/</id>
+    <published>2023-02-14T05:00:00.000Z</published>
+    <updated>2023-02-14T07:25:27.750Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="准备Novel-AI模型文件"><a href="#准备Novel-AI模型文件" class="headerlink" title="准备Novel AI模型文件"></a>准备Novel AI模型文件</h2><p>下载地址：</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">magnet:?xt=urn:btih:5bde442da86265b670a3e5ea3163afad2c6f8ecc</span><br></pre></td></tr></table></figure><p>只需要部分下载其中的文件；</p><ul><li>必须的文件：<ul><li>文件 <code>stableckpt/animevae.pt</code></li><li>文件夹 <code>stableckpt/animefull-final-pruned</code></li></ul></li><li>可选的文件：<ul><li>文件夹 <code>stableckpt/animefull-latest</code> （全量模型，暂时没发现有什么特殊用途）</li><li>文件夹 <code>stableckpt/modules/modules</code> （差分模型，针对特定风格强化训练）</li></ul></li></ul><p>将下载后的文件重命名，并放到同一个目录下的<code>models/</code>子目录下</p><ul><li><code>stableckpt/animevae.pt</code> -&gt; <code>models/nai.vae.pt</code></li><li><code>stableckpt/animefull-final-pruned/model.ckpt</code> -&gt; <code>models/nai.ckpt</code></li><li><code>stableckpt/animefull-final-pruned/config.yaml</code> -&gt; <code>models/nai.yaml</code></li></ul><h2 id="Dockerfile示例"><a href="#Dockerfile示例" class="headerlink" title="Dockerfile示例"></a>Dockerfile示例</h2><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> python:<span class="number">3.10</span>-bullseye</span><br><span class="line"><span class="keyword">LABEL</span><span class="language-bash"> org.opencontainers.image.authors=<span class="string">&quot;xml@live.com&quot;</span></span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /root</span></span><br><span class="line"><span class="comment"># Prepare</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> apt-get update &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    apt-get upgrade -y &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    apt-get install -y python3-opencv &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    apt-get clean &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    <span class="built_in">rm</span> -rf /var/lib/apt/lists/*</span></span><br><span class="line"><span class="comment"># Python environment setup</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> pip install --upgrade --no-cache-dir pip &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    pip install --upgrade --no-cache-dir setuptools &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    pip install --upgrade --no-cache-dir opencv-python &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    pip install --no-cache-dir torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu117 &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    pip install --no-cache-dir jupyterlab gfpgan clip open_clip_torch xformers==0.0.16rc425 &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    <span class="built_in">rm</span> -rf ~/.cache/pip</span></span><br><span class="line"><span class="comment"># Clone files</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> git <span class="built_in">clone</span> --depth=1 https://github.com/AUTOMATIC1111/stable-diffusion-webui.git &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    <span class="built_in">cd</span> stable-diffusion-webui &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    <span class="built_in">mkdir</span> repositories &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    <span class="built_in">cd</span> repositories &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    git <span class="built_in">clone</span> https://github.com/Stability-AI/stablediffusion.git stable-diffusion-stability-ai &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    git <span class="built_in">clone</span> https://github.com/CompVis/taming-transformers.git &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    git <span class="built_in">clone</span> https://github.com/crowsonkb/k-diffusion.git &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    git <span class="built_in">clone</span> https://github.com/sczhou/CodeFormer.git &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    git <span class="built_in">clone</span> https://github.com/salesforce/BLIP.git &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    <span class="built_in">cd</span> .. &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    pip install --no-cache-dir -r requirements.txt &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    pip install --no-cache-dir -r repositories/CodeFormer/requirements.txt &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    <span class="built_in">rm</span> -rf ~/.cache/pip</span></span><br><span class="line"><span class="comment"># Place model files under models/</span></span><br><span class="line"><span class="comment"># Rename to nai.yaml nai.ckpt nai.vae.pt</span></span><br><span class="line"><span class="keyword">ADD</span><span class="language-bash"> models/ /root/stable-diffusion-webui/models/Stable-diffusion</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /root/stable-diffusion-webui</span></span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">7860</span></span><br><span class="line"><span class="keyword">ENTRYPOINT</span><span class="language-bash"> [ <span class="string">&quot;python3&quot;</span>, <span class="string">&quot;./launch.py&quot;</span>, <span class="string">&quot;--listen&quot;</span>, <span class="string">&quot;--port&quot;</span>, <span class="string">&quot;7860&quot;</span> ]</span></span><br></pre></td></tr></table></figure><p>以上代码保存到<code>Dockrerfile</code>和<code>models/</code>放到一起，然后<code>docker build</code>即可；</p><h2 id="使用Docker-Image"><a href="#使用Docker-Image" class="headerlink" title="使用Docker Image"></a>使用Docker Image</h2><h3 id="环境设置"><a href="#环境设置" class="headerlink" title="环境设置"></a>环境设置</h3><ul><li>需要是以下受NVIDIA官方支持的Linux发行版：<ul><li>Amazon Linux （AWS）</li><li>OpenSUSE &#x2F; SUSE Linux Enterprise Server</li><li>CentOS</li><li>Red Hat Enterprise Linux</li><li>Ubuntu</li><li>Debian</li></ul></li><li>需要安装以下软件<ul><li><strong>闭源的NVIDIA官方Linux驱动</strong></li><li>Docker</li></ul></li><li>安装<code>nvidia-container-toolkit</code><ul><li>参考：<a href="https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html">Installation Guide — NVIDIA Cloud Native Technologies  documentation</a></li><li>安装后需要重启docker服务，<code>sudo systemctl restart docker</code></li></ul></li><li>检查是否安装成功<ul><li>查看docker是否接受<code>--gpu</code>参数：<code>docker run --help | grep -i gpus</code></li><li>尝试在docker容器中运行<code>nvidia-smi</code></li></ul></li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 镜像版本建议先查看Docker Hub页面</span></span><br><span class="line"><span class="comment"># https://hub.docker.com/r/nvidia/cuda</span></span><br><span class="line">docker run --gpus all nvidia/cuda:12.0.1-base-ubi9 nvidia-smi</span><br><span class="line"><span class="comment"># 若输出正常则证明nvidia-container-toolkit安装成功</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;css&quot; href=&quot;https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css&quot;&gt;&lt;link rel=&quot;st</summary>
+      
+    
+    
+    
+    <category term="AI绘画" scheme="http://wiki.zhouweitong.site/categories/AI%E7%BB%98%E7%94%BB/"/>
+    
+    <category term="Novel AI" scheme="http://wiki.zhouweitong.site/categories/AI%E7%BB%98%E7%94%BB/Novel-AI/"/>
+    
+    
+    <category term="Linux" scheme="http://wiki.zhouweitong.site/tags/Linux/"/>
+    
+    <category term="Docker" scheme="http://wiki.zhouweitong.site/tags/Docker/"/>
+    
+    <category term="CI/CD" scheme="http://wiki.zhouweitong.site/tags/CI-CD/"/>
+    
+    <category term="Docker Image" scheme="http://wiki.zhouweitong.site/tags/Docker-Image/"/>
+    
+    <category term="AI绘画" scheme="http://wiki.zhouweitong.site/tags/AI%E7%BB%98%E7%94%BB/"/>
+    
+    <category term="Stable Diffusion" scheme="http://wiki.zhouweitong.site/tags/Stable-Diffusion/"/>
+    
+    <category term="Novel AI" scheme="http://wiki.zhouweitong.site/tags/Novel-AI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>科目一 口诀</title>
+    <link href="http://wiki.zhouweitong.site/wiki/%E9%A9%BE%E7%85%A7/%E7%A7%91%E7%9B%AE%E4%B8%80/%E7%A7%91%E7%9B%AE%E4%B8%80%20%E5%8F%A3%E8%AF%80/"/>
+    <id>http://wiki.zhouweitong.site/wiki/%E9%A9%BE%E7%85%A7/%E7%A7%91%E7%9B%AE%E4%B8%80/%E7%A7%91%E7%9B%AE%E4%B8%80%20%E5%8F%A3%E8%AF%80/</id>
+    <published>2023-02-14T02:20:00.000Z</published>
+    <updated>2023-02-14T07:25:27.750Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;css&quot; href=&quot;https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css&quot;&gt;&lt;link rel=&quot;st</summary>
+      
+    
+    
+    
+    <category term="驾照" scheme="http://wiki.zhouweitong.site/categories/%E9%A9%BE%E7%85%A7/"/>
+    
+    <category term="科目一" scheme="http://wiki.zhouweitong.site/categories/%E9%A9%BE%E7%85%A7/%E7%A7%91%E7%9B%AE%E4%B8%80/"/>
+    
+    
+    <category term="驾照" scheme="http://wiki.zhouweitong.site/tags/%E9%A9%BE%E7%85%A7/"/>
+    
+    <category term="科目一" scheme="http://wiki.zhouweitong.site/tags/%E7%A7%91%E7%9B%AE%E4%B8%80/"/>
+    
+    <category term="口诀" scheme="http://wiki.zhouweitong.site/tags/%E5%8F%A3%E8%AF%80/"/>
+    
+    <category term="理论题" scheme="http://wiki.zhouweitong.site/tags/%E7%90%86%E8%AE%BA%E9%A2%98/"/>
+    
+  </entry>
   
   <entry>
     <title>Flatpak概念</title>

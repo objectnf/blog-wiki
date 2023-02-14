@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    
+    <title>制作及运行WebUI（NovelAI）Docker镜像 | ObjectNotFound Wiki</title>
+    
+    
+        <meta name="keywords" content="Linux,Docker,CI/CD,Docker Image,AI绘画,Stable Diffusion,Novel AI">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="准备Novel AI模型文件下载地址： 1magnet:?xt&#x3D;urn:btih:5bde442da86265b670a3e5ea3163afad2c6f8ecc  只需要部分下载其中的文件；  必须的文件： 文件 stableckpt&#x2F;animevae.pt 文件夹 stableckpt&#x2F;animefull-final-pruned   可选的文件： 文件夹 stableckpt&#x2F;animefu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="制作及运行WebUI（NovelAI）Docker镜像">
+<meta property="og:url" content="http://wiki.zhouweitong.site/wiki/AI%E7%BB%98%E7%94%BB/NovelAI/%E5%88%B6%E4%BD%9C%E5%8F%8A%E8%BF%90%E8%A1%8CWebUI%EF%BC%88NovelAI%EF%BC%89Docker%E9%95%9C%E5%83%8F/index.html">
+<meta property="og:site_name" content="ObjectNotFound Wiki">
+<meta property="og:description" content="准备Novel AI模型文件下载地址： 1magnet:?xt&#x3D;urn:btih:5bde442da86265b670a3e5ea3163afad2c6f8ecc  只需要部分下载其中的文件；  必须的文件： 文件 stableckpt&#x2F;animevae.pt 文件夹 stableckpt&#x2F;animefull-final-pruned   可选的文件： 文件夹 stableckpt&#x2F;animefu">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-02-14T05:00:00.000Z">
+<meta property="article:modified_time" content="2023-02-14T07:25:27.750Z">
+<meta property="article:author" content="ObjectNotFound">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Docker">
+<meta property="article:tag" content="CI&#x2F;CD">
+<meta property="article:tag" content="Docker Image">
+<meta property="article:tag" content="AI绘画">
+<meta property="article:tag" content="Stable Diffusion">
+<meta property="article:tag" content="Novel AI">
+<meta name="twitter:card" content="summary">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="ObjectNotFound Wiki" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="/images/favicon.ico">
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/open-sans/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    
+<script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">ObjectNotFound Wiki</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" target="_blank" rel="noopener" href="https://www.zhouweitong.site">主站</a>
+                
+                    <a class="main-nav-link" href="/archives">时间线</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/images/git-avatar.jpg">
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" target="_blank" rel="noopener" href="https://www.zhouweitong.site">主站</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">时间线</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/images/git-avatar.jpg">
+            <h2 id="name">ObjectNotFound</h2>
+            <h3 id="title">思维改变世界</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>杭州市, 浙江省, 中国</span>
+            <a id="follow" target="_blank" href="https://github.com/objectnf/" rel="external nofollow noopener noreferrer">关注我</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                18
+                <span>文章</span>
+            </div>
+            <div class="article-info-block">
+                48
+                <span>标签</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/objectnf" target="_blank" title="github" class="tooltip" rel="external nofollow noopener noreferrer">
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="mailto:xml@live.com" target="_blank" title="at" class="tooltip" rel="external nofollow noopener noreferrer">
+                            <i class="fa fa-at"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://twitter.com/objectnf" target="_blank" title="twitter" class="tooltip" rel="external nofollow noopener noreferrer">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/atom.xml" target="_blank" title="rss" class="tooltip">
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id="categories">
+        <h3 class="widget-title">
+            <span>分类</span>
+            &nbsp;
+            <a id="allExpand" href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree"> 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            AI绘画
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            Novel AI
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file active"><a href="/wiki/AI%E7%BB%98%E7%94%BB/NovelAI/%E5%88%B6%E4%BD%9C%E5%8F%8A%E8%BF%90%E8%A1%8CWebUI%EF%BC%88NovelAI%EF%BC%89Docker%E9%95%9C%E5%83%8F/">制作及运行WebUI（NovelAI）Docker镜像</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Arch Linux
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/Arch%20Linux/Arch%E5%AE%89%E8%A3%85%E9%80%9F%E6%9F%A5%E8%A1%A8/">Arch安装速查表</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Docker
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/Docker/%E5%BF%AB%E9%80%9F%E5%88%A0%E9%99%A4%E6%97%A0%E7%94%A8%E7%9A%84Image/">快速删除无用的Docker Image</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Fedora Silverblue
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Flatpak
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/Fedora%20Silverblue/Flatpak/Flathub%20&%20%E5%A6%82%E4%BD%95%E5%88%B6%E4%BD%9CFlathub%E9%95%9C%E5%83%8F/">Flathub & 如何制作Flathub镜像</a></li>  <li class="file"><a href="/wiki/Fedora%20Silverblue/Flatpak/Flatpak%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">Flatpak基础使用</a></li>  <li class="file"><a href="/wiki/Fedora%20Silverblue/Flatpak/Flatpak%E6%A6%82%E5%BF%B5/">Flatpak概念</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Linux防火墙
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            iptables
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/Linux%E9%98%B2%E7%81%AB%E5%A2%99/iptables/%E6%B8%85%E7%A9%BAiptables%E8%A7%84%E5%88%99/">清空iptables规则</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            名词解释
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/%E5%90%8D%E8%AF%8D%E6%B3%A8%E8%A7%A3/X%20to%20Y/">X to Y</a></li>  <li class="file"><a href="/wiki/%E5%90%8D%E8%AF%8D%E6%B3%A8%E8%A7%A3/%E7%AC%ACX%E5%9B%BD%E9%99%85/">第X国际</a></li>  <li class="file"><a href="/wiki/%E5%90%8D%E8%AF%8D%E6%B3%A8%E8%A7%A3/%E8%B4%B9%E6%8E%A7/">费控</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            多国语
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            中文
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/%E5%A4%9A%E5%9B%BD%E8%AF%AD/%E4%B8%AD%E6%96%87/%E6%A6%82%E5%BF%B5/">概念</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            日语
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/%E5%A4%9A%E5%9B%BD%E8%AF%AD/%E6%97%A5%E8%AF%AD/%E6%96%B9%E8%A8%80%E5%8F%8A%E5%8C%BA%E5%88%AB/">方言及区别</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            法语
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/%E5%A4%9A%E5%9B%BD%E8%AF%AD/%E6%B3%95%E8%AF%AD/%E6%B3%95%E8%AF%AD%E5%AD%97%E6%AF%8D/">法语字母</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            英语
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/%E5%A4%9A%E5%9B%BD%E8%AF%AD/%E8%8B%B1%E8%AF%AD/%E5%B8%B8%E8%A7%81%E7%BC%A9%E7%95%A5%E8%AF%AD/">常见缩略语</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            数学
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            线性代数
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0_1/">P1-行列式</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            音乐与音频
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            效果器
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/%E9%9F%B3%E4%B9%90%E4%B8%8E%E9%9F%B3%E9%A2%91/%E6%95%88%E6%9E%9C%E5%99%A8/EQ%E8%B0%83%E8%8A%82%E8%AF%AF%E5%8C%BA/">EQ调节误区</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            驾照
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            科目一
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/%E9%A9%BE%E7%85%A7/%E7%A7%91%E7%9B%AE%E4%B8%80/%E7%A7%91%E7%9B%AE%E4%B8%80%20%E5%8F%A3%E8%AF%80/">科目一 口诀</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/index/">欢迎访问 ObjectNotFound 个人知识库</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title"><span>最新文章</span></h3>
+        <div class="widget">
+            <ul id="recent-post" class>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/wiki/AI%E7%BB%98%E7%94%BB/NovelAI/%E5%88%B6%E4%BD%9C%E5%8F%8A%E8%BF%90%E8%A1%8CWebUI%EF%BC%88NovelAI%EF%BC%89Docker%E9%95%9C%E5%83%8F/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/AI%E7%BB%98%E7%94%BB/">AI绘画</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/AI%E7%BB%98%E7%94%BB/Novel-AI/">Novel AI</a></p>
+                            <p class="item-title"><a href="/wiki/AI%E7%BB%98%E7%94%BB/NovelAI/%E5%88%B6%E4%BD%9C%E5%8F%8A%E8%BF%90%E8%A1%8CWebUI%EF%BC%88NovelAI%EF%BC%89Docker%E9%95%9C%E5%83%8F/" class="title">制作及运行WebUI（NovelAI）Docker镜像</a></p>
+                            <p class="item-date"><time datetime="2023-02-14T05:00:00.000Z" itemprop="datePublished">2023-02-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/wiki/%E9%A9%BE%E7%85%A7/%E7%A7%91%E7%9B%AE%E4%B8%80/%E7%A7%91%E7%9B%AE%E4%B8%80%20%E5%8F%A3%E8%AF%80/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E9%A9%BE%E7%85%A7/">驾照</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E9%A9%BE%E7%85%A7/%E7%A7%91%E7%9B%AE%E4%B8%80/">科目一</a></p>
+                            <p class="item-title"><a href="/wiki/%E9%A9%BE%E7%85%A7/%E7%A7%91%E7%9B%AE%E4%B8%80/%E7%A7%91%E7%9B%AE%E4%B8%80%20%E5%8F%A3%E8%AF%80/" class="title">科目一 口诀</a></p>
+                            <p class="item-date"><time datetime="2023-02-14T02:20:00.000Z" itemprop="datePublished">2023-02-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/wiki/Fedora%20Silverblue/Flatpak/Flatpak%E6%A6%82%E5%BF%B5/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Fedora-Silverblue/">Fedora Silverblue</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Fedora-Silverblue/Flatpak/">Flatpak</a></p>
+                            <p class="item-title"><a href="/wiki/Fedora%20Silverblue/Flatpak/Flatpak%E6%A6%82%E5%BF%B5/" class="title">Flatpak概念</a></p>
+                            <p class="item-date"><time datetime="2023-02-13T08:00:00.000Z" itemprop="datePublished">2023-02-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/wiki/Fedora%20Silverblue/Flatpak/Flatpak%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Fedora-Silverblue/">Fedora Silverblue</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Fedora-Silverblue/Flatpak/">Flatpak</a></p>
+                            <p class="item-title"><a href="/wiki/Fedora%20Silverblue/Flatpak/Flatpak%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="title">Flatpak基础使用</a></p>
+                            <p class="item-date"><time datetime="2023-02-13T01:40:00.000Z" itemprop="datePublished">2023-02-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/wiki/Arch%20Linux/Arch%E5%AE%89%E8%A3%85%E9%80%9F%E6%9F%A5%E8%A1%A8/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Arch-Linux/">Arch Linux</a></p>
+                            <p class="item-title"><a href="/wiki/Arch%20Linux/Arch%E5%AE%89%E8%A3%85%E9%80%9F%E6%9F%A5%E8%A1%A8/" class="title">Arch安装速查表</a></p>
+                            <p class="item-date"><time datetime="2023-02-10T15:00:00.000Z" itemprop="datePublished">2023-02-10</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-AI绘画/NovelAI/制作及运行WebUI（NovelAI）Docker镜像" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/AI%E7%BB%98%E7%94%BB/">AI绘画</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/AI%E7%BB%98%E7%94%BB/Novel-AI/">Novel AI</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/AI%E7%BB%98%E7%94%BB/" rel="tag">AI绘画</a>, <a class="tag-link-link" href="/tags/CI-CD/" rel="tag">CI/CD</a>, <a class="tag-link-link" href="/tags/Docker/" rel="tag">Docker</a>, <a class="tag-link-link" href="/tags/Docker-Image/" rel="tag">Docker Image</a>, <a class="tag-link-link" href="/tags/Linux/" rel="tag">Linux</a>, <a class="tag-link-link" href="/tags/Novel-AI/" rel="tag">Novel AI</a>, <a class="tag-link-link" href="/tags/Stable-Diffusion/" rel="tag">Stable Diffusion</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/AI%E7%BB%98%E7%94%BB/NovelAI/%E5%88%B6%E4%BD%9C%E5%8F%8A%E8%BF%90%E8%A1%8CWebUI%EF%BC%88NovelAI%EF%BC%89Docker%E9%95%9C%E5%83%8F/">
+            <time datetime="2023-02-14T05:00:00.000Z" itemprop="datePublished">2023-02-14</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            制作及运行WebUI（NovelAI）Docker镜像
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+        
+        
+            <link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="准备Novel-AI模型文件"><a href="#准备Novel-AI模型文件" class="headerlink" title="准备Novel AI模型文件"></a>准备Novel AI模型文件</h2><p>下载地址：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">magnet:?xt=urn:btih:5bde442da86265b670a3e5ea3163afad2c6f8ecc</span><br></pre></td></tr></table></figure>
+
+<p>只需要部分下载其中的文件；</p>
+<ul>
+<li>必须的文件：<ul>
+<li>文件 <code>stableckpt/animevae.pt</code></li>
+<li>文件夹 <code>stableckpt/animefull-final-pruned</code></li>
+</ul>
+</li>
+<li>可选的文件：<ul>
+<li>文件夹 <code>stableckpt/animefull-latest</code> （全量模型，暂时没发现有什么特殊用途）</li>
+<li>文件夹 <code>stableckpt/modules/modules</code> （差分模型，针对特定风格强化训练）</li>
+</ul>
+</li>
+</ul>
+<p>将下载后的文件重命名，并放到同一个目录下的<code>models/</code>子目录下</p>
+<ul>
+<li><code>stableckpt/animevae.pt</code> -&gt; <code>models/nai.vae.pt</code></li>
+<li><code>stableckpt/animefull-final-pruned/model.ckpt</code> -&gt; <code>models/nai.ckpt</code></li>
+<li><code>stableckpt/animefull-final-pruned/config.yaml</code> -&gt; <code>models/nai.yaml</code></li>
+</ul>
+<h2 id="Dockerfile示例"><a href="#Dockerfile示例" class="headerlink" title="Dockerfile示例"></a>Dockerfile示例</h2><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> python:<span class="number">3.10</span>-bullseye</span><br><span class="line"><span class="keyword">LABEL</span><span class="language-bash"> org.opencontainers.image.authors=<span class="string">&quot;xml@live.com&quot;</span></span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /root</span></span><br><span class="line"><span class="comment"># Prepare</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> apt-get update &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    apt-get upgrade -y &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    apt-get install -y python3-opencv &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    apt-get clean &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    <span class="built_in">rm</span> -rf /var/lib/apt/lists/*</span></span><br><span class="line"><span class="comment"># Python environment setup</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> pip install --upgrade --no-cache-dir pip &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    pip install --upgrade --no-cache-dir setuptools &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    pip install --upgrade --no-cache-dir opencv-python &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    pip install --no-cache-dir torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu117 &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    pip install --no-cache-dir jupyterlab gfpgan clip open_clip_torch xformers==0.0.16rc425 &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    <span class="built_in">rm</span> -rf ~/.cache/pip</span></span><br><span class="line"><span class="comment"># Clone files</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> git <span class="built_in">clone</span> --depth=1 https://github.com/AUTOMATIC1111/stable-diffusion-webui.git &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    <span class="built_in">cd</span> stable-diffusion-webui &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    <span class="built_in">mkdir</span> repositories &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    <span class="built_in">cd</span> repositories &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    git <span class="built_in">clone</span> https://github.com/Stability-AI/stablediffusion.git stable-diffusion-stability-ai &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    git <span class="built_in">clone</span> https://github.com/CompVis/taming-transformers.git &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    git <span class="built_in">clone</span> https://github.com/crowsonkb/k-diffusion.git &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    git <span class="built_in">clone</span> https://github.com/sczhou/CodeFormer.git &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    git <span class="built_in">clone</span> https://github.com/salesforce/BLIP.git &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    <span class="built_in">cd</span> .. &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    pip install --no-cache-dir -r requirements.txt &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    pip install --no-cache-dir -r repositories/CodeFormer/requirements.txt &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    <span class="built_in">rm</span> -rf ~/.cache/pip</span></span><br><span class="line"><span class="comment"># Place model files under models/</span></span><br><span class="line"><span class="comment"># Rename to nai.yaml nai.ckpt nai.vae.pt</span></span><br><span class="line"><span class="keyword">ADD</span><span class="language-bash"> models/ /root/stable-diffusion-webui/models/Stable-diffusion</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /root/stable-diffusion-webui</span></span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">7860</span></span><br><span class="line"><span class="keyword">ENTRYPOINT</span><span class="language-bash"> [ <span class="string">&quot;python3&quot;</span>, <span class="string">&quot;./launch.py&quot;</span>, <span class="string">&quot;--listen&quot;</span>, <span class="string">&quot;--port&quot;</span>, <span class="string">&quot;7860&quot;</span> ]</span></span><br></pre></td></tr></table></figure>
+
+<p>以上代码保存到<code>Dockrerfile</code>和<code>models/</code>放到一起，然后<code>docker build</code>即可；</p>
+<h2 id="使用Docker-Image"><a href="#使用Docker-Image" class="headerlink" title="使用Docker Image"></a>使用Docker Image</h2><h3 id="环境设置"><a href="#环境设置" class="headerlink" title="环境设置"></a>环境设置</h3><ul>
+<li>需要是以下受NVIDIA官方支持的Linux发行版：<ul>
+<li>Amazon Linux （AWS）</li>
+<li>OpenSUSE &#x2F; SUSE Linux Enterprise Server</li>
+<li>CentOS</li>
+<li>Red Hat Enterprise Linux</li>
+<li>Ubuntu</li>
+<li>Debian</li>
+</ul>
+</li>
+<li>需要安装以下软件<ul>
+<li><strong>闭源的NVIDIA官方Linux驱动</strong></li>
+<li>Docker</li>
+</ul>
+</li>
+<li>安装<code>nvidia-container-toolkit</code><ul>
+<li>参考：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html">Installation Guide — NVIDIA Cloud Native Technologies  documentation</a></li>
+<li>安装后需要重启docker服务，<code>sudo systemctl restart docker</code></li>
+</ul>
+</li>
+<li>检查是否安装成功<ul>
+<li>查看docker是否接受<code>--gpu</code>参数：<code>docker run --help | grep -i gpus</code></li>
+<li>尝试在docker容器中运行<code>nvidia-smi</code></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 镜像版本建议先查看Docker Hub页面</span></span><br><span class="line"><span class="comment"># https://hub.docker.com/r/nvidia/cuda</span></span><br><span class="line">docker run --gpus all nvidia/cuda:12.0.1-base-ubi9 nvidia-smi</span><br><span class="line"><span class="comment"># 若输出正常则证明nvidia-container-toolkit安装成功</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+    
+        <a href="/wiki/%E9%A9%BE%E7%85%A7/%E7%A7%91%E7%9B%AE%E4%B8%80/%E7%A7%91%E7%9B%AE%E4%B8%80%20%E5%8F%A3%E8%AF%80/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">科目一 口诀</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+        <section id="comments"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/gangdong/gangdong.github.io@dev/assets/js/md5.min.js"></script>
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script>
+    let gitalk = new Gitalk({
+        clientID: '5acafd44ae888e4f7d60',
+        clientSecret: 'ff6f4a17ab3216abb24dc7ca2e9b1c24a6e66f5f',
+        repo: 'blog-wiki',
+        owner: 'objectnf',
+        admin: ["objectnf"],
+        id: md5('http://wiki.zhouweitong.site/wiki/AI%E7%BB%98%E7%94%BB/NovelAI/%E5%88%B6%E4%BD%9C%E5%8F%8A%E8%BF%90%E8%A1%8CWebUI%EF%BC%88NovelAI%EF%BC%89Docker%E9%95%9C%E5%83%8F/'),
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+    gitalk.render('gitalk-container');
+</script>
+ </section>
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            ObjectNotFound &copy; 2023 
+            <a rel="external nofollow noopener noreferrer" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png"></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a>. Theme - <a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            <br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://beian.miit.gov.cn/">浙ICP备19034170号</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+    </div>
+</body>
+</html>
