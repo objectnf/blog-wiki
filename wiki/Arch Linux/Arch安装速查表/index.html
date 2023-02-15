@@ -17,7 +17,7 @@
 <meta property="og:description" content="LiveCD下载后操作无需求时可跳过本节； 校验ISO镜像 sha256校验：https:&#x2F;&#x2F;archlinux.org&#x2F;download&#x2F;#checksums，或者 pgp校验（必须从 archlinux.org 域名下载pgp签名文件  烧录ISO镜像刻录ISO为光盘 或者 使用软件从ISO镜像制作USB启动盘；  Rufus； balenaEtcher；  从LiveCD启动机器 若是UEF">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-02-14T10:00:00.000Z">
-<meta property="article:modified_time" content="2023-02-14T12:25:41.586Z">
+<meta property="article:modified_time" content="2023-02-15T11:25:01.317Z">
 <meta property="article:author" content="ObjectNotFound">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Arch Linux">
@@ -720,12 +720,43 @@
 <p>设置分区大小时可以直接使用容量值，如<code>+100M</code></p>
 <h4 id="硬盘规划"><a href="#硬盘规划" class="headerlink" title="硬盘规划"></a>硬盘规划</h4><h5 id="EFI分区"><a href="#EFI分区" class="headerlink" title="EFI分区"></a>EFI分区</h5><p>1个，仅UEFI模式时需要</p>
 <ul>
-<li>格式：FAT32</li>
-<li>容量：数百兆（300MB）</li>
+<li>格式：EFI System</li>
+<li>文件系统：FAT32</li>
+<li>容量：数百MB（300MB）</li>
 <li>挂载点：<code>/boot/efi</code></li>
 <li>Flag: boot</li>
+<li>用途：存储UEFI需要的启动文件</li>
 </ul>
-<h5 id="boot分区"><a href="#boot分区" class="headerlink" title="boot分区"></a>boot分区</h5><p>根分区不是ext4</p>
+<h5 id="boot分区"><a href="#boot分区" class="headerlink" title="boot分区"></a>boot分区</h5><p>根分区不是ext4时，推荐单独建立1个ext4格式的boot分区；</p>
+<ul>
+<li>格式：Linux filesystem</li>
+<li>文件系统：ext4</li>
+<li>容量：数百MB（500MB）或数GB（1GB）</li>
+<li>挂载点：<code>/boot</code></li>
+<li>用途：存储所有启动相关的文件，如：GRUB配置、Linux内核（vmlinuz、initrd）等</li>
+</ul>
+<h5 id="swap交换空间"><a href="#swap交换空间" class="headerlink" title="swap交换空间"></a>swap交换空间</h5><p>除非存储空间非常紧缺，否则应该使用swap，推荐直接创建swap分区；</p>
+<p>除了使用swap分区以外，也可以不创建分区而使用swap文件；</p>
+<ul>
+<li>格式：Linux swap</li>
+<li>文件系统：swap</li>
+<li>容量：根据是否需要使用休眠功能（Hibernation）和RAM大小确定：<ul>
+<li>使用休眠功能：休眠时Linux会将整个物理内存保存在硬盘（也即swap）中；<ul>
+<li>RAM &lt;&#x3D; 2GB，swap &gt;&#x3D; 3*RAM</li>
+<li>RAM &gt; 2GB &amp;&amp; RAM &lt;&#x3D; 8GB，swap &gt;&#x3D; 2*RAM</li>
+<li>RAM &gt; 8GB &amp;&amp; RAM &lt;&#x3D; 64GB，swap &gt;&#x3D; 1.5*RAM</li>
+<li>RAM &gt;&#x3D; 64GB，此时使用休眠功能耗时较长，且若是固态硬盘则会快速消耗硬盘寿命，因此不推荐使用休眠功能</li>
+</ul>
+</li>
+<li>不使用休眠功能<ul>
+<li>RAM &lt;&#x3D; 2GB，swap &gt;&#x3D; 2*RAM</li>
+<li>RAM &gt; 2GB &amp;&amp; RAM &lt;&#x3D; 8GB，swap &gt;&#x3D; RAM</li>
+<li>RAM &gt; 8GB，swap &gt;&#x3D; max(8GB, 0.5*RAM)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <blockquote>
 <p>TODO：整个安装流程</p>
 </blockquote>
