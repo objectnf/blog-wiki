@@ -17,7 +17,7 @@
 <meta property="og:description" content="Toolbox 可看做是Podman的Wrapper，力求将容器与主机的操作系统（Host OS）无缝集成。与Toolbox类似的工具还有Distrobox。它们在牺牲一些容器安全性（端口控制、资源控制、文件的独立性等）的情况下可以做到：  用户穿透：在容器中使用与当前Host user一样的user与home目录； 设备穿透：直接使用Host的&#x2F;dev、&#x2F;media等； 网络穿透：直接使用Hos">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-02-18T05:38:00.000Z">
-<meta property="article:modified_time" content="2023-02-18T09:24:55.014Z">
+<meta property="article:modified_time" content="2023-02-18T11:22:06.668Z">
 <meta property="article:author" content="ObjectNotFound">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Docker">
@@ -674,7 +674,8 @@
 <li>使用不同版本的镜像实现<strong>“旧程序运行在新系统上”或“新程序运行在旧系统上”</strong>，或对程序进行兼容性测试；</li>
 <li>可以通过对镜像进行自定义，实现<strong>快速且一致的开发环境搭建</strong>；</li>
 </ul>
-<p>符合OCI标准的容器镜像均可被Toolbox</p>
+<h2 id="创建自己的Toolbox镜像"><a href="#创建自己的Toolbox镜像" class="headerlink" title="创建自己的Toolbox镜像"></a>创建自己的Toolbox镜像</h2><p>符合OCI标准的容器镜像均可被Toolbox使用。换言之，依照通常的Docker镜像构建方法就可以构建自己的Toolbox镜像。</p>
+<p>Fedora社区持续维护着Fedora的Toolbox镜像构建文件 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://src.fedoraproject.org/container/fedora-toolbox">container&#x2F;fedora-toolbox</a>，GitHub上也有社区维护的各主流发行版的Toolbox镜像 </p>
 
             </div>
         
