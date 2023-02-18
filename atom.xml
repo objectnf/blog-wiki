@@ -6,7 +6,7 @@
   <link href="http://wiki.zhouweitong.site/atom.xml" rel="self"/>
   
   <link href="http://wiki.zhouweitong.site/"/>
-  <updated>2023-02-18T08:05:10.576Z</updated>
+  <updated>2023-02-18T08:23:41.451Z</updated>
   <id>http://wiki.zhouweitong.site/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://wiki.zhouweitong.site/wiki/Fedora%20Silverblue/Toolbox/%E8%87%AA%E5%AE%9A%E4%B9%89Toolbox%E9%95%9C%E5%83%8F/"/>
     <id>http://wiki.zhouweitong.site/wiki/Fedora%20Silverblue/Toolbox/%E8%87%AA%E5%AE%9A%E4%B9%89Toolbox%E9%95%9C%E5%83%8F/</id>
     <published>2023-02-18T05:38:00.000Z</published>
-    <updated>2023-02-18T08:05:10.576Z</updated>
+    <updated>2023-02-18T08:23:41.451Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Toolbox 可看做是Podman的Wrapper，力求将容器与主机的操作系统（Host OS）无缝集成。与Toolbox类似的工具还有Distrobox。它们在牺牲一些容器安全性（端口控制、资源控制、文件的独立性等）的情况下可以做到：</p><ul><li>用户穿透：在容器中使用与当前Host user一样的user与home目录；</li><li>设备穿透：直接使用Host的<code>/dev</code>、<code>/media</code>等；</li><li>服务穿透：通过直接使用Host的<code>/run/user/&lt;uid&gt;</code>和<code>/tmp</code>以及关键服务的Socket，实现在容器中访问主机的显示服务（X11&#x2F;Wayland）、网络服务（Avahi）、D-Bus、systemd journal等；</li></ul><p>Toolbox使用的镜像</p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Toolbox 可看做是Podman的Wrapper，力求将容器与主机的操作系统（Host OS）无缝集成。与Toolbox类似的工具还有Distrobox。它们在牺牲一些容器安全性（端口控制、资源控制、文件的独立性等）的情况下可以做到：</p><ul><li>用户穿透：在容器中使用与当前Host user一样的user与home目录；</li><li>设备穿透：直接使用Host的<code>/dev</code>、<code>/media</code>等；</li><li>网络穿透：直接使用Host网络，获得与主机一致的网络体验；</li><li>服务穿透：通过直接使用Host的<code>/run/user/&lt;uid&gt;</code>和<code>/tmp</code>以及关键服务的Socket，实现在容器中访问主机的显示服务（X11&#x2F;Wayland）、网络服务（Avahi）、D-Bus、systemd journal等；</li></ul><p>因此，Toolbox可以用来：</p><ul><li><strong>作为不可变系统的软件安装方式之一。</strong>如Fedora Silverblue、Fedora CoreOS等不可变系统中均预装Toolbox，另一些不可变系统中可能预装Distrobox；</li><li>使用其他发行版的镜像，<strong>在当前发行版中无缝运行针对其他发行版制作的程序</strong>。如在Fedora下运行只提供Ubuntu deb包的GUI程序；</li><li></li></ul><p>符合OCI标准的容器镜像均可被Toolbox</p>]]></content>
     
     
       
