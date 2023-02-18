@@ -6,7 +6,7 @@
   <link href="http://wiki.zhouweitong.site/atom.xml" rel="self"/>
   
   <link href="http://wiki.zhouweitong.site/"/>
-  <updated>2023-02-18T02:44:03.783Z</updated>
+  <updated>2023-02-18T08:05:10.576Z</updated>
   <id>http://wiki.zhouweitong.site/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>自定义Toolbox镜像</title>
+    <link href="http://wiki.zhouweitong.site/wiki/Fedora%20Silverblue/Toolbox/%E8%87%AA%E5%AE%9A%E4%B9%89Toolbox%E9%95%9C%E5%83%8F/"/>
+    <id>http://wiki.zhouweitong.site/wiki/Fedora%20Silverblue/Toolbox/%E8%87%AA%E5%AE%9A%E4%B9%89Toolbox%E9%95%9C%E5%83%8F/</id>
+    <published>2023-02-18T05:38:00.000Z</published>
+    <updated>2023-02-18T08:05:10.576Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Toolbox 可看做是Podman的Wrapper，力求将容器与主机的操作系统（Host OS）无缝集成。与Toolbox类似的工具还有Distrobox。它们在牺牲一些容器安全性（端口控制、资源控制、文件的独立性等）的情况下可以做到：</p><ul><li>用户穿透：在容器中使用与当前Host user一样的user与home目录；</li><li>设备穿透：直接使用Host的<code>/dev</code>、<code>/media</code>等；</li><li>服务穿透：通过直接使用Host的<code>/run/user/&lt;uid&gt;</code>和<code>/tmp</code>以及关键服务的Socket，实现在容器中访问主机的显示服务（X11&#x2F;Wayland）、网络服务（Avahi）、D-Bus、systemd journal等；</li></ul><p>Toolbox使用的镜像</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;css&quot; href=&quot;https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css&quot;&gt;&lt;link rel=&quot;st</summary>
+      
+    
+    
+    
+    <category term="Fedora Silverblue" scheme="http://wiki.zhouweitong.site/categories/Fedora-Silverblue/"/>
+    
+    <category term="Toolbox" scheme="http://wiki.zhouweitong.site/categories/Fedora-Silverblue/Toolbox/"/>
+    
+    
+    <category term="Linux" scheme="http://wiki.zhouweitong.site/tags/Linux/"/>
+    
+    <category term="Docker" scheme="http://wiki.zhouweitong.site/tags/Docker/"/>
+    
+    <category term="Fedora" scheme="http://wiki.zhouweitong.site/tags/Fedora/"/>
+    
+    <category term="Toolbox" scheme="http://wiki.zhouweitong.site/tags/Toolbox/"/>
+    
+    <category term="Podman" scheme="http://wiki.zhouweitong.site/tags/Podman/"/>
+    
+  </entry>
   
   <entry>
     <title>AI绘画模型和插件汇总</title>
@@ -43,40 +77,6 @@
     <category term="Novel AI" scheme="http://wiki.zhouweitong.site/tags/Novel-AI/"/>
     
     <category term="模型与插件" scheme="http://wiki.zhouweitong.site/tags/%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%8F%92%E4%BB%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>自定义Toolbox镜像</title>
-    <link href="http://wiki.zhouweitong.site/wiki/Fedora%20Silverblue/Toolbox/%E8%87%AA%E5%AE%9A%E4%B9%89Toolbox%E9%95%9C%E5%83%8F/"/>
-    <id>http://wiki.zhouweitong.site/wiki/Fedora%20Silverblue/Toolbox/%E8%87%AA%E5%AE%9A%E4%B9%89Toolbox%E9%95%9C%E5%83%8F/</id>
-    <published>2023-02-17T12:38:00.000Z</published>
-    <updated>2023-02-17T15:19:10.069Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;css&quot; href=&quot;https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css&quot;&gt;&lt;link rel=&quot;st</summary>
-      
-    
-    
-    
-    <category term="Fedora Silverblue" scheme="http://wiki.zhouweitong.site/categories/Fedora-Silverblue/"/>
-    
-    <category term="Toolbox" scheme="http://wiki.zhouweitong.site/categories/Fedora-Silverblue/Toolbox/"/>
-    
-    
-    <category term="Linux" scheme="http://wiki.zhouweitong.site/tags/Linux/"/>
-    
-    <category term="Docker" scheme="http://wiki.zhouweitong.site/tags/Docker/"/>
-    
-    <category term="Fedora" scheme="http://wiki.zhouweitong.site/tags/Fedora/"/>
-    
-    <category term="Toolbox" scheme="http://wiki.zhouweitong.site/tags/Toolbox/"/>
-    
-    <category term="Podman" scheme="http://wiki.zhouweitong.site/tags/Podman/"/>
     
   </entry>
   
