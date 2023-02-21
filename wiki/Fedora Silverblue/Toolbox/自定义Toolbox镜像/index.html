@@ -17,7 +17,7 @@
 <meta property="og:description" content="Toolbox 可看做是Podman的Wrapper，力求将容器与主机的操作系统（Host OS）无缝集成。与Toolbox类似的工具还有Distrobox。它们在牺牲一些容器安全性（端口控制、资源控制、文件的独立性等）的情况下可以做到：  用户穿透：在容器中使用与当前Host user一样的user与home目录； 设备穿透：直接使用Host的&#x2F;dev、&#x2F;media等； 网络穿透：直接使用Hos">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-02-18T05:38:00.000Z">
-<meta property="article:modified_time" content="2023-02-21T11:19:23.581Z">
+<meta property="article:modified_time" content="2023-02-21T12:59:49.348Z">
 <meta property="article:author" content="ObjectNotFound">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Docker">
@@ -706,7 +706,42 @@
 
 
 
-<h3 id="给Toolbox镜像增加中文支持"><a href="#给Toolbox镜像增加中文支持" class="headerlink" title="给Toolbox镜像增加中文支持"></a>给Toolbox镜像增加中文支持</h3><p>可以通过修改<code>LANG</code>变量、重新生成语言文件、安装中文字体等方法使Toolbox内的命令行&#x2F;GUI程序</p>
+<h3 id="给Toolbox镜像增加中文支持"><a href="#给Toolbox镜像增加中文支持" class="headerlink" title="给Toolbox镜像增加中文支持"></a>给Toolbox镜像增加中文支持</h3><p>可以通过修改<code>LANG</code>变量、重新生成语言文件、安装中文字体等方法使Toolbox内的命令行&#x2F;GUI程序支持并默认显示中文。</p>
+<ol>
+<li>添加语言文件：在上述Dockerfile示例的<code>[B]</code>节前添加如下内容</li>
+</ol>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 中文语言</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> dnf install -y  glibc-locale-source glibc-langpack-zh langpacks-zh_CN</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> localedef -c -i zh_CN -f UTF-8 zh_CN.UTF-8</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>安装字体和输入法：在上述Dockerfile示例的<code>[C]</code>节或<code>[D]</code>节前添加如下内容</li>
+</ol>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装字体和输入法</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> dnf install -y wqy-microhei-fonts wqy-zenhei-fonts fcitx5</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>设置<code>LANG</code>环境变量：在上述Dockerfile示例的最后添加如下内容</li>
+</ol>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置环境变量</span></span><br><span class="line"><span class="keyword">ENV</span> LANG zh_CN.UTF-<span class="number">8</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="使用Toolbox镜像"><a href="#使用Toolbox镜像" class="headerlink" title="使用Toolbox镜像"></a>使用Toolbox镜像</h2><p>以自定义镜像的tag为<code>a.com/fedora-toolbox-customized:37</code>为例：</p>
+<ol>
+<li>通过<code>podman</code>拉取自定义镜像</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">podman pull a.com/fedora-toolbox-customized:37</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>使用<code>toolbox</code>创建容器</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 容器名可以随意指定</span></span><br><span class="line"><span class="comment"># 当主机为Fedora系统，且容器名为 fedora-toolbox-&lt;主机Fedora版本号&gt; 时，该容器为Toolbox默认容器</span></span><br><span class="line">toolbox create --image a.com/fedora-toolbox-customized:37 fedora-toolbox-37</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>进入容器环境或执行容器内特定程序</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 当主机只有一个Toolbox容器时，会直接进入该容器</span></span><br><span class="line"><span class="comment"># 当Fedora系统的主机有默认容器时，会直接进入默认容器</span></span><br><span class="line">toolbox enter</span><br><span class="line"><span class="comment"># 可以直接指定需要运行的命令</span></span><br><span class="line">toolbox run &lt;命令&gt;</span><br><span class="line"><span class="comment"># 在存在多个Toolbox容器时，可通过命令参数指定运行哪个容器</span></span><br><span class="line">toolbox enter &lt;容器名&gt;</span><br><span class="line">toolbox run --container &lt;容器名&gt; &lt;命令&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="删除Toolbox容器和镜像"><a href="#删除Toolbox容器和镜像" class="headerlink" title="删除Toolbox容器和镜像"></a>删除Toolbox容器和镜像</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 需要退出所有正在使用Toolbox Shell/命令行程序/GUI程序的窗口</span></span><br><span class="line"><span class="comment"># 停止容器</span></span><br><span class="line">podman stop &lt;容器名&gt;</span><br><span class="line"><span class="comment"># 删除容器</span></span><br><span class="line">toolbox <span class="built_in">rm</span> &lt;容器名&gt;</span><br><span class="line"><span class="comment"># 删除镜像</span></span><br><span class="line">podman rmi a.com/fedora-toolbox-customized:37</span><br></pre></td></tr></table></figure>
+
+
 
             </div>
         
