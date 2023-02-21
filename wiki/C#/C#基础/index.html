@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    
+    <title>C#基础 | ObjectNotFound Wiki</title>
+    
+    
+        <meta name="keywords" content="编程语言,C#,基础入门">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="版本问题 目前最新的版本是C# 10（.Net 6），在研的版本是C# 11（.Net 6，.Net 7） .Net版本和C#版本有对应关系：.Net相当于JDK（运行时），C#相当于Java（语言标准） .Net经过多次分割和合并 开始时.Net仅在Windows平台上开放（.Net Framework 3.x，4.x，目前仍在维护，即.Net Framework 4.8），截止到C# 7 因此">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C#基础">
+<meta property="og:url" content="http://wiki.zhouweitong.site/wiki/C#/C#%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="ObjectNotFound Wiki">
+<meta property="og:description" content="版本问题 目前最新的版本是C# 10（.Net 6），在研的版本是C# 11（.Net 6，.Net 7） .Net版本和C#版本有对应关系：.Net相当于JDK（运行时），C#相当于Java（语言标准） .Net经过多次分割和合并 开始时.Net仅在Windows平台上开放（.Net Framework 3.x，4.x，目前仍在维护，即.Net Framework 4.8），截止到C# 7 因此">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-02-21T10:00:00.000Z">
+<meta property="article:modified_time" content="2023-02-21T11:19:23.580Z">
+<meta property="article:author" content="ObjectNotFound">
+<meta property="article:tag" content="编程语言">
+<meta property="article:tag" content="C#">
+<meta property="article:tag" content="基础入门">
+<meta name="twitter:card" content="summary">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="ObjectNotFound Wiki" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="/images/favicon.ico">
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/open-sans/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    
+<script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">ObjectNotFound Wiki</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" target="_blank" rel="noopener" href="https://www.zhouweitong.site">主站</a>
+                
+                    <a class="main-nav-link" href="/archives">时间线</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/images/git-avatar.jpg">
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" target="_blank" rel="noopener" href="https://www.zhouweitong.site">主站</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">时间线</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/images/git-avatar.jpg">
+            <h2 id="name">ObjectNotFound</h2>
+            <h3 id="title">思维改变世界</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>杭州市, 浙江省, 中国</span>
+            <a id="follow" target="_blank" href="https://github.com/objectnf/" rel="external nofollow noopener noreferrer">关注我</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                20
+                <span>文章</span>
+            </div>
+            <div class="article-info-block">
+                53
+                <span>标签</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/objectnf" target="_blank" title="github" class="tooltip" rel="external nofollow noopener noreferrer">
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="mailto:xml@live.com" target="_blank" title="at" class="tooltip" rel="external nofollow noopener noreferrer">
+                            <i class="fa fa-at"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://twitter.com/objectnf" target="_blank" title="twitter" class="tooltip" rel="external nofollow noopener noreferrer">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/atom.xml" target="_blank" title="rss" class="tooltip">
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id="categories">
+        <h3 class="widget-title">
+            <span>分类</span>
+            &nbsp;
+            <a id="allExpand" href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            AI绘画
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/AI%E7%BB%98%E7%94%BB/AI%E7%BB%98%E7%94%BB%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%8F%92%E4%BB%B6%E6%B1%87%E6%80%BB/">AI绘画模型和插件汇总</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Arch Linux
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/Arch%20Linux/Arch%E5%AE%89%E8%A3%85%E9%80%9F%E6%9F%A5%E8%A1%A8/">Arch安装速查表</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            C#
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file active"><a href="/wiki/C#/C#%E5%9F%BA%E7%A1%80/">C#基础</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Docker
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/Docker/%E5%BF%AB%E9%80%9F%E5%88%A0%E9%99%A4%E6%97%A0%E7%94%A8%E7%9A%84Image/">快速删除无用的Docker Image</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Fedora Silverblue
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Flatpak
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/Fedora%20Silverblue/Flatpak/Flathub%20&%20%E5%A6%82%E4%BD%95%E5%88%B6%E4%BD%9CFlathub%E9%95%9C%E5%83%8F/">Flathub & 如何制作Flathub镜像</a></li>  <li class="file"><a href="/wiki/Fedora%20Silverblue/Flatpak/Flatpak%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">Flatpak基础使用</a></li>  <li class="file"><a href="/wiki/Fedora%20Silverblue/Flatpak/Flatpak%E6%A6%82%E5%BF%B5/">Flatpak概念</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Toolbox
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/Fedora%20Silverblue/Toolbox/%E8%87%AA%E5%AE%9A%E4%B9%89Toolbox%E9%95%9C%E5%83%8F/">自定义Toolbox镜像</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Linux防火墙
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            iptables
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/Linux%E9%98%B2%E7%81%AB%E5%A2%99/iptables/%E6%B8%85%E7%A9%BAiptables%E8%A7%84%E5%88%99/">清空iptables规则</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            名词解释
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/%E5%90%8D%E8%AF%8D%E6%B3%A8%E8%A7%A3/X%20to%20Y/">X to Y</a></li>  <li class="file"><a href="/wiki/%E5%90%8D%E8%AF%8D%E6%B3%A8%E8%A7%A3/%E7%AC%ACX%E5%9B%BD%E9%99%85/">第X国际</a></li>  <li class="file"><a href="/wiki/%E5%90%8D%E8%AF%8D%E6%B3%A8%E8%A7%A3/%E8%B4%B9%E6%8E%A7/">费控</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            多国语
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            中文
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/%E5%A4%9A%E5%9B%BD%E8%AF%AD/%E4%B8%AD%E6%96%87/%E6%A6%82%E5%BF%B5/">概念</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            日语
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/%E5%A4%9A%E5%9B%BD%E8%AF%AD/%E6%97%A5%E8%AF%AD/%E6%96%B9%E8%A8%80%E5%8F%8A%E5%8C%BA%E5%88%AB/">方言及区别</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            法语
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/%E5%A4%9A%E5%9B%BD%E8%AF%AD/%E6%B3%95%E8%AF%AD/%E6%B3%95%E8%AF%AD%E5%AD%97%E6%AF%8D/">法语字母</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            英语
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/%E5%A4%9A%E5%9B%BD%E8%AF%AD/%E8%8B%B1%E8%AF%AD/%E5%B8%B8%E8%A7%81%E7%BC%A9%E7%95%A5%E8%AF%AD/">常见缩略语</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            数学
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            线性代数
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0_1/">P1-行列式</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            音乐与音频
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            效果器
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/%E9%9F%B3%E4%B9%90%E4%B8%8E%E9%9F%B3%E9%A2%91/%E6%95%88%E6%9E%9C%E5%99%A8/EQ%E8%B0%83%E8%8A%82%E8%AF%AF%E5%8C%BA/">EQ调节误区</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            驾照
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            科目一
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/%E9%A9%BE%E7%85%A7/%E7%A7%91%E7%9B%AE%E4%B8%80/%E7%A7%91%E7%9B%AE%E4%B8%80%20%E5%8F%A3%E8%AF%80/">科目一 口诀</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/index/">欢迎访问 ObjectNotFound 个人知识库</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title"><span>最新文章</span></h3>
+        <div class="widget">
+            <ul id="recent-post" class>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/wiki/C#/C#%E5%9F%BA%E7%A1%80/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/C/">C#</a></p>
+                            <p class="item-title"><a href="/wiki/C#/C#%E5%9F%BA%E7%A1%80/" class="title">C#基础</a></p>
+                            <p class="item-date"><time datetime="2023-02-21T10:00:00.000Z" itemprop="datePublished">2023-02-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/wiki/Fedora%20Silverblue/Toolbox/%E8%87%AA%E5%AE%9A%E4%B9%89Toolbox%E9%95%9C%E5%83%8F/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Fedora-Silverblue/">Fedora Silverblue</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Fedora-Silverblue/Toolbox/">Toolbox</a></p>
+                            <p class="item-title"><a href="/wiki/Fedora%20Silverblue/Toolbox/%E8%87%AA%E5%AE%9A%E4%B9%89Toolbox%E9%95%9C%E5%83%8F/" class="title">自定义Toolbox镜像</a></p>
+                            <p class="item-date"><time datetime="2023-02-18T05:38:00.000Z" itemprop="datePublished">2023-02-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/wiki/AI%E7%BB%98%E7%94%BB/AI%E7%BB%98%E7%94%BB%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%8F%92%E4%BB%B6%E6%B1%87%E6%80%BB/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/AI%E7%BB%98%E7%94%BB/">AI绘画</a></p>
+                            <p class="item-title"><a href="/wiki/AI%E7%BB%98%E7%94%BB/AI%E7%BB%98%E7%94%BB%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%8F%92%E4%BB%B6%E6%B1%87%E6%80%BB/" class="title">AI绘画模型和插件汇总</a></p>
+                            <p class="item-date"><time datetime="2023-02-18T02:00:00.000Z" itemprop="datePublished">2023-02-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/wiki/%E9%A9%BE%E7%85%A7/%E7%A7%91%E7%9B%AE%E4%B8%80/%E7%A7%91%E7%9B%AE%E4%B8%80%20%E5%8F%A3%E8%AF%80/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E9%A9%BE%E7%85%A7/">驾照</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E9%A9%BE%E7%85%A7/%E7%A7%91%E7%9B%AE%E4%B8%80/">科目一</a></p>
+                            <p class="item-title"><a href="/wiki/%E9%A9%BE%E7%85%A7/%E7%A7%91%E7%9B%AE%E4%B8%80/%E7%A7%91%E7%9B%AE%E4%B8%80%20%E5%8F%A3%E8%AF%80/" class="title">科目一 口诀</a></p>
+                            <p class="item-date"><time datetime="2023-02-14T12:30:00.000Z" itemprop="datePublished">2023-02-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/wiki/Arch%20Linux/Arch%E5%AE%89%E8%A3%85%E9%80%9F%E6%9F%A5%E8%A1%A8/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Arch-Linux/">Arch Linux</a></p>
+                            <p class="item-title"><a href="/wiki/Arch%20Linux/Arch%E5%AE%89%E8%A3%85%E9%80%9F%E6%9F%A5%E8%A1%A8/" class="title">Arch安装速查表</a></p>
+                            <p class="item-date"><time datetime="2023-02-14T10:00:00.000Z" itemprop="datePublished">2023-02-14</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-C#/C#基础" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/C/">C#</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/C/" rel="tag">C#</a>, <a class="tag-link-link" href="/tags/%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/" rel="tag">基础入门</a>, <a class="tag-link-link" href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" rel="tag">编程语言</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/C#/C#%E5%9F%BA%E7%A1%80/">
+            <time datetime="2023-02-21T10:00:00.000Z" itemprop="datePublished">2023-02-21</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            C#基础
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+        
+        
+            <link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="版本问题"><a href="#版本问题" class="headerlink" title="版本问题"></a>版本问题</h2><ul>
+<li>目前最新的版本是C# 10（.Net 6），在研的版本是C# 11（.Net 6，.Net 7）</li>
+<li>.Net版本和C#版本有对应关系：.Net相当于JDK（运行时），C#相当于Java（语言标准）</li>
+<li>.Net经过多次分割和合并<ul>
+<li>开始时.Net仅在Windows平台上开放（.Net Framework 3.x，4.x，目前仍在维护，即.Net Framework 4.8），截止到C# 7</li>
+<li>因此开源的.Net运行时开始发展（Mono，等同于.Net Framework 4.x），截止到C# 7</li>
+<li>.Net Framework 3.x在Windows 7上预装，.Net Framework 4.x 在Windows 8以上系统内预装</li>
+<li>随后Microsoft推出了.Net Core计划，相当于把.Net部分开源，截止到.Net Core 3.1（C# 8）</li>
+<li>之后，Microsoft宣布将.Net完全开源，推出了.Net 5.x（C# 9）和.Net 6.x（C# 10）</li>
+</ul>
+</li>
+<li>.Net，.Net Framework和.Net Core的关系：.Net Framework是最“完整”的.Net，包含Windows窗口API、Windows服务API、Web支持等等；.Net Core是最初开源的.Net，.Net是完全开源的.Net，但仍然只有部分功能（可以类比Oracle Java EE，OpenJDK和JDK）</li>
+<li>Unity和C#之间的关系：<ul>
+<li>Unity使用Roslyn编译器，也即.Net官方给出的编译器（<a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/dotnet/roslyn">dotnet&#x2F;roslyn: The Roslyn .NET compiler provides C# and Visual Basic languages with rich code analysis APIs. (github.com)</a>），将C#代码转换为中间码IL</li>
+<li>随后依据平台的不同，使用Mono继续处理IL（IL到机器码）或者使用IL2CPP（IL到C++到机器码）或者使用.Net本身（IL到机器码）</li>
+<li>目前的Unity版本与C#版本的对应关系<ul>
+<li>Unity 2018.4<ul>
+<li>.Net Framework 3.5（C# 4）</li>
+<li>.Net Framework 4.6（C# 7.3）</li>
+</ul>
+</li>
+<li>Unity 2019.4<ul>
+<li>.Net Framework 4.6（C# 7.3）</li>
+</ul>
+</li>
+<li>Unity 2020.3<ul>
+<li>.Net Framework 4.6（C# 8.0）</li>
+</ul>
+</li>
+<li>Unity 2021.3<ul>
+<li>C# 9.0</li>
+</ul>
+</li>
+<li>Unity 2022.2<ul>
+<li>C# 9.0</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="环境搭建和使用"><a href="#环境搭建和使用" class="headerlink" title="环境搭建和使用"></a>环境搭建和使用</h2><ul>
+<li>Windows下推荐使用Visual Studio,开启.Net&#x2F;ASP .Net开发功能<ul>
+<li><a target="_blank" rel="external nofollow noopener noreferrer" href="https://visualstudio.microsoft.com/zh-hans/">Visual Studio: 面向软件开发人员和 Teams 的 IDE 和代码编辑器</a></li>
+<li>如果有在Windows上以Mono做开发的需求，可以安装Mono和MonoDevelop：<ul>
+<li><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.mono-project.com/download/stable/#download-win">Download - Stable | Mono</a></li>
+<li><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.monodevelop.com/download/#fndtn-download-win">Download | MonoDevelop</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Linux下可选择.Net或Mono：<ul>
+<li>Mono需要添加官方源：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.mono-project.com/download/stable/#download-lin">Download - Stable | Mono</a><ul>
+<li><code>apt-get install mono-devel monodevelop</code></li>
+</ul>
+</li>
+<li>.Net同样需要添加官方源：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://docs.microsoft.com/zh-cn/dotnet/core/install/linux">在 Linux 发行版上安装 .NET - .NET | Microsoft Docs</a><ul>
+<li><code>apt-get install dotnet-sdk-6.0</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="基本结构"><a href="#基本结构" class="headerlink" title="基本结构"></a>基本结构</h2><ul>
+<li>C#程序的基本结构：使用命名空间、定义命名空间、命名空间内定义类、类内定义方法、Main函数入口点</li>
+<li>语句的结尾用分号（;），class、function、namespace算语句块，不需要分号</li>
+<li>Main函数入口点的形式：<code>static void Main(string[] args) &#123;&#125;</code><ul>
+<li>必须是静态函数：static</li>
+<li>一定是无返回值的：void</li>
+<li>参数是可选的，若有参数，则是字符串数组：string[]</li>
+<li>因为是静态函数，所以Main函数中只能直接调用其他静态函数<ul>
+<li>即：函数能静态最好设置为静态</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>示例程序</li>
+</ul>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">namespace</span> <span class="title">TestNamespace</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">ExampleClass</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;Hello World!&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a>基本类型</h2><ul>
+<li><p>也分常量&#x2F;变量类型和字面量（literal）类型</p>
+</li>
+<li><p>不符合“一切皆对象”的哲学：字面量不是对象</p>
+</li>
+<li><p>所有基本类型在定义时会被自动初始化为默认值。（一些编译器认为）如果需要变量在定义时保持其默认值，不应该将其初始化。（另一些编译器认为）变量使用前均应该被初始化。</p>
+<ul>
+<li>即：<code>bool m_a = false;</code> 应该写为 <code>bool m_a;</code></li>
+</ul>
+</li>
+<li><p>值类型：数据存放在栈中，使用时也是直接从栈取数据、向栈写回数据；</p>
+</li>
+<li><p>内置的基本类型：均是值类型</p>
+<ul>
+<li><code>bool</code>：布尔类型，默认值为false</li>
+<li><code>int</code>：32位整型，2^-31到2^31-1，默认值为0</li>
+<li><code>uint</code>：32位无符号整型，0到2^32-1,默认值为0</li>
+<li><code>short</code>：16位整型，-2^15到2^15-1，默认值为0</li>
+<li><code>ushort</code>：16位无符号整型，0到2^16-1，默认值为0</li>
+<li><code>long</code>：64位整型，-2^63到2^63-1,默认值为0L</li>
+<li><code>ulong</code>：64位无符号整型，0到2^64-1，默认值为0UL</li>
+<li><code>sbyte</code>：8位整型，-2^7到2^7-1，默认值为0</li>
+<li><code>byte</code>：8位无符号整型，0到2^8-1，默认值为0</li>
+<li><code>float</code>：32位单精度浮点型，默认值为0.0f</li>
+<li><code>double</code>：64位双精度浮点型，默认值为0.0d</li>
+<li><code>char</code>：16位UNICODE字符，默认值为’\u0000’，即’\0’</li>
+<li><code>decimal</code>:128位整型（有效位数28～29位），默认值0.0M</li>
+</ul>
+</li>
+<li><p>注意基本类型的变量和常量也是对象，提供了一些成员方法</p>
+</li>
+<li><p>引用类型：数据存放在堆中，但会在栈中保存数据的地址。使用时从栈中找地址，再从堆中读数据；</p>
+<ul>
+<li>字符串<code>string</code>是引用类型；</li>
+<li>动态类型<code>dynamic</code>是引用类型；</li>
+<li>对象类型（及其各种子类）<code>object</code>是引用类型：<code>string</code>和<code>dynamic</code>可看作是<code>object</code>的两个常用子类</li>
+</ul>
+</li>
+<li><p>字符串类型：<code>string</code></p>
+<ul>
+<li><code>string</code> 本质上是一个对象</li>
+<li>可以定义字符串数组：<code>string[]</code>，然后用下标去访问需要的字符串</li>
+<li>字符串中部分字符需要反斜线转译，比如 <code>\n</code></li>
+<li>可以使用“逐字字符串”，例如 <code>@&quot;A&quot;</code>，用法类似于Python中的raw string（<code>r&quot;A&quot;</code>），换行符、缩进、空格等都会被原样保留</li>
+</ul>
+</li>
+<li><p>指针类型：与C++一样，使用 <code>*</code></p>
+<ul>
+<li>必须在指定不安全的上下文中使用，即unsafe的函数、变量或命名空间，且需在IDE的项目设置中开启“允许不安全的代码”选项（&#x2F;unsafe）</li>
+<li>定义：<code>int *b = &amp;a;</code></li>
+<li>使用：<code>*b;</code></li>
+</ul>
+</li>
+<li><p>动态类型：<code>dynamic</code></p>
+<ul>
+<li>与C++中的std::any有些类似</li>
+<li>变量的类型可在执行中改变，编译器不会对该变量进行类型检查</li>
+<li>多用于函数的返回值</li>
+</ul>
+</li>
+<li><p>对象类型：<code>object</code></p>
+<ul>
+<li><p><code>object</code>是所有基本类型变量的基类。更确切地说，它是所有类（类型）的终极父类；</p>
+</li>
+<li><p>所以理论上object类型可以“装入”并且“被读出”任意类型的数据</p>
+</li>
+<li><p>两种操作：</p>
+<ul>
+<li>将值类型转换为object类型的引用：装箱</li>
+</ul>
+  <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">object</span> obj = <span class="number">9</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>将object类型的引用转化为原来的值类型：拆箱，要注意必须使用强制类型转换，且只能转换为object对象中值的真实类型（否则会抛出<code>InvalidCastExpection</code>异常）</li>
+</ul>
+  <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> y = (<span class="built_in">int</span>)obj;</span><br></pre></td></tr></table></figure>
+</li>
+<li></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+    
+        <a href="/wiki/Fedora%20Silverblue/Toolbox/%E8%87%AA%E5%AE%9A%E4%B9%89Toolbox%E9%95%9C%E5%83%8F/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">自定义Toolbox镜像</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+        <section id="comments"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/gangdong/gangdong.github.io@dev/assets/js/md5.min.js"></script>
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script>
+    let gitalk = new Gitalk({
+        clientID: '5acafd44ae888e4f7d60',
+        clientSecret: 'ff6f4a17ab3216abb24dc7ca2e9b1c24a6e66f5f',
+        repo: 'blog-wiki',
+        owner: 'objectnf',
+        admin: ["objectnf"],
+        id: md5('http://wiki.zhouweitong.site/wiki/C#/C#%E5%9F%BA%E7%A1%80/'),
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+    gitalk.render('gitalk-container');
+</script>
+ </section>
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            ObjectNotFound &copy; 2023 
+            <a rel="external nofollow noopener noreferrer" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png"></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a>. Theme - <a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            <br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://beian.miit.gov.cn/">浙ICP备19034170号</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+    </div>
+</body>
+</html>
