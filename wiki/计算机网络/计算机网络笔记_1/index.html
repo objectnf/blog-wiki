@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    
+    <title>计算机网络笔记_1 | ObjectNotFound Wiki</title>
+    
+    
+        <meta name="keywords" content="笔记,计算机网络,Network">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="物理层理论概念 数据 信号 码元 通过码元数量计算码元信息量：k进制码元 $ \log_2k $   信源：发送信号 信宿：接受信号 信道 信道≠电路 从信道数量上来看 串行传输 并行传输：多信道   从信号方向上来看 单向通信：比如现实中光模块接的单模光纤 半双工通信：比如对讲机 全双工通信：比如打电话     波特（Baud）：单位时间内脉冲的个数 即码元   比特（Bit）：信息量的单位 即">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络笔记_1">
+<meta property="og:url" content="http://wiki.zhouweitong.site/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0_1/index.html">
+<meta property="og:site_name" content="ObjectNotFound Wiki">
+<meta property="og:description" content="物理层理论概念 数据 信号 码元 通过码元数量计算码元信息量：k进制码元 $ \log_2k $   信源：发送信号 信宿：接受信号 信道 信道≠电路 从信道数量上来看 串行传输 并行传输：多信道   从信号方向上来看 单向通信：比如现实中光模块接的单模光纤 半双工通信：比如对讲机 全双工通信：比如打电话     波特（Baud）：单位时间内脉冲的个数 即码元   比特（Bit）：信息量的单位 即">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://wiki.zhouweitong.site/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0_1/image-20230222175836723.png">
+<meta property="article:published_time" content="2023-02-22T10:00:00.000Z">
+<meta property="article:modified_time" content="2023-02-22T10:06:00.396Z">
+<meta property="article:author" content="ObjectNotFound">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="计算机网络">
+<meta property="article:tag" content="Network">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://wiki.zhouweitong.site/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0_1/image-20230222175836723.png">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="ObjectNotFound Wiki" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="/images/favicon.ico">
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/open-sans/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    
+<script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">ObjectNotFound Wiki</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" target="_blank" rel="noopener" href="https://www.zhouweitong.site">主站</a>
+                
+                    <a class="main-nav-link" href="/archives">时间线</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/images/git-avatar.jpg">
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" target="_blank" rel="noopener" href="https://www.zhouweitong.site">主站</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">时间线</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/images/git-avatar.jpg">
+            <h2 id="name">ObjectNotFound</h2>
+            <h3 id="title">思维改变世界</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>杭州市, 浙江省, 中国</span>
+            <a id="follow" target="_blank" href="https://github.com/objectnf/" rel="external nofollow noopener noreferrer">关注我</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                22
+                <span>文章</span>
+            </div>
+            <div class="article-info-block">
+                60
+                <span>标签</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/objectnf" target="_blank" title="github" class="tooltip" rel="external nofollow noopener noreferrer">
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="mailto:xml@live.com" target="_blank" title="at" class="tooltip" rel="external nofollow noopener noreferrer">
+                            <i class="fa fa-at"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://twitter.com/objectnf" target="_blank" title="twitter" class="tooltip" rel="external nofollow noopener noreferrer">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/atom.xml" target="_blank" title="rss" class="tooltip">
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id="categories">
+        <h3 class="widget-title">
+            <span>分类</span>
+            &nbsp;
+            <a id="allExpand" href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            AI绘画
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/AI%E7%BB%98%E7%94%BB/AI%E7%BB%98%E7%94%BB%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%8F%92%E4%BB%B6%E6%B1%87%E6%80%BB/">AI绘画模型和插件汇总</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Arch Linux
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/Arch%20Linux/Arch%E5%AE%89%E8%A3%85%E9%80%9F%E6%9F%A5%E8%A1%A8/">Arch安装速查表</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            C#
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/CSharp/CSharp%E5%9F%BA%E7%A1%80/">C#基础</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Docker
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/Docker/%E5%BF%AB%E9%80%9F%E5%88%A0%E9%99%A4%E6%97%A0%E7%94%A8%E7%9A%84Image/">快速删除无用的Docker Image</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Fedora Silverblue
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Flatpak
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/Fedora%20Silverblue/Flatpak/Flathub%20&%20%E5%A6%82%E4%BD%95%E5%88%B6%E4%BD%9CFlathub%E9%95%9C%E5%83%8F/">Flathub & 如何制作Flathub镜像</a></li>  <li class="file"><a href="/wiki/Fedora%20Silverblue/Flatpak/Flatpak%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">Flatpak基础使用</a></li>  <li class="file"><a href="/wiki/Fedora%20Silverblue/Flatpak/Flatpak%E6%A6%82%E5%BF%B5/">Flatpak概念</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Toolbox
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/Fedora%20Silverblue/Toolbox/%E8%87%AA%E5%AE%9A%E4%B9%89Toolbox%E9%95%9C%E5%83%8F/">自定义Toolbox镜像</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Linux浏览器
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/Linux%E6%B5%8F%E8%A7%88%E5%99%A8/Wayland%E4%B8%8B%E5%BC%80%E5%90%AFChromium%E6%88%96Edge%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E6%98%BE%E5%8D%A1%E5%8A%A0%E9%80%9F/">Wayland下开启Chromium或Edge浏览器的显卡加速</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Linux防火墙
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            iptables
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/Linux%E9%98%B2%E7%81%AB%E5%A2%99/iptables/%E6%B8%85%E7%A9%BAiptables%E8%A7%84%E5%88%99/">清空iptables规则</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            名词解释
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/%E5%90%8D%E8%AF%8D%E6%B3%A8%E8%A7%A3/X%20to%20Y/">X to Y</a></li>  <li class="file"><a href="/wiki/%E5%90%8D%E8%AF%8D%E6%B3%A8%E8%A7%A3/%E7%AC%ACX%E5%9B%BD%E9%99%85/">第X国际</a></li>  <li class="file"><a href="/wiki/%E5%90%8D%E8%AF%8D%E6%B3%A8%E8%A7%A3/%E8%B4%B9%E6%8E%A7/">费控</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            多国语
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            中文
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/%E5%A4%9A%E5%9B%BD%E8%AF%AD/%E4%B8%AD%E6%96%87/%E6%A6%82%E5%BF%B5/">概念</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            日语
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/%E5%A4%9A%E5%9B%BD%E8%AF%AD/%E6%97%A5%E8%AF%AD/%E6%96%B9%E8%A8%80%E5%8F%8A%E5%8C%BA%E5%88%AB/">方言及区别</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            法语
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/%E5%A4%9A%E5%9B%BD%E8%AF%AD/%E6%B3%95%E8%AF%AD/%E6%B3%95%E8%AF%AD%E5%AD%97%E6%AF%8D/">法语字母</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            英语
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/%E5%A4%9A%E5%9B%BD%E8%AF%AD/%E8%8B%B1%E8%AF%AD/%E5%B8%B8%E8%A7%81%E7%BC%A9%E7%95%A5%E8%AF%AD/">常见缩略语</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            数学
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            线性代数
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0_1/">P1-行列式</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            计算机网络
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file active"><a href="/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0_1/">计算机网络笔记_1</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            音乐与音频
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            效果器
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/%E9%9F%B3%E4%B9%90%E4%B8%8E%E9%9F%B3%E9%A2%91/%E6%95%88%E6%9E%9C%E5%99%A8/EQ%E8%B0%83%E8%8A%82%E8%AF%AF%E5%8C%BA/">EQ调节误区</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            驾照
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            科目一
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/%E9%A9%BE%E7%85%A7/%E7%A7%91%E7%9B%AE%E4%B8%80/%E7%A7%91%E7%9B%AE%E4%B8%80%20%E5%8F%A3%E8%AF%80/">科目一 口诀</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/index/">欢迎访问 ObjectNotFound 个人知识库</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title"><span>最新文章</span></h3>
+        <div class="widget">
+            <ul id="recent-post" class>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0_1/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></p>
+                            <p class="item-title"><a href="/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0_1/" class="title">计算机网络笔记_1</a></p>
+                            <p class="item-date"><time datetime="2023-02-22T10:00:00.000Z" itemprop="datePublished">2023-02-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/wiki/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0_1/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">线性代数</a></p>
+                            <p class="item-title"><a href="/wiki/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0_1/" class="title">P1-行列式</a></p>
+                            <p class="item-date"><time datetime="2023-02-22T09:00:00.000Z" itemprop="datePublished">2023-02-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/wiki/Linux%E6%B5%8F%E8%A7%88%E5%99%A8/Wayland%E4%B8%8B%E5%BC%80%E5%90%AFChromium%E6%88%96Edge%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E6%98%BE%E5%8D%A1%E5%8A%A0%E9%80%9F/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Linux%E6%B5%8F%E8%A7%88%E5%99%A8/">Linux浏览器</a></p>
+                            <p class="item-title"><a href="/wiki/Linux%E6%B5%8F%E8%A7%88%E5%99%A8/Wayland%E4%B8%8B%E5%BC%80%E5%90%AFChromium%E6%88%96Edge%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E6%98%BE%E5%8D%A1%E5%8A%A0%E9%80%9F/" class="title">Wayland下开启Chromium或Edge浏览器的显卡加速</a></p>
+                            <p class="item-date"><time datetime="2023-02-22T03:00:00.000Z" itemprop="datePublished">2023-02-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/wiki/CSharp/CSharp%E5%9F%BA%E7%A1%80/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/C/">C#</a></p>
+                            <p class="item-title"><a href="/wiki/CSharp/CSharp%E5%9F%BA%E7%A1%80/" class="title">C#基础</a></p>
+                            <p class="item-date"><time datetime="2023-02-21T10:00:00.000Z" itemprop="datePublished">2023-02-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/wiki/Fedora%20Silverblue/Toolbox/%E8%87%AA%E5%AE%9A%E4%B9%89Toolbox%E9%95%9C%E5%83%8F/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Fedora-Silverblue/">Fedora Silverblue</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Fedora-Silverblue/Toolbox/">Toolbox</a></p>
+                            <p class="item-title"><a href="/wiki/Fedora%20Silverblue/Toolbox/%E8%87%AA%E5%AE%9A%E4%B9%89Toolbox%E9%95%9C%E5%83%8F/" class="title">自定义Toolbox镜像</a></p>
+                            <p class="item-date"><time datetime="2023-02-18T05:38:00.000Z" itemprop="datePublished">2023-02-18</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-计算机网络/计算机网络笔记_1" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Network/" rel="tag">Network</a>, <a class="tag-link-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a>, <a class="tag-link-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0_1/">
+            <time datetime="2023-02-22T10:00:00.000Z" itemprop="datePublished">2023-02-22</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            计算机网络笔记_1
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+        
+        
+            <link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h2><h3 id="理论概念"><a href="#理论概念" class="headerlink" title="理论概念"></a>理论概念</h3><ul>
+<li>数据</li>
+<li>信号</li>
+<li>码元<ul>
+<li>通过码元数量计算码元信息量：k进制码元 $ \log_2k $</li>
+</ul>
+</li>
+<li>信源：发送信号</li>
+<li>信宿：接受信号</li>
+<li>信道<ul>
+<li>信道≠电路</li>
+<li>从信道数量上来看<ul>
+<li>串行传输</li>
+<li>并行传输：多信道</li>
+</ul>
+</li>
+<li>从信号方向上来看<ul>
+<li>单向通信：比如现实中光模块接的单模光纤</li>
+<li>半双工通信：比如对讲机</li>
+<li>全双工通信：比如打电话</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>波特（Baud）：单位时间内脉冲的个数<ul>
+<li>即码元</li>
+</ul>
+</li>
+<li>比特（Bit）：信息量的单位<ul>
+<li>即二进制位</li>
+</ul>
+</li>
+<li>速率：也叫数据率，一般指信息传输速率<ul>
+<li>码元传输速率：单位时间（1s内）传输的码元个数，单位为波特</li>
+<li>信息传输速率：单位时间（1s内）传输的比特数，单位为比特每秒（b&#x2F;s或bps）</li>
+<li>波特率转比特率：比特率&#x3D;波特率x码元信息量</li>
+</ul>
+</li>
+<li>带宽：单位是赫兹（Hz），一般是直接给出的物理参数</li>
+<li>失真：也叫噪声<ul>
+<li>较小的失真：信号经过处理后依然可以识别</li>
+<li>较大的失真：信号通过处理也无法再被识别</li>
+</ul>
+</li>
+<li>奈奎斯特定理：注意是定理不是频率，单位bps<ul>
+<li>奈奎斯特率</li>
+<li>避免码间串扰</li>
+<li>理想情况下：无噪声，带宽有限</li>
+<li>极限速率：$ MAX&#x3D;2W \log_2 V $</li>
+</ul>
+</li>
+<li>香农定理：单位bps<ul>
+<li>避免噪声干扰</li>
+<li>非理想情况下：有噪声（一般是白噪声），带宽有限</li>
+<li>极限速率：$ MAX &#x3D; W \log_2 (1 + \frac{S}{N})) $</li>
+<li>[[TODO]]</li>
+</ul>
+</li>
+</ul>
+<h2 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h2><h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><ul>
+<li>差错控制<ul>
+<li>使用编码计算进行差错控制<ul>
+<li>FEC：前向纠错，发现错误直接纠正</li>
+<li>ARQ：自动重传，发现错误请求重传<ul>
+<li>是主要应用的差错控制技术</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h2><ul>
+<li>目的：向传输层提供最大可能交付的、无连接的、简单的数据报服务。</li>
+<li>异构网络互联<ul>
+<li>寻址方法、路由算法、差错处理算法均可能不同</li>
+</ul>
+</li>
+<li>[[TODO]]</li>
+</ul>
+<h3 id="IP协议"><a href="#IP协议" class="headerlink" title="IP协议"></a>IP协议</h3><ul>
+<li>IP数据报格式<ul>
+<li>首部：最先发送<ul>
+<li>固定部分：大小相同，20字节，160bit<ul>
+<li>版本 4bit：IPv4？IPv6？</li>
+<li>首部长度 4bit：单位是半字节（4bit），最低为5；长度一定是4bit的整数倍，不足在末尾用填充位填充；</li>
+<li>区分服务 8bit</li>
+<li>总长度 16bit：首部长度+数据部分长度</li>
+<li>标识 16bit</li>
+<li>标志 4bit</li>
+<li>片偏移 12bit</li>
+<li>生存时间 8bit：即TTL值，为防止</li>
+<li>协议 8bit：数据部分的协议类型。TCP：6，UDP：17。</li>
+<li>首部校验和 16bit：只检验首部完整性；每经过一次路由器都要重新计算一次（首部会发生变化）</li>
+<li>源地址 32bit</li>
+<li>目的地址 32bit</li>
+<li>可选字段 0～40bit</li>
+<li>填充位</li>
+</ul>
+</li>
+<li>可变部分：可有可无，大多数时间没有</li>
+</ul>
+</li>
+<li>数据部分：传输层的报文段</li>
+</ul>
+</li>
+<li>IP数据报分片<ul>
+<li>MTU：最大传输单元，数据部分长度大于这个值必须分片</li>
+<li>标识：同一个数据部分的不同分片使用同一个标识值</li>
+<li>标志：共4bit，只有后两个bit有意义<ul>
+<li>中间位DF：为1禁止分片，为0允许分片</li>
+<li>最低位MF：为1表示还有分片，为0表示最后一片&#x2F;没有分片</li>
+</ul>
+</li>
+<li>片偏移：分片在组中的相对位置（第几个片），单位为字节（8bit）；也即偏移的字节数<ul>
+<li>字节数从0开始</li>
+</ul>
+</li>
+<li>注意单位问题：总长度单位为1bit，片偏移单位为8bit，首部单位为4bit，“总1片8首4”</li>
+</ul>
+</li>
+<li>IPv4地址<ul>
+<li>使用点分十进制表示</li>
+<li>IP地址分类<ul>
+<li>IP地址是区域唯一的</li>
+<li>IP地址只可以区分路由器或主机的<strong>接口</strong>：一个主机可能有多个接口</li>
+<li>IP地址由网络号和主机号构成：各占多少位不固定</li>
+<li>特殊的双主机逻辑网络：IP无编号网络<br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://networklessons.com/cisco/ccie-routing-switching/ip-unnumbered-explained">IP Unnumbered Explained</a></li>
+<li>“类别位”：通过IP地址的前几位划分类型<ul>
+<li>A类：0，0～8为网络号</li>
+<li>B类：10，0～16位为网络号</li>
+<li>C类：110，0～24位为网络号</li>
+<li>D类：1110，多播地址</li>
+<li>E类：1111，保留地址</li>
+</ul>
+</li>
+<li>特殊IP地址：<ul>
+<li>0.0.0.0：可表示任意地址（listen 0.0.0.0）或默认路由（0.0.0.0 route via X.X.X.X），也叫未指明地址</li>
+<li>0.0.0.0&#x2F;8：网络号全0,主机号不为0，表示同一网络下的某个主机</li>
+<li>255.255.255.255：本网广播地址，向它发送相当于向本网所有主机发送</li>
+<li>X.X.X.0：网络号不为0、主机号为0，只用于表示一个网络，不能使用</li>
+<li>X.X.X.255：网络号不为0、主机号位全为1，特定网络的广播地址</li>
+<li>127.0.0.0&#x2F;8：环回地址，用于本地调试</li>
+<li>169.254.0.0&#x2F;16：链路本地地址&#x2F;缺省IP地址，常见于DHCP分配失败时，相当于“目前还没有IP”</li>
+<li><strong>始终注意X.X.X.0&#x2F;24和X.X.X.255&#x2F;24这两种IP地址，算可用地址数时要减去</strong></li>
+</ul>
+</li>
+<li>私有IP地址：<ul>
+<li>10.0.0.0&#x2F;8</li>
+<li>172.16.X.X～172.31.X.X</li>
+<li>192.168.0.0&#x2F;16</li>
+</ul>
+</li>
+<li>记住特殊数字的二进制<ul>
+<li>0：00000000</li>
+<li>255：11111111</li>
+<li>192：11000000</li>
+<li>128：10000000</li>
+<li>10：00001010</li>
+<li>168：10101000</li>
+<li>172：10101100</li>
+<li>127：11111100</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>子网划分<ul>
+<li>目的：便于扩展网络、管理网络、减少子网IP地址浪费；更灵活的控制一个子网中能容纳多少台设备</li>
+<li>将两层IP地址转化为三层IP地址：网络号、子网号和主机号</li>
+<li>子网号对外是透明的，看作是主机号的一部分</li>
+<li>三层IP地址中，主机位最少是2位（去掉全0和全1，可提供给两台设备）</li>
+<li>子网掩码：网络号部分的位为1，主机号部分的位为0</li>
+<li>已知主机地址和子网掩码，求子网地址：二者按位相与（and），结果的四段式10进制就是子网地址</li>
+<li>路由器路由表基本结构<ul>
+<li>目的网络地址：发给谁？</li>
+<li>目的网络地址的子网掩码：他在哪个子网？</li>
+<li>下一跳的地址：通过什么发给他？</li>
+</ul>
+</li>
+<li>路由器路由转发的基本流程<ul>
+<li>找到分组IP地址：发给谁？</li>
+<li>尝试直接交付：子网是不是直接和我连接？</li>
+<li>不能直接交付，查路由表配置，进行IP完全匹配：是不是手动配置了发给他的路线？</li>
+<li>没有配置，查路由表，进行IP前缀匹配（网络号匹配）：是不是手动配置了发给他所在的子网的路线？</li>
+<li>以上均失败，发给默认路由：子网不在我这，是不是分组分配错了？</li>
+<li>默认路由发给该路由器，路由器再发给默认路由，重复直到TTL&#x3D;0，直接丢弃并报错：分组出错，谁也联系不到他</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>CIDR组成超网</li>
+<li>网络地址转换：NAT<ul>
+<li>有流量时会通过路由器的NAT转换表转换为正确的IP地址，再发送信息</li>
+<li>NAT转换表包含端口号</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>IPv6<ul>
+<li>解决IPv4地址不够用的办法<ul>
+<li>NAT</li>
+<li>CIDR</li>
+<li>治标不治本</li>
+</ul>
+</li>
+<li>IPv6的主要目标<ul>
+<li>从根本上解决IP地址不够用的问题</li>
+<li>改进和精简首部格式，使路由器处理速度更快（快速处理&#x2F;转发数据报）</li>
+<li>支持QoS服务模型</li>
+</ul>
+</li>
+<li>IPv6封包格式<ul>
+<li>基本首部，40字节，320bit<ul>
+<li>版本 4bit<ul>
+<li>值为“6”</li>
+</ul>
+</li>
+<li>优先级 8bit<ul>
+<li>标识数据报是否优先处理</li>
+</ul>
+</li>
+<li>流标签 20bit<ul>
+<li>类似IPv4中的标识，但是是“流”，与QoS有关</li>
+</ul>
+</li>
+<li>有效载荷长度 16bit<ul>
+<li>扩展首部+数据部分 大小</li>
+</ul>
+</li>
+<li>下一个首部 8bit<ul>
+<li>基本首部和每个扩展首部各有一个“下一个首部”字段</li>
+<li>如果当前首部不是最后一个首部，该字段指向下一个首部的偏移</li>
+<li>如果当前首部是最后一个首部，该字段指向数据部分的起始偏移</li>
+<li>把所有部分“串在一起”</li>
+</ul>
+</li>
+<li>跳数限制 8bit<ul>
+<li>相当于IPv4中的TTL</li>
+</ul>
+</li>
+<li>源地址 128bit</li>
+<li>目标地址 128bit</li>
+</ul>
+</li>
+<li>有效载荷，最高65535字节，64KB<ul>
+<li>扩展首部：代替IPv4首部中的可变部分</li>
+<li>数据部分</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>与IPv4的区别 <img src="/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0_1/image-20230222175836723.png" alt="image-20230222175836723"></li>
+<li>IPv6地址<ul>
+<li>使用冒号16进制表示</li>
+<li>连续的0可以用一个0代替<ul>
+<li>0000:0000:0000变成0:0:0</li>
+<li>0AAA:B000:000C变成 AAA:B000:C</li>
+<li>缩头不缩尾</li>
+</ul>
+</li>
+<li>双冒号零压缩，多组0用双冒号代替<ul>
+<li>AAAA:0000:0000:0000:BBBB变为AAAA:0:0:0:BBBB再变为AAAA::BBBB</li>
+<li>AAAA:0000:0000:0000:BBBB:0000:0000只能变为AAAA::BBBB:0:0</li>
+<li>双冒号只能使用一次，压缩最前面的多组零</li>
+</ul>
+</li>
+<li>网络号和主机号<ul>
+<li>未指明情况下，网络号为64位（最后16位为子网号），主机号为64位</li>
+<li>可以使用类似CIDR的表示法表示网络号的位数，如：&#x2F;24 代表网络号有24位，其他位是主机号</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>IPv6地址类型<ul>
+<li>单播：一对一，可做源地址和目标地址</li>
+<li>多播：一对多，只能作为目标地址</li>
+<li>不存在广播：广播用多播实现</li>
+<li>任播：本质一对多，实际一对一（一般是发给离本机最近的目标主机）<ul>
+<li>例子：多台主机提供相同服务时使用任播负载均衡</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>IPv6地址划分<ul>
+<li>全球单播：以001位开头，2000::&#x2F;3</li>
+<li>链路本地：FE80::&#x2F;10</li>
+<li>本地环回：::1&#x2F;128</li>
+<li>未指明：::0&#x2F;0，也可写成::&#x2F;0</li>
+<li>唯一本地地址&#x2F;私有地址：FC00::&#x2F;7</li>
+<li>内嵌IPv4的IPv6地址</li>
+</ul>
+</li>
+<li>IPv4向IPv6过渡<ul>
+<li>双栈协议：主机同时使用IPv4和IPv6地址（不同接口）</li>
+<li>隧道技术：IPv6-IPv4-发送，IPv4-IPv6-接收</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="ARP协议"><a href="#ARP协议" class="headerlink" title="ARP协议"></a>ARP协议</h3><ul>
+<li>数据链路层需要本机MAC地址和目标主机MAC地址</li>
+<li>每个主机维护一个ARP高速缓存：ARP表</li>
+<li>维护ARP表<ul>
+<li>已知IP，不知道MAC，发广播ARP请求分组（请求帧）<ul>
+<li>广播ARP请求中，目标主机MAC地址为全1（FF-FF-FF-FF-FF-FF）</li>
+</ul>
+</li>
+<li>目标主机识别到广播ARP请求中的IP地址是自己，发单播（点对点）ARP响应请求（响应帧）</li>
+<li>本机得到响应帧，更新ARP表</li>
+<li>后续的数据分组依照ARP表内的项，填充MAC地址并发送</li>
+</ul>
+</li>
+<li>以上ARP表的维护适用于目标主机和本机在同一个局域网内的情况：较大的网络不适合进行广播寻找主机</li>
+<li>[[TODO]]</li>
+</ul>
+<h3 id="DHCP协议"><a href="#DHCP协议" class="headerlink" title="DHCP协议"></a>DHCP协议</h3><ul>
+<li>应用层协议，基于UDP</li>
+</ul>
+<h3 id="RIP协议"><a href="#RIP协议" class="headerlink" title="RIP协议"></a>RIP协议</h3><ul>
+<li>应用层协议，基于UDP</li>
+<li>一种分布式的、基于距离向量的路由选择协议</li>
+<li>特点：简单，只能用于小范围互联网</li>
+<li>主机维护路由表，存放当前路由器到其他每一个目的网络唯一的最佳距离记录<ul>
+<li>距离一般指 跳数</li>
+<li>距离值小于15为合法，距离值为16表示网络不可达</li>
+<li>路由表重要的表项<ul>
+<li>目的网络地址</li>
+<li>距离值</li>
+<li>下一跳的路由器地址</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>对路由表进行定时更新<ul>
+<li>只和相邻路由器交换信息，相互交换自己的路由表</li>
+<li>每30s交换一次，相邻路由器180s内无响应则判定失联<ul>
+<li>初始情况下，路由器的路由表只包含相邻路由器的、距离为1的路由</li>
+<li>若干次更新后，每个路由器均会获得当前路由器到所有可能的网络的最短距离（小于等于15），也称“收敛”。</li>
+<li>若相邻的路由器之一失联，则从路由表中删除下一跳是该路由器的路由表项</li>
+</ul>
+</li>
+<li>路由表更新算法</li>
+<li>子主题 4</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+    
+        <a href="/wiki/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0_1/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">P1-行列式</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+        <section id="comments"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/gangdong/gangdong.github.io@dev/assets/js/md5.min.js"></script>
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script>
+    let gitalk = new Gitalk({
+        clientID: '5acafd44ae888e4f7d60',
+        clientSecret: 'ff6f4a17ab3216abb24dc7ca2e9b1c24a6e66f5f',
+        repo: 'blog-wiki',
+        owner: 'objectnf',
+        admin: ["objectnf"],
+        id: md5('http://wiki.zhouweitong.site/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0_1/'),
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+    gitalk.render('gitalk-container');
+</script>
+ </section>
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            ObjectNotFound &copy; 2023 
+            <a rel="external nofollow noopener noreferrer" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png"></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a>. Theme - <a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            <br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://beian.miit.gov.cn/">浙ICP备19034170号</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+    </div>
+</body>
+</html>
