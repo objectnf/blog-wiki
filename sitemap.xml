@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://wiki.zhouweitong.site/wiki/Linux%E6%B5%8F%E8%A7%88%E5%99%A8/Wayland%E4%B8%8B%E5%BC%80%E5%90%AFChromium%E6%88%96Edge%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E6%98%BE%E5%8D%A1%E5%8A%A0%E9%80%9F/</loc>
+    
+    <lastmod>2023-02-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://wiki.zhouweitong.site/wiki/CSharp/CSharp%E5%9F%BA%E7%A1%80/</loc>
     
     <lastmod>2023-02-22</lastmod>
@@ -21,15 +30,6 @@
   
   <url>
     <loc>http://wiki.zhouweitong.site/wiki/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0_1/</loc>
-    
-    <lastmod>2023-02-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://wiki.zhouweitong.site/wiki/Linux%E6%B5%8F%E8%A7%88%E5%99%A8/Wayland%E4%B8%8B%E5%BC%80%E5%90%AFChromium%E6%88%96Edge%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E6%98%BE%E5%8D%A1%E5%8A%A0%E9%80%9F/</loc>
     
     <lastmod>2023-02-22</lastmod>
     
