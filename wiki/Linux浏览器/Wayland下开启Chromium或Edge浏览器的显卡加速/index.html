@@ -21,9 +21,10 @@
 <meta property="og:image" content="http://wiki.zhouweitong.site/wiki/Linux%E6%B5%8F%E8%A7%88%E5%99%A8/Wayland%E4%B8%8B%E5%BC%80%E5%90%AFChromium%E6%88%96Edge%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E6%98%BE%E5%8D%A1%E5%8A%A0%E9%80%9F/image-20230222103023509.png">
 <meta property="og:image" content="http://wiki.zhouweitong.site/wiki/Linux%E6%B5%8F%E8%A7%88%E5%99%A8/Wayland%E4%B8%8B%E5%BC%80%E5%90%AFChromium%E6%88%96Edge%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E6%98%BE%E5%8D%A1%E5%8A%A0%E9%80%9F/image-20230222105845198.png">
 <meta property="og:image" content="http://wiki.zhouweitong.site/wiki/Linux%E6%B5%8F%E8%A7%88%E5%99%A8/Wayland%E4%B8%8B%E5%BC%80%E5%90%AFChromium%E6%88%96Edge%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E6%98%BE%E5%8D%A1%E5%8A%A0%E9%80%9F/image-20230222105917493.png">
+<meta property="og:image" content="http://wiki.zhouweitong.site/wiki/Linux%E6%B5%8F%E8%A7%88%E5%99%A8/Wayland%E4%B8%8B%E5%BC%80%E5%90%AFChromium%E6%88%96Edge%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E6%98%BE%E5%8D%A1%E5%8A%A0%E9%80%9F/image-20230222154209726.png">
 <meta property="og:image" content="http://wiki.zhouweitong.site/wiki/Linux%E6%B5%8F%E8%A7%88%E5%99%A8/Wayland%E4%B8%8B%E5%BC%80%E5%90%AFChromium%E6%88%96Edge%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E6%98%BE%E5%8D%A1%E5%8A%A0%E9%80%9F/image-20230222110336876.png">
 <meta property="article:published_time" content="2023-02-22T03:00:00.000Z">
-<meta property="article:modified_time" content="2023-02-22T07:12:49.648Z">
+<meta property="article:modified_time" content="2023-02-22T07:43:26.579Z">
 <meta property="article:author" content="ObjectNotFound">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="浏览器">
@@ -746,19 +747,16 @@
 <ul>
 <li>使用工具检查支持情况</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 检查VA-API支持情况</span></span><br><span class="line">vainfo</span><br><span class="line"><span class="comment"># 检查VDPAU支持情况</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 检查VA-API支持情况</span></span><br><span class="line">vainfo</span><br><span class="line"><span class="comment"># 检查VDPAU支持情况</span></span><br><span class="line">vdpauinfo</span><br></pre></td></tr></table></figure>
 
-
-
-
-
+<p><img src="/wiki/Linux%E6%B5%8F%E8%A7%88%E5%99%A8/Wayland%E4%B8%8B%E5%BC%80%E5%90%AFChromium%E6%88%96Edge%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E6%98%BE%E5%8D%A1%E5%8A%A0%E9%80%9F/image-20230222154209726.png" alt="VA-API支持情况"></p>
 <h2 id="强行开启Firefox硬件加速"><a href="#强行开启Firefox硬件加速" class="headerlink" title="强行开启Firefox硬件加速"></a>强行开启Firefox硬件加速</h2><ul>
 <li>访问<code>about:config</code></li>
 <li>搜索<code>ffmpeg</code>，将结果中的<code>media.ffmpeg.vaapi.enabled</code>改成<code>true</code></li>
 <li>重启Firefox</li>
 </ul>
 <p><img src="/wiki/Linux%E6%B5%8F%E8%A7%88%E5%99%A8/Wayland%E4%B8%8B%E5%BC%80%E5%90%AFChromium%E6%88%96Edge%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E6%98%BE%E5%8D%A1%E5%8A%A0%E9%80%9F/image-20230222110336876.png" alt="设置Firefox高级选项"></p>
-<h2 id="开启Chromium"><a href="#开启Chromium" class="headerlink" title="开启Chromium"></a>开启Chromium</h2>
+<h2 id="开启Chromium-x2F-Edge硬件加速"><a href="#开启Chromium-x2F-Edge硬件加速" class="headerlink" title="开启Chromium&#x2F;Edge硬件加速"></a>开启Chromium&#x2F;Edge硬件加速</h2>
             </div>
         
         <footer class="article-footer">
