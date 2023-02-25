@@ -17,7 +17,7 @@
 <meta property="og:description" content="模型（*.ckpt&#x2F;*.safetensors）Novel AI 泄露版模型 基于Stable Diffusion网络结构，使用Danbooru数据集进行多次训练后的权重 至少需 5.8GiB 存储空间 磁力链接，使用BitTorrent协议下载  1magnet:?xt&#x3D;urn:btih:5bde442da86265b670a3e5ea3163afad2c6f8ecc   SFW（Su">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-02-24T15:30:00.000Z">
-<meta property="article:modified_time" content="2023-02-25T06:39:21.505Z">
+<meta property="article:modified_time" content="2023-02-25T08:06:06.849Z">
 <meta property="article:author" content="ObjectNotFound">
 <meta property="article:tag" content="速查表">
 <meta property="article:tag" content="Stable Diffusion">
@@ -736,7 +736,7 @@
 <li>官方Stable Diffusion，使用多个图片数据集</li>
 <li>Stable Diffusion 1.5<ul>
 <li><a target="_blank" rel="external nofollow noopener noreferrer" href="https://huggingface.co/runwayml/stable-diffusion-v1-5">runwayml&#x2F;stable-diffusion-v1-5 · Hugging Face</a></li>
-<li>至少需 4.3GiB 存储空间</li>
+<li>至少需 4.0GB 存储空间</li>
 </ul>
 </li>
 <li>其他Stable Diffusion 1.x版本模型：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://huggingface.co/CompVis">CompVis (CompVis)</a></li>
@@ -746,7 +746,7 @@
 <ul>
 <li>Stable Diffusion 2.1<ul>
 <li><a target="_blank" rel="external nofollow noopener noreferrer" href="https://huggingface.co/stabilityai/stable-diffusion-2-1">stabilityai&#x2F;stable-diffusion-2-1 · Hugging Face</a></li>
-<li>至少需 5.2GiB 存储空间</li>
+<li>至少需 4.9GB 存储空间</li>
 </ul>
 </li>
 <li>其他Stable Diffusion 2.x版本模型：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://huggingface.co/stabilityai">stabilityai (Stability AI)</a></li>
@@ -757,7 +757,7 @@
 <li>使用Stable Diffusion网络结构，精选了Danbooru数据集</li>
 <li>Waifu Diffusion 1.4<ul>
 <li><a target="_blank" rel="external nofollow noopener noreferrer" href="https://huggingface.co/hakurei/waifu-diffusion-v1-4">hakurei&#x2F;waifu-diffusion-v1-4 · Hugging Face</a></li>
-<li>至少需 5.2GiB 存储空间</li>
+<li>至少需 4.8GB 存储空间</li>
 </ul>
 </li>
 <li>其他Waifu Diffusion 1.x版本模型：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://huggingface.co/hakurei">hakurei (Reimu Hakurei)</a></li>
@@ -768,7 +768,7 @@
 <li>基于Stable Diffusion网络结构，强调“照片感”。是对多个模型的加权融合，包括BoChen模型、WLOP模型等；</li>
 <li>Kenshi01<ul>
 <li><a target="_blank" rel="external nofollow noopener noreferrer" href="https://huggingface.co/SweetLuna/Kenshi">SweetLuna&#x2F;Kenshi · Hugging Face</a></li>
-<li>至少需 4.3GiB 存储空间</li>
+<li>至少需 4.0GB 存储空间</li>
 </ul>
 </li>
 </ul>
@@ -777,7 +777,7 @@
 <h3 id="AbyssOrangeMix3"><a href="#AbyssOrangeMix3" class="headerlink" title="AbyssOrangeMix3"></a>AbyssOrangeMix3</h3><ul>
 <li>基于Stable Diffusion网络结构，是对多个模型的加权融合，侧重“高质量”和“画面内的纹理效果”</li>
 <li>分为A1（平涂）、A2（厚涂；油画风）、A3（融合）三个版本</li>
-<li>至少需 2.1GiB 存储空间</li>
+<li>至少需 2.0GB 存储空间</li>
 <li><a target="_blank" rel="external nofollow noopener noreferrer" href="https://huggingface.co/WarriorMama777/OrangeMixs">WarriorMama777&#x2F;OrangeMixs · Hugging Face</a></li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://huggingface.co/WarriorMama777/OrangeMixs/resolve/main/Models/AbyssOrangeMix3/AOM3A3.safetensors</span><br></pre></td></tr></table></figure>
@@ -804,7 +804,29 @@
 <li>直接加权融合多个模型并进行使用，而不需要先合并网络参数制作模型文件</li>
 <li><a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/hako-mikan/sd-webui-supermerger/">hako-mikan&#x2F;sd-webui-supermerger: model merge extention for stable diffusion web ui</a></li>
 </ul>
-<h2 id="LoRA模型"><a href="#LoRA模型" class="headerlink" title="LoRA模型"></a>LoRA模型</h2>
+<h2 id="Textual-Inversion模型"><a href="#Textual-Inversion模型" class="headerlink" title="Textual Inversion模型"></a>Textual Inversion模型</h2><ul>
+<li><p>引入新的prompt，并将其与已有的prompt关联起来；</p>
+</li>
+<li><p>放置在WebUI的<code>embeddings</code>文件夹下；</p>
+</li>
+</ul>
+<h3 id="EasyNegative"><a href="#EasyNegative" class="headerlink" title="EasyNegative"></a>EasyNegative</h3><ul>
+<li>用于快速屏蔽负面tag</li>
+<li>配合使用：AbyssOrangeMix3、Counterfeit-V2.5</li>
+<li><a target="_blank" rel="external nofollow noopener noreferrer" href="https://huggingface.co/datasets/gsdf/EasyNegative">gsdf&#x2F;EasyNegative · Datasets at Hugging Face</a></li>
+<li>Prompt：<code>EASYNEGATIVE</code></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://huggingface.co/datasets/gsdf/EasyNegative/resolve/main/EasyNegative.pt</span><br></pre></td></tr></table></figure>
+
+<h3 id="Ulzzang-6500"><a href="#Ulzzang-6500" class="headerlink" title="Ulzzang-6500"></a>Ulzzang-6500</h3><ul>
+<li>用于生成 韩国女明星式的 人像图片</li>
+<li>配合使用：ChilloutMix</li>
+<li><a target="_blank" rel="external nofollow noopener noreferrer" href="https://civitai.com/models/8109">Ulzzang-6500 (Korean doll aesthetic) | Stable Diffusion TextualInversion | Civitai</a></li>
+<li>Prompt：<code>ulzzang-6500-v1.1</code></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://civitai.com/api/download/models/10107</span><br></pre></td></tr></table></figure>
+
+
             </div>
         
         <footer class="article-footer">
