@@ -6,7 +6,7 @@
   <link href="http://wiki.zhouweitong.site/atom.xml" rel="self"/>
   
   <link href="http://wiki.zhouweitong.site/"/>
-  <updated>2023-02-25T08:06:06.849Z</updated>
+  <updated>2023-02-25T08:32:39.014Z</updated>
   <id>http://wiki.zhouweitong.site/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://wiki.zhouweitong.site/wiki/CPlusPlus/CMake/CMake%E5%9F%BA%E7%A1%80/"/>
+    <id>http://wiki.zhouweitong.site/wiki/CPlusPlus/CMake/CMake%E5%9F%BA%E7%A1%80/</id>
+    <published>2023-02-25T08:00:00.000Z</published>
+    <updated>2023-02-25T08:32:39.014Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><ul><li>跨平台的“编译器所需文件的生成器”</li><li>Make是什么<ul><li>相当于自动执行多个文件的编译与链接</li><li>只需一个配置文件，就可根据配置文件自动生成命令然后执行</li><li>同时应用了增量编译的思想：文件没有做出修改就不会重新编译</li><li>只显示自动生成的编译命令而不运行：<code>make --dry-run</code></li></ul></li><li>Make有什么缺点？<ul><li>语法不够复杂，许多高级功能实现不了</li><li>GNU系软件，没有官方的对Windows的支持</li><li>与GCC结合紧密，但与其他编译器结合可能会出现问题</li><li>需要明确指明项目与项目间（或项目与子项目）的依赖关系</li></ul></li><li>CMake解决了这些问题<ul><li>高级和复杂的语法，适应多种情况</li><li>自动检测源文件和头文件的关联</li><li>针对不同平台的不同编译器生成不同的项目文件&#x2F;编译命令</li></ul></li></ul><h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><ul><li>需要将配置写在CMakeLists.txt里</li></ul><h3 id="编译模式"><a href="#编译模式" class="headerlink" title="编译模式"></a>编译模式</h3><ul><li>源码混杂编译：In-Source，部分编译文件（如Makefile等）会生成在根目录下</li><li>源码分离编译（最常用）：Out-of-Source<ul><li>常常是在源码目录里建build文件夹，做shell的工作目录（Working Directory）</li><li>所有编译相关的文件均会放置在build子目录下</li><li>删除build文件夹即可完全重新编译</li></ul></li></ul><h3 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h3><ul><li>对于C++来说：<ul><li>C++是强声明的语言，在没有声明时 是不知道一个名字是变量、函数还是类的</li><li><code>#include</code>是预处理命令，本质上就是文件的插入，相当于把被include的文件的内容复制粘贴过来</li><li>因此会遇到 重复定义问题、循环包含问题 和 include顺序不同导致编译结果不一样 等问题</li><li>解决办法：<ul><li>include顺序固定</li><li>使用宏<code>#pragma once</code></li><li>使用宏<code>#ifdef</code>、<code>#ifndef</code></li><li>使用模块（C++20）</li></ul></li><li>两种include的语法<ul><li>双引号 <code>#include &quot;&quot;</code>：先找工作目录，再找系统目录</li><li>尖括号 <code>#include &lt;&gt;</code>：直接找系统目录</li><li>为什么有双引号include方式还要保留尖括号方式？：可以避免工作目录内同名的其他文件</li></ul></li><li><code>&lt;cxxx&gt;</code>和<code>&lt;xxx.h&gt;</code>没有必然联系，有些头文件中会检测当前语言是否为C++，是的话自动添加<code>extern &quot;C&quot;&#123;&#125;</code></li></ul></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;css&quot; href=&quot;https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css&quot;&gt;&lt;link rel=&quot;st</summary>
+      
+    
+    
+    
+    <category term="C++" scheme="http://wiki.zhouweitong.site/categories/C/"/>
+    
+    <category term="CMake" scheme="http://wiki.zhouweitong.site/categories/C/CMake/"/>
+    
+    
+    <category term="编程语言" scheme="http://wiki.zhouweitong.site/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+    <category term="基础入门" scheme="http://wiki.zhouweitong.site/tags/%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/"/>
+    
+    <category term="C++" scheme="http://wiki.zhouweitong.site/tags/C/"/>
+    
+    <category term="CMake" scheme="http://wiki.zhouweitong.site/tags/CMake/"/>
+    
+  </entry>
   
   <entry>
     <title>AI绘画模型和插件汇总</title>
@@ -593,40 +625,6 @@
     <category term="B2C" scheme="http://wiki.zhouweitong.site/tags/B2C/"/>
     
     <category term="B2G" scheme="http://wiki.zhouweitong.site/tags/B2G/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>第X国际</title>
-    <link href="http://wiki.zhouweitong.site/wiki/%E5%90%8D%E8%AF%8D%E6%B3%A8%E8%A7%A3/%E7%AC%ACX%E5%9B%BD%E9%99%85/"/>
-    <id>http://wiki.zhouweitong.site/wiki/%E5%90%8D%E8%AF%8D%E6%B3%A8%E8%A7%A3/%E7%AC%ACX%E5%9B%BD%E9%99%85/</id>
-    <published>2023-01-18T09:00:00.000Z</published>
-    <updated>2023-02-13T02:22:14.742Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote><p>主观理解</p></blockquote><p>历史上存在第一国际、第二国际、第三国际、第二半国际、第四国际、第五国际这六种提法。</p><ul><li><p>第一国际：又称“国际工人联合会”，由马克思领导，于1864年成立，于1876年解散。历史意义集中在思想的宣传和发展方面。巴黎公社运动由第一国际的法国支部参加和领导。<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[第一国际 - 百度百科](https://baike.baidu.com/item/第一国际)">[1]</span></a></sup></p></li><li><p>第二国际：又称“社会主义国际”，由恩格斯领导，于1889年成立，于1914年解散，活跃于第一次世界大战前夕。其中1895年恩格斯逝世后，机会主义开始泛滥，因此1896年第二国际修正主义开始形成。<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[第二国际 - 百度百科](https://baike.baidu.com/item/第二国际)">[2]</span></a></sup> <sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[第二国际修正主义 - 百度百科 ](https://baike.baidu.com/item/第二国际修正主义/1272709)">[3]</span></a></sup></p></li><li><p>第三国际：又称“共产国际”，由布尔什维克领导，于1919年成立，于1943年解散。中国于1922年加入第三国际，于1940年中断联系。<sup id="fnref:4"><a href="#fn:4" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[第三国际 - 百度百科 ](https://baike.baidu.com/item/第三国际/1356131)">[4]</span></a></sup></p></li><li><p>第二半国际：又称“维也纳国际”，于1921年成立，于1923年与伯尔尼国际合并为社会主义工人国际。<sup id="fnref:5"><a href="#fn:5" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[第二半国际 - 百度百科](https://baike.baidu.com/item/第二半国际/6302528)">[5]</span></a></sup></p></li><li><p>第四国际：又称“世界社会主义革命党”，由托洛茨基领导，于1938年成立，活跃至今。活跃期间组织发生多次分裂。<sup id="fnref:6"><a href="#fn:6" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[第四国际 - 百度百科](https://baike.baidu.com/item/第四国际)">[6]</span></a></sup></p></li><li><p>第五国际：并不是单一的组织，而是泛指第四国际后部分社会主义和无产阶级尝试创建新的国际联盟的努力。“争取第五国际联盟”于1990年改为现用名称，现已解散并合并入英国工党。<sup id="fnref:7"><a href="#fn:7" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[第五国际 - 百度百科](https://baike.baidu.com/item/第五国际)">[7]</span></a></sup> <sup id="fnref:8"><a href="#fn:8" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[争取第五国际联盟 - 维基百科，自由的百科全书](https://zh.wikipedia.org/wiki/争取第五国际联盟)">[8]</span></a></sup></p></li></ul><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://baike.baidu.com/item/%E7%AC%AC%E4%B8%80%E5%9B%BD%E9%99%85">第一国际 - 百度百科</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://baike.baidu.com/item/%E7%AC%AC%E4%BA%8C%E5%9B%BD%E9%99%85">第二国际 - 百度百科</a><a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://baike.baidu.com/item/%E7%AC%AC%E4%BA%8C%E5%9B%BD%E9%99%85%E4%BF%AE%E6%AD%A3%E4%B8%BB%E4%B9%89/1272709">第二国际修正主义 - 百度百科 </a><a href="#fnref:3" rev="footnote"> ↩</a></span></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">4.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://baike.baidu.com/item/%E7%AC%AC%E4%B8%89%E5%9B%BD%E9%99%85/1356131">第三国际 - 百度百科 </a><a href="#fnref:4" rev="footnote"> ↩</a></span></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">5.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://baike.baidu.com/item/%E7%AC%AC%E4%BA%8C%E5%8D%8A%E5%9B%BD%E9%99%85/6302528">第二半国际 - 百度百科</a><a href="#fnref:5" rev="footnote"> ↩</a></span></li><li id="fn:6"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">6.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://baike.baidu.com/item/%E7%AC%AC%E5%9B%9B%E5%9B%BD%E9%99%85">第四国际 - 百度百科</a><a href="#fnref:6" rev="footnote"> ↩</a></span></li><li id="fn:7"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">7.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://baike.baidu.com/item/%E7%AC%AC%E4%BA%94%E5%9B%BD%E9%99%85">第五国际 - 百度百科</a><a href="#fnref:7" rev="footnote"> ↩</a></span></li><li id="fn:8"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">8.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://zh.wikipedia.org/wiki/%E4%BA%89%E5%8F%96%E7%AC%AC%E4%BA%94%E5%9B%BD%E9%99%85%E8%81%94%E7%9B%9F">争取第五国际联盟 - 维基百科，自由的百科全书</a><a href="#fnref:8" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;css&quot; href=&quot;https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css&quot;&gt;&lt;link rel=&quot;st</summary>
-      
-    
-    
-    
-    <category term="名词解释" scheme="http://wiki.zhouweitong.site/categories/%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A/"/>
-    
-    
-    <category term="名词解释" scheme="http://wiki.zhouweitong.site/tags/%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A/"/>
-    
-    <category term="第一国际" scheme="http://wiki.zhouweitong.site/tags/%E7%AC%AC%E4%B8%80%E5%9B%BD%E9%99%85/"/>
-    
-    <category term="第二国际" scheme="http://wiki.zhouweitong.site/tags/%E7%AC%AC%E4%BA%8C%E5%9B%BD%E9%99%85/"/>
-    
-    <category term="第三国际" scheme="http://wiki.zhouweitong.site/tags/%E7%AC%AC%E4%B8%89%E5%9B%BD%E9%99%85/"/>
-    
-    <category term="第四国际" scheme="http://wiki.zhouweitong.site/tags/%E7%AC%AC%E5%9B%9B%E5%9B%BD%E9%99%85/"/>
-    
-    <category term="第五国际" scheme="http://wiki.zhouweitong.site/tags/%E7%AC%AC%E4%BA%94%E5%9B%BD%E9%99%85/"/>
     
   </entry>
   
