@@ -6,7 +6,7 @@
   <link href="http://wiki.zhouweitong.site/atom.xml" rel="self"/>
   
   <link href="http://wiki.zhouweitong.site/"/>
-  <updated>2023-02-25T12:53:48.921Z</updated>
+  <updated>2023-02-25T13:27:36.805Z</updated>
   <id>http://wiki.zhouweitong.site/</id>
   
   <author>
@@ -15,6 +15,70 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mangle与demangle</title>
+    <link href="http://wiki.zhouweitong.site/wiki/CPlusPlus/%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/mangle%E4%B8%8Edemangle/"/>
+    <id>http://wiki.zhouweitong.site/wiki/CPlusPlus/%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/mangle%E4%B8%8Edemangle/</id>
+    <published>2023-02-25T13:20:00.000Z</published>
+    <updated>2023-02-25T13:27:36.805Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><ul><li>Example.cc：测试程序</li><li>Example.s：使用<code>g++ -S</code>编译后的汇编文件</li><li>观察函数名，发现似乎函数名经过了某种编码<ul><li><code>void Test::func_1()</code>：<code>_ZN4Test6func_1Ev</code></li><li><code>static std::string func_2(int in_a)</code>：消失<ul><li>原因：inline</li></ul></li><li><code>Test* Test::func_3(double in_b)</code>：<code>_ZN4Test6func_3Ed</code></li><li><code>int test_2(std::string in_c, uint16_t in_d)</code>：<code>_Z6test_2NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEt</code></li></ul></li><li>原因：mangle<ul><li>因为C++可以函数重载和重写引入的功能</li><li>本质就是对函数的命名空间（比如哪个类或者哪个namespace）、函数名、函数参数进行编码<ul><li>注意：不编码函数返回值</li></ul></li><li>可以被解码</li><li>不同编译器编码规则不同，一般以g++为例</li></ul></li><li>解码：demangle<ul><li>使用工具 c++filt</li><li>包含在binutils软件包中</li></ul></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;css&quot; href=&quot;https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css&quot;&gt;&lt;link rel=&quot;st</summary>
+      
+    
+    
+    
+    <category term="C++" scheme="http://wiki.zhouweitong.site/categories/C/"/>
+    
+    <category term="编码规范" scheme="http://wiki.zhouweitong.site/categories/C/%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/"/>
+    
+    
+    <category term="编程语言" scheme="http://wiki.zhouweitong.site/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+    <category term="基础入门" scheme="http://wiki.zhouweitong.site/tags/%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/"/>
+    
+    <category term="C++" scheme="http://wiki.zhouweitong.site/tags/C/"/>
+    
+    <category term="编码规范" scheme="http://wiki.zhouweitong.site/tags/%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>单元测试与模糊测试</title>
+    <link href="http://wiki.zhouweitong.site/wiki/CPlusPlus/%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E4%B8%8E%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95/"/>
+    <id>http://wiki.zhouweitong.site/wiki/CPlusPlus/%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E4%B8%8E%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95/</id>
+    <published>2023-02-25T13:00:00.000Z</published>
+    <updated>2023-02-25T13:27:36.805Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><ul><li>单元测试：Unit Test，特点是作者需要指定正确的输入数据和输出结果</li><li>单元测试的目的在于验证逻辑正确性</li><li>模糊测试：Fuzz Test&#x2F;Monkey Test，特点是由程序库&#x2F;其他工具随机生成输入数据，通过规则校验输出结果</li><li>模糊测试的目的在于验证代码鲁棒性</li></ul><h2 id="单元测试库：Gtest-x2F-Gmock"><a href="#单元测试库：Gtest-x2F-Gmock" class="headerlink" title="单元测试库：Gtest&#x2F;Gmock"></a>单元测试库：Gtest&#x2F;Gmock</h2><ul><li><code>vcpkg install gtest:x64-windows</code></li><li>需要新建项目，或者新建文件<ul><li>[[TODO]]</li></ul></li></ul><h2 id="模糊测试库-LibFuzzer"><a href="#模糊测试库-LibFuzzer" class="headerlink" title="模糊测试库-LibFuzzer"></a>模糊测试库-LibFuzzer</h2><p>[[TODO]]</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;css&quot; href=&quot;https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css&quot;&gt;&lt;link rel=&quot;st</summary>
+      
+    
+    
+    
+    <category term="C++" scheme="http://wiki.zhouweitong.site/categories/C/"/>
+    
+    <category term="编码规范" scheme="http://wiki.zhouweitong.site/categories/C/%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/"/>
+    
+    
+    <category term="编程语言" scheme="http://wiki.zhouweitong.site/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+    <category term="基础入门" scheme="http://wiki.zhouweitong.site/tags/%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/"/>
+    
+    <category term="C++" scheme="http://wiki.zhouweitong.site/tags/C/"/>
+    
+    <category term="编码规范" scheme="http://wiki.zhouweitong.site/tags/%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/"/>
+    
+  </entry>
   
   <entry>
     <title>其他规则</title>
@@ -577,66 +641,6 @@
     <category term="Flatpak" scheme="http://wiki.zhouweitong.site/tags/Flatpak/"/>
     
     <category term="Fedora Silverblue" scheme="http://wiki.zhouweitong.site/tags/Fedora-Silverblue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>清空iptables规则</title>
-    <link href="http://wiki.zhouweitong.site/wiki/Linux%E9%98%B2%E7%81%AB%E5%A2%99/iptables/%E6%B8%85%E7%A9%BAiptables%E8%A7%84%E5%88%99/"/>
-    <id>http://wiki.zhouweitong.site/wiki/Linux%E9%98%B2%E7%81%AB%E5%A2%99/iptables/%E6%B8%85%E7%A9%BAiptables%E8%A7%84%E5%88%99/</id>
-    <published>2023-02-10T07:00:00.000Z</published>
-    <updated>2023-02-13T15:34:35.526Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><p>常见的两种清空iptables规则的方法是：</p><ol><li>手动给每一条规则都执行<code>iptables -D</code>：<ul><li>针对默认表，<code>iptables -D &lt;chain_name&gt; ...</code></li><li>针对其他表，<code>iptables -t &lt;table_name&gt; -D &lt;table_name&gt; ...</code></li></ul></li><li>查找规则在表的链中是第几条（Line Number），用条目序号进行删除<ul><li>找条目序号：<code>iptables [-t &lt;table_name&gt;] -L --line-number</code></li><li>使用条目序号进行删除：<code>iptables [-t &lt;table_name&gt;] -D &lt;chain_name&gt; &lt;line_nuber&gt;</code></li></ul></li></ol><p>但也可以使用下面的方法批量删除：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 如果iptables的默认规则不是ACCEPT，为了防止清除后主机拒绝一切数据包，将所有内置链的默认规则设置为ACCEPT</span></span><br><span class="line">iptables -P INPUT ACCEPT</span><br><span class="line">iptables -P FORWARD ACCEPT</span><br><span class="line">iptables -P OUTPUT ACCEPT</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除所有默认表中的rules</span></span><br><span class="line">iptables -F</span><br><span class="line"><span class="comment"># 删除指定的其他表中的rules</span></span><br><span class="line">iptables -t &lt;table_name&gt; -F</span><br><span class="line"><span class="comment"># 删除默认表中所有user-defined chain（因为此时所有chain均为空）</span></span><br><span class="line">iptables -X</span><br></pre></td></tr></table></figure><p>使用场景：在需要完全重建iptables规则，或是使用其他软件代替&#x2F;包装iptables（如firewalld）时；</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css&quot;&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;cs</summary>
-      
-    
-    
-    
-    <category term="Linux防火墙" scheme="http://wiki.zhouweitong.site/categories/Linux%E9%98%B2%E7%81%AB%E5%A2%99/"/>
-    
-    <category term="iptables" scheme="http://wiki.zhouweitong.site/categories/Linux%E9%98%B2%E7%81%AB%E5%A2%99/iptables/"/>
-    
-    
-    <category term="Linux" scheme="http://wiki.zhouweitong.site/tags/Linux/"/>
-    
-    <category term="iptables" scheme="http://wiki.zhouweitong.site/tags/iptables/"/>
-    
-    <category term="防火墙" scheme="http://wiki.zhouweitong.site/tags/%E9%98%B2%E7%81%AB%E5%A2%99/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>快速删除无用的Docker Image</title>
-    <link href="http://wiki.zhouweitong.site/wiki/Docker/%E5%BF%AB%E9%80%9F%E5%88%A0%E9%99%A4%E6%97%A0%E7%94%A8%E7%9A%84Image/"/>
-    <id>http://wiki.zhouweitong.site/wiki/Docker/%E5%BF%AB%E9%80%9F%E5%88%A0%E9%99%A4%E6%97%A0%E7%94%A8%E7%9A%84Image/</id>
-    <published>2023-02-03T02:07:00.000Z</published>
-    <updated>2023-02-13T02:22:14.741Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="docker-image-prune"><a href="#docker-image-prune" class="headerlink" title="docker image prune"></a>docker image prune</h2><p>Docker提供了可以快速删除无用镜像的命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker image prune</span><br></pre></td></tr></table></figure><p>可直接运行，效果：删除所有悬空的（Dangling）镜像</p><ul><li>Dangling Image 指无镜像名或无镜像版本的镜像，比如：<code>xxx:&lt;none&gt;</code>、<code>&lt;none&gt;:xxx</code>、<code>&lt;none&gt;:&lt;none&gt;</code> 均是Danging Image</li></ul><hr><p>注意：是 <code>image</code>，不是 <code>images</code></p><ul><li><code>docker images</code> 只用于查看已拉取的镜像详情</li><li><code>docker image</code> 用于对镜像进行操作</li></ul><hr><p><code>docker image prune</code> 有三个重要参数：</p><ul><li><code>-f</code>：直接执行不确认</li><li><code>-a</code>：除了删除Dangling Image外，还删除未被任何容器使用的镜像</li><li><code>--filter</code>：过滤器，用于选择性删除<ul><li><p><code>--filter until=时间戳</code>：在该时间戳之前的镜像会被处理</p><ul><li><code>--filter until=48h</code>：近48小时内的镜像不处理</li><li><code>--filter until=2023-01-01T04:00:00</code>：在2023&#x2F;01&#x2F;01 04:00:00之后的镜像不处理</li></ul></li><li><p><code>--filter label=标签名</code>：有这个标签的镜像才处理</p><ul><li><code>--filter label!=标签名</code>：没有这个标签的镜像才处理</li><li><code>--filter label=标签名=标签值</code>，<code>--filter label!=标签名=标签值</code>：指定标签的值</li></ul></li></ul></li></ul><h2 id="docker-container-prune"><a href="#docker-container-prune" class="headerlink" title="docker container prune"></a>docker container prune</h2><p>与<code>docker image prune</code>类似，但是对容器进行操作：删除所有停止（Stopped）的容器。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container prune</span><br></pre></td></tr></table></figure><p>有两个参数：</p><ul><li><code>-f</code>：直接执行不确认</li><li><code>--filter</code>：过滤器，用法同<code>docker image prune --filter</code></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;css&quot; href=&quot;https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css&quot;&gt;&lt;link rel=&quot;st</summary>
-      
-    
-    
-    
-    <category term="Docker" scheme="http://wiki.zhouweitong.site/categories/Docker/"/>
-    
-    
-    <category term="Linux" scheme="http://wiki.zhouweitong.site/tags/Linux/"/>
-    
-    <category term="Docker" scheme="http://wiki.zhouweitong.site/tags/Docker/"/>
-    
-    <category term="CI/CD" scheme="http://wiki.zhouweitong.site/tags/CI-CD/"/>
-    
-    <category term="Docker Image" scheme="http://wiki.zhouweitong.site/tags/Docker-Image/"/>
     
   </entry>
   
