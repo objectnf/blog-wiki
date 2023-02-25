@@ -6,7 +6,7 @@
   <link href="http://wiki.zhouweitong.site/atom.xml" rel="self"/>
   
   <link href="http://wiki.zhouweitong.site/"/>
-  <updated>2023-02-24T15:25:21.406Z</updated>
+  <updated>2023-02-25T03:04:29.850Z</updated>
   <id>http://wiki.zhouweitong.site/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>AI绘画模型和插件汇总</title>
+    <link href="http://wiki.zhouweitong.site/wiki/AI%E7%BB%98%E7%94%BB/AI%E7%BB%98%E7%94%BB%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%8F%92%E4%BB%B6%E6%B1%87%E6%80%BB/"/>
+    <id>http://wiki.zhouweitong.site/wiki/AI%E7%BB%98%E7%94%BB/AI%E7%BB%98%E7%94%BB%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%8F%92%E4%BB%B6%E6%B1%87%E6%80%BB/</id>
+    <published>2023-02-24T15:30:00.000Z</published>
+    <updated>2023-02-25T03:04:29.850Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><h3 id="Novel-AI-泄露版模型"><a href="#Novel-AI-泄露版模型" class="headerlink" title="Novel AI 泄露版模型"></a>Novel AI 泄露版模型</h3><ul><li>基于Stable Diffusion网络结构，使用Danbooru数据集进行多次训练后的权重</li><li>至少需 5.8GB 存储空间</li><li>磁力链接，使用BitTorrent协议下载</li></ul><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">magnet:?xt=urn:btih:5bde442da86265b670a3e5ea3163afad2c6f8ecc</span><br></pre></td></tr></table></figure><h3 id="Stable-Diffusion-官方模型"><a href="#Stable-Diffusion-官方模型" class="headerlink" title="Stable Diffusion 官方模型"></a>Stable Diffusion 官方模型</h3><ul><li>官方Stable Diffusion，使用多个图片数据集</li><li>Stable Diffusion 1.5<ul><li><a href="https://huggingface.co/runwayml/stable-diffusion-v1-5">runwayml&#x2F;stable-diffusion-v1-5 · Hugging Face</a></li><li>至少需 4.3GB 存储空间</li></ul></li><li>其他Stable Diffusion 1.x版本模型：<a href="https://huggingface.co/CompVis">CompVis (CompVis)</a></li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned-emaonly.ckpt</span><br></pre></td></tr></table></figure><ul><li>Stable Diffusion 2.1<ul><li><a href="https://huggingface.co/stabilityai/stable-diffusion-2-1">stabilityai&#x2F;stable-diffusion-2-1 · Hugging Face</a></li><li>至少需 5.2GB 存储空间</li></ul></li><li>其他Stable Diffusion 2.x版本模型：<a href="https://huggingface.co/stabilityai">stabilityai (Stability AI)</a></li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://huggingface.co/stabilityai/stable-diffusion-2-1/resolve/main/v2-1_768-ema-pruned.ckpt</span><br></pre></td></tr></table></figure><h3 id="Waifu-Diffusion"><a href="#Waifu-Diffusion" class="headerlink" title="Waifu Diffusion"></a>Waifu Diffusion</h3><ul><li>使用Stable Diffusion网络结构，精选了Danbooru数据集</li><li>Waifu Diffusion 1.4<ul><li><a href="https://huggingface.co/hakurei/waifu-diffusion-v1-4">hakurei&#x2F;waifu-diffusion-v1-4 · Hugging Face</a></li><li>至少需 5.2GB 存储空间</li></ul></li><li>其他Waifu Diffusion 1.x版本模型：<a href="https://huggingface.co/hakurei">hakurei (Reimu Hakurei)</a></li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://huggingface.co/hakurei/waifu-diffusion-v1-4/resolve/main/wd-1-4-anime_e2.ckpt</span><br></pre></td></tr></table></figure><!--### AbyssOrangeMix3- 使用Stable Diffusion网络结构，侧重“高质量”和“画面内的纹理效果”- 分为A1（平涂）、A2（厚涂；油画风）、A3（融合）三个版本- ]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;css&quot; href=&quot;https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css&quot;&gt;&lt;link rel=&quot;st</summary>
+      
+    
+    
+    
+    <category term="AI绘画" scheme="http://wiki.zhouweitong.site/categories/AI%E7%BB%98%E7%94%BB/"/>
+    
+    
+    <category term="速查表" scheme="http://wiki.zhouweitong.site/tags/%E9%80%9F%E6%9F%A5%E8%A1%A8/"/>
+    
+    <category term="Stable Diffusion" scheme="http://wiki.zhouweitong.site/tags/Stable-Diffusion/"/>
+    
+    <category term="Novel AI" scheme="http://wiki.zhouweitong.site/tags/Novel-AI/"/>
+    
+    <category term="模型与插件" scheme="http://wiki.zhouweitong.site/tags/%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%8F%92%E4%BB%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>P1-随机事件与概率</title>
@@ -291,36 +321,6 @@
     <category term="Toolbox" scheme="http://wiki.zhouweitong.site/tags/Toolbox/"/>
     
     <category term="Podman" scheme="http://wiki.zhouweitong.site/tags/Podman/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>AI绘画模型和插件汇总</title>
-    <link href="http://wiki.zhouweitong.site/wiki/AI%E7%BB%98%E7%94%BB/AI%E7%BB%98%E7%94%BB%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%8F%92%E4%BB%B6%E6%B1%87%E6%80%BB/"/>
-    <id>http://wiki.zhouweitong.site/wiki/AI%E7%BB%98%E7%94%BB/AI%E7%BB%98%E7%94%BB%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%8F%92%E4%BB%B6%E6%B1%87%E6%80%BB/</id>
-    <published>2023-02-18T02:00:00.000Z</published>
-    <updated>2023-02-18T02:44:03.783Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;css&quot; href=&quot;https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css&quot;&gt;&lt;link rel=&quot;st</summary>
-      
-    
-    
-    
-    <category term="AI绘画" scheme="http://wiki.zhouweitong.site/categories/AI%E7%BB%98%E7%94%BB/"/>
-    
-    
-    <category term="速查表" scheme="http://wiki.zhouweitong.site/tags/%E9%80%9F%E6%9F%A5%E8%A1%A8/"/>
-    
-    <category term="Stable Diffusion" scheme="http://wiki.zhouweitong.site/tags/Stable-Diffusion/"/>
-    
-    <category term="Novel AI" scheme="http://wiki.zhouweitong.site/tags/Novel-AI/"/>
-    
-    <category term="模型与插件" scheme="http://wiki.zhouweitong.site/tags/%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%8F%92%E4%BB%B6/"/>
     
   </entry>
   
