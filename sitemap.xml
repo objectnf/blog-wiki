@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://wiki.zhouweitong.site/wiki/CPlusPlus/%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/Google%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/</loc>
+    
+    <lastmod>2023-02-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://wiki.zhouweitong.site/wiki/CPlusPlus/CMake/CMake%E5%9F%BA%E7%A1%80/</loc>
     
     <lastmod>2023-02-25</lastmod>
@@ -782,6 +791,13 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>http://wiki.zhouweitong.site/tags/%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/</loc>
+    <lastmod>2023-02-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
@@ -975,6 +991,13 @@
   
   <url>
     <loc>http://wiki.zhouweitong.site/categories/C/CMake/</loc>
+    <lastmod>2023-02-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://wiki.zhouweitong.site/categories/C/%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/</loc>
     <lastmod>2023-02-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
