@@ -17,7 +17,7 @@
 <meta property="og:description" content="跨平台的“编译器所需文件的生成器” Make是什么 相当于自动执行多个文件的编译与链接 只需一个配置文件，就可根据配置文件自动生成命令然后执行 同时应用了增量编译的思想：文件没有做出修改就不会重新编译 只显示自动生成的编译命令而不运行：make --dry-run   Make有什么缺点？ 语法不够复杂，许多高级功能实现不了 GNU系软件，没有官方的对Windows的支持 与GCC结合紧密，但与">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-02-25T08:00:00.000Z">
-<meta property="article:modified_time" content="2023-02-25T11:29:06.887Z">
+<meta property="article:modified_time" content="2023-02-25T11:32:02.537Z">
 <meta property="article:author" content="ObjectNotFound">
 <meta property="article:tag" content="编程语言">
 <meta property="article:tag" content="基础入门">
@@ -803,23 +803,16 @@
 <li>[[TODO]]</li>
 </ul>
 <h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><ul>
-<li><p>函数名是不区分大小写的，但变量名&#x2F;关键字是区分大小写的。关键字一般都是大写，变量名（除系统定义的之外）建议小写</p>
-</li>
-<li><p><code>project(xxx)</code>：指定项目名</p>
-<ul>
-<li>设置项目语言：<code>project(xxx LANGUAGES CXX)</code>；CXX：即C++</li>
+<li>函数名是不区分大小写的，但变量名&#x2F;关键字是区分大小写的。关键字一般都是大写，变量名（除系统定义的之外）建议小写</li>
+<li><code>project(xxx)</code>：指定项目名<ul>
+<li>设置项目语言：<code>project(xxx LANGUAGES CXX)</code>；<code>CXX</code>：即C++</li>
 </ul>
 </li>
-<li><p><code>cmake_minimum_required(VERSION xxx)</code>：指定最低CMake版本号</p>
-</li>
-<li><p><code>add_executable(AAA, BBB)</code>：把BBB文件编译成AAA，AAA是成品文件名</p>
-</li>
-<li><p><code>set(AAA, BBB)</code>：把AAA变量（定义并）内容设置为BBB</p>
-</li>
-<li><p><code>file()</code></p>
-</li>
-<li><p>[[TODO]]</p>
-</li>
+<li><code>cmake_minimum_required(VERSION xxx)</code>：指定最低CMake版本号</li>
+<li><code>add_executable(AAA, BBB)</code>：把BBB文件编译成AAA，AAA是成品文件名</li>
+<li><code>set(AAA, BBB)</code>：把AAA变量（定义并）内容设置为BBB</li>
+<li><code>file()</code></li>
+<li>[[TODO]]</li>
 </ul>
 <h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><ul>
 <li>使用<code>$&#123;xxx&#125;</code>来使用变量</li>
