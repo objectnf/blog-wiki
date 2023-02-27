@@ -6,7 +6,7 @@
   <link href="http://wiki.zhouweitong.site/atom.xml" rel="self"/>
   
   <link href="http://wiki.zhouweitong.site/"/>
-  <updated>2023-02-27T11:41:16.299Z</updated>
+  <updated>2023-02-27T14:47:30.824Z</updated>
   <id>http://wiki.zhouweitong.site/</id>
   
   <author>
@@ -21,14 +21,14 @@
     <link href="http://wiki.zhouweitong.site/wiki/K8s/%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C%E4%B8%8EKs%E9%83%A8%E7%BD%B2/"/>
     <id>http://wiki.zhouweitong.site/wiki/K8s/%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C%E4%B8%8EKs%E9%83%A8%E7%BD%B2/</id>
     <published>2023-02-27T11:00:00.000Z</published>
-    <updated>2023-02-27T11:41:16.299Z</updated>
+    <updated>2023-02-27T14:47:30.824Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul><li>Linux操作系统<ul><li>Ubuntu、Debian、CentOS、Fedora、RHEL、openSUSE&#x2F;SLES 等主流Linux发行版</li><li>Fedora CoreOS、VMware Photon OS等“容器专用”OS</li></ul></li><li>足够的RAM和存储：物理机部署时推荐只运行K8s相关程序</li><li>Internet连接，或能够访问特定registry（需要提前搭好registry并在registry中添加K8s组件镜像）</li><li>物理机之间的网络联通（Worker访问Control的API、Worker与Worker之间的网络甚至存储共享）</li><li>安装好部署工具 见下文</li><li>安装好CRI-O标准兼容的容器工具，docker、podman、containerd等均可<ul><li>podman：绝对开源，无服务（无daemon），很适用于Rootless Container模式（低权限），仅支持Linux容器</li><li>docker：最主流，有商业版，传统daemon模式（需要root&#x2F;管理员权限），支持Linux容器和Windows容器</li><li>containerd：最基础，绝对开源，最标准，是K8s、K3s等默认的CRI-O容器工具，支持Linux容器和Windows容器</li></ul></li><li>可以使用带GUI的容器工具<ul><li>Podman Desktop</li><li>Docker Desktop</li><li>Rancher Desktop</li></ul></li></ul><h2 id="该选哪种部署方式？"><a href="#该选哪种部署方式？" class="headerlink" title="该选哪种部署方式？"></a>该选哪种部署方式？</h2>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul><li>Linux操作系统<ul><li>Ubuntu、Debian、CentOS、Fedora、RHEL、openSUSE&#x2F;SLES 等主流Linux发行版</li><li>Fedora CoreOS、VMware Photon OS等“容器专用”OS</li></ul></li><li>足够的RAM和存储：物理机部署时推荐只运行K8s相关程序</li><li>Internet连接，或能够访问特定registry（需要提前搭好registry并在registry中添加K8s组件镜像）</li><li>物理机之间的网络联通（Worker访问Control的API、Worker与Worker之间的网络甚至存储共享）</li><li>安装好部署工具 见下文</li><li>安装好CRI-O标准兼容的容器工具，docker、podman、containerd等均可<ul><li>podman：绝对开源，无服务（无daemon），很适用于Rootless Container模式（低权限），仅支持Linux容器</li><li>docker：最主流，有商业版，传统daemon模式（需要root&#x2F;管理员权限），支持Linux容器和Windows容器</li><li>containerd：最基础，绝对开源，最标准，是K8s、K3s等默认的CRI-O容器工具，支持Linux容器和Windows容器</li></ul></li><li>可以使用带GUI的容器工具<ul><li>Podman Desktop</li><li>Docker Desktop</li><li>Rancher Desktop</li></ul></li></ul><h2 id="该选哪种部署方式？"><a href="#该选哪种部署方式？" class="headerlink" title="该选哪种部署方式？"></a>该选哪种部署方式？</h2><ul><li>大型生产环境：完整的K8s集群<ul><li>使用 kubeadm 工具进行部署</li><li>有两种节点类型：Control Plane（控制平面，也叫Master）和Worker</li><li>适合物理机部署</li><li>需要高配置（稳定运行最好2thread+8GB）</li><li>最好多个物理机（Control Plane和Worker隔离，应用容器只部署在Worker上），最好3台以上（1 Control + 2 Worker）</li></ul></li><li>小型生产环境：K3s<ul><li>由rancher公司开发维护</li><li>直接使用k3s工具进行部署</li><li>有两种节点类型Server和Agent，默认单节点Server</li><li>裸机部署和虚拟机部署均可</li><li>配置需求低（1thread+512MB足够）</li></ul></li><li>本地测试环境：minikube<ul><li>由K8s官方维护</li><li>不建议暴露在公网 很多默认配置都是以localhost或内网为基础的</li><li>默认是单节点 可以扩展为多节点</li></ul></li><li>其他：Microk8s，Canonical公司开发与维护，使用snap部署</li></ul><h2 id="部署K3s"><a href="#部署K3s" class="headerlink" title="部署K3s"></a>部署K3s</h2><ul><li>如果需要关闭已有的K3s集群：<code>k3s-killall.sh</code></li><li><h2 id="安装-主节点（Server）-curl-sfL-https-get-k3s-io-sh-默认安装的selinux规则太旧-手动安装新的。以CoreOS为例：sudo-rpm-ostree-install-https-github-com-k3s-io-k3s-selinux-releases-download-v1-2-stable-2-k3s-selinux-1-2-2-el8-noarch-rpm"><a href="#安装-主节点（Server）-curl-sfL-https-get-k3s-io-sh-默认安装的selinux规则太旧-手动安装新的。以CoreOS为例：sudo-rpm-ostree-install-https-github-com-k3s-io-k3s-selinux-releases-download-v1-2-stable-2-k3s-selinux-1-2-2-el8-noarch-rpm" class="headerlink" title="安装  - 主节点（Server）      - curl -sfL https://get.k3s.io | sh -      - 默认安装的selinux规则太旧 手动安装新的。以CoreOS为例：sudo rpm-ostree install https://github.com/k3s-io/k3s-selinux/releases/download/v1.2.stable.2/k3s-selinux-1.2-2.el8.noarch.rpm"></a>安装<br>  - 主节点（Server）<br>      - <code>curl -sfL https://get.k3s.io | sh -</code><br>      - 默认安装的selinux规则太旧 手动安装新的。以CoreOS为例：<code>sudo rpm-ostree install https://github.com/k3s-io/k3s-selinux/releases/download/v1.2.stable.2/k3s-selinux-1.2-2.el8.noarch.rpm</code></h2></li></ul>]]></content>
     
     
       
       
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css&quot;&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;cs</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;css&quot; href=&quot;https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css&quot;&gt;&lt;link rel=&quot;st</summary>
       
     
     
