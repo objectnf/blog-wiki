@@ -17,7 +17,7 @@
 <meta property="og:description" content="准备工作 Linux操作系统 Ubuntu、Debian、CentOS、Fedora、RHEL、openSUSE&#x2F;SLES 等主流Linux发行版 Fedora CoreOS、VMware Photon OS等“容器专用”OS   足够的RAM和存储：物理机部署时推荐只运行K8s相关程序 Internet连接，或能够访问特定registry（需要提前搭好registry并在registr">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-02-27T11:00:00.000Z">
-<meta property="article:modified_time" content="2023-02-27T14:47:30.824Z">
+<meta property="article:modified_time" content="2023-02-27T15:24:46.631Z">
 <meta property="article:author" content="ObjectNotFound">
 <meta property="article:tag" content="K8s">
 <meta property="article:tag" content="K3s">
@@ -796,8 +796,59 @@
 <li>其他：Microk8s，Canonical公司开发与维护，使用snap部署</li>
 </ul>
 <h2 id="部署K3s"><a href="#部署K3s" class="headerlink" title="部署K3s"></a>部署K3s</h2><ul>
-<li>如果需要关闭已有的K3s集群：<code>k3s-killall.sh</code></li>
-<li><h2 id="安装-主节点（Server）-curl-sfL-https-get-k3s-io-sh-默认安装的selinux规则太旧-手动安装新的。以CoreOS为例：sudo-rpm-ostree-install-https-github-com-k3s-io-k3s-selinux-releases-download-v1-2-stable-2-k3s-selinux-1-2-2-el8-noarch-rpm"><a href="#安装-主节点（Server）-curl-sfL-https-get-k3s-io-sh-默认安装的selinux规则太旧-手动安装新的。以CoreOS为例：sudo-rpm-ostree-install-https-github-com-k3s-io-k3s-selinux-releases-download-v1-2-stable-2-k3s-selinux-1-2-2-el8-noarch-rpm" class="headerlink" title="安装  - 主节点（Server）      - curl -sfL https://get.k3s.io | sh -      - 默认安装的selinux规则太旧 手动安装新的。以CoreOS为例：sudo rpm-ostree install https://github.com/k3s-io/k3s-selinux/releases/download/v1.2.stable.2/k3s-selinux-1.2-2.el8.noarch.rpm"></a>安装<br>  - 主节点（Server）<br>      - <code>curl -sfL https://get.k3s.io | sh -</code><br>      - 默认安装的selinux规则太旧 手动安装新的。以CoreOS为例：<code>sudo rpm-ostree install https://github.com/k3s-io/k3s-selinux/releases/download/v1.2.stable.2/k3s-selinux-1.2-2.el8.noarch.rpm</code></h2></li>
+<li><p>如果需要关闭已有的K3s集群：<code>k3s-killall.sh</code></p>
+</li>
+<li><p>安装</p>
+<ul>
+<li>主节点（Server）<ul>
+<li><code>curl -sfL https://get.k3s.io | sh -</code></li>
+<li>默认安装的selinux规则太旧 手动安装新的。以CoreOS为例：<code>sudo rpm-ostree install https://github.com/k3s-io/k3s-selinux/releases/download/v1.2.stable.2/k3s-selinux-1.2-2.el8.noarch.rpm</code></li>
+</ul>
+</li>
+<li>子节点（Agent）<ul>
+<li>要先找主节点的token，再记录主节点的ip地址<ul>
+<li><code>sudo cat /var/lib/rancher/k3s/server/node-token</code></li>
+<li><code>ip addr</code></li>
+</ul>
+</li>
+<li>然后使用安装命令，加入特殊变量<ul>
+<li><code>curl -sfL https://get.k3s.io | K3S_TOKEN=&quot;&lt;主节点token值&gt;&quot; K3S_URL=&quot;https://&lt;主节点ip地址&gt;:6443&quot; sh -</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>systemd service文件位置</p>
+<ul>
+<li>主节点：<code>/etc/systemd/system/k3s.service</code></li>
+<li>子节点：<code>/etc/systemd/system/k3s-agent.service</code></li>
+</ul>
+</li>
+<li><p>升级</p>
+<ul>
+<li>依然使用curl在线获取升级脚本，版本号可去 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/k3s-io/k3s/releases">Releases · k3s-io&#x2F;k3s</a> 查看，使用环境变量 <code>INSTALL_K3S_VERSION</code> 指定新版本</li>
+<li>主节点<ul>
+<li><code>curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION=&lt;版本号&gt; sh -</code></li>
+</ul>
+</li>
+<li>子节点<ul>
+<li><code>curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION=&lt;版本号&gt; K3S_TOKEN=&quot;&lt;主节点token值&gt;&quot; K3S_URL=&quot;https://&lt;主节点ip地址&gt;:6443&quot; sh -</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="部署Minikube"><a href="#部署Minikube" class="headerlink" title="部署Minikube"></a>部署Minikube</h2><ul>
+<li>如果要删掉已有的Minikube集群<ul>
+<li>停止：<code>minikube stop</code></li>
+<li>删除：<code>minikube delete --all</code></li>
+</ul>
+</li>
+<li>借助containerd和podman，启动新集群<ul>
+<li><code>minikube start --driver=podman --container-runtime=containerd --listen-address=0.0.0.0</code></li>
+</ul>
+</li>
 </ul>
 
             </div>
