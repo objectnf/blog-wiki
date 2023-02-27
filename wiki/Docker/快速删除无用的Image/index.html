@@ -17,7 +17,7 @@
 <meta property="og:description" content="docker image pruneDocker提供了可以快速删除无用镜像的命令： 1docker image prune  可直接运行，效果：删除所有悬空的（Dangling）镜像  Dangling Image 指无镜像名或无镜像版本的镜像，比如：xxx:&lt;none&gt;、&lt;none&gt;:xxx、&lt;none&gt;:&lt;none&gt; 均是Dangling Ima">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-02-03T02:07:00.000Z">
-<meta property="article:modified_time" content="2023-02-27T05:07:14.547Z">
+<meta property="article:modified_time" content="2023-02-27T05:18:19.692Z">
 <meta property="article:author" content="ObjectNotFound">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Docker">
@@ -473,7 +473,7 @@
                             &nbsp;
                             计算机组成
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0_1/">计算机组成原理笔记_1</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/%E8%AE%A1%E7%BB%84%E7%AC%94%E8%AE%B0_%E6%8C%87%E4%BB%A4%E3%80%81%E5%AD%98%E5%82%A8/">计组笔记_指令、存储</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -767,14 +767,12 @@
 <li><code>-f</code>：直接执行不确认</li>
 <li><code>-a</code>：除了删除Dangling Image外，还删除未被任何容器使用的镜像</li>
 <li><code>--filter</code>：过滤器，用于选择性删除<ul>
-<li><p><code>--filter until=时间戳</code>：在该时间戳之前的镜像会被处理</p>
-<ul>
+<li><code>--filter until=时间戳</code>：在该时间戳之前的镜像会被处理<ul>
 <li><code>--filter until=48h</code>：近48小时内的镜像不处理</li>
 <li><code>--filter until=2023-01-01T04:00:00</code>：在2023&#x2F;01&#x2F;01 04:00:00之后的镜像不处理</li>
 </ul>
 </li>
-<li><p><code>--filter label=标签名</code>：有这个标签的镜像才处理</p>
-<ul>
+<li><code>--filter label=标签名</code>：有这个标签的镜像才处理<ul>
 <li><code>--filter label!=标签名</code>：没有这个标签的镜像才处理</li>
 <li><code>--filter label=标签名=标签值</code>，<code>--filter label!=标签名=标签值</code>：指定标签的值</li>
 </ul>
