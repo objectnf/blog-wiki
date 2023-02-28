@@ -6,7 +6,7 @@
   <link href="http://wiki.zhouweitong.site/atom.xml" rel="self"/>
   
   <link href="http://wiki.zhouweitong.site/"/>
-  <updated>2023-02-28T09:11:13.099Z</updated>
+  <updated>2023-02-28T14:54:32.685Z</updated>
   <id>http://wiki.zhouweitong.site/</id>
   
   <author>
@@ -15,6 +15,96 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>内存</title>
+    <link href="http://wiki.zhouweitong.site/wiki/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E5%86%85%E5%AD%98/"/>
+    <id>http://wiki.zhouweitong.site/wiki/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E5%86%85%E5%AD%98/</id>
+    <published>2023-02-28T14:55:00.000Z</published>
+    <updated>2023-02-28T14:54:32.685Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="内存四区"><a href="#内存四区" class="headerlink" title="内存四区"></a>内存四区</h2><ul><li>一般分为如下四个区间<ul><li>代码区<ul><li>有时会将代码区拆成程序代码区和常量存储区</li></ul></li><li>静态&#x2F;全局变量区<ul><li>有时会拆分为静态变量区和全局变量区</li></ul></li><li>栈区：由上向下延申，自动维护<ul><li>即低地址向高地址</li></ul></li><li>堆区：由下向上延申，手动维护<ul><li>即高地址向低地址</li></ul></li></ul></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;css&quot; href=&quot;https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css&quot;&gt;&lt;link rel=&quot;st</summary>
+      
+    
+    
+    
+    <category term="操作系统" scheme="http://wiki.zhouweitong.site/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+    <category term="笔记" scheme="http://wiki.zhouweitong.site/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="OS" scheme="http://wiki.zhouweitong.site/tags/OS/"/>
+    
+    <category term="内存" scheme="http://wiki.zhouweitong.site/tags/%E5%86%85%E5%AD%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>操作系统补充知识</title>
+    <link href="http://wiki.zhouweitong.site/wiki/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%86/"/>
+    <id>http://wiki.zhouweitong.site/wiki/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%86/</id>
+    <published>2023-02-28T14:50:00.000Z</published>
+    <updated>2023-02-28T14:54:32.685Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="数字电路"><a href="#数字电路" class="headerlink" title="数字电路"></a>数字电路</h2><ul><li>触发器（Flip-flop）<ul><li>R-S触发器（Reset-Set）</li><li>有输出1和输出0两种稳定的状态</li><li>可以用于记忆数据</li><li><a href="https://www.cnblogs.com/kkun/archive/2012/11/27/Flip-Flop.html">逻辑电路 - 触发器Flip-Flop - kkun - 博客园</a></li></ul></li></ul><p>##（待细化）</p><ul><li>gdb<ul><li>gdb starti</li><li>gdb layout asm&#x2F;src</li><li>gdb bt</li><li>gdb x&#x2F;</li></ul></li><li>Python<ul><li>z3</li><li>rich</li><li>sage</li><li>sympy</li></ul></li><li>汇编：行为是什么？<ul><li>retq</li></ul></li><li>gcc<ul><li><code>void _start()</code>：是实际上的gcc编译的C语言程序的启动函数</li><li><code>__ASSEMBLER__</code></li><li>汇编代码预编译？</li></ul></li><li>tmux</li><li>strace：分析程序使用了哪些syscall</li><li>time命令：测量程序运行时间</li><li>sort -nk：按照第几列进行数值排序</li><li>dialog：伪GUI，对话框</li><li>busybox，GNU coreutils</li><li>形式语义学</li><li>bash<ul><li>$status</li></ul></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;css&quot; href=&quot;https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css&quot;&gt;&lt;link rel=&quot;st</summary>
+      
+    
+    
+    
+    <category term="操作系统" scheme="http://wiki.zhouweitong.site/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+    <category term="笔记" scheme="http://wiki.zhouweitong.site/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="OS" scheme="http://wiki.zhouweitong.site/tags/OS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>进程、线程与锁</title>
+    <link href="http://wiki.zhouweitong.site/wiki/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E4%B8%8E%E9%94%81/"/>
+    <id>http://wiki.zhouweitong.site/wiki/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E4%B8%8E%E9%94%81/</id>
+    <published>2023-02-28T14:30:00.000Z</published>
+    <updated>2023-02-28T14:54:32.685Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="多处理器"><a href="#多处理器" class="headerlink" title="多处理器"></a>多处理器</h2><ul><li>需要借助进程和线程<ul><li>进程：资源分配的最小单位</li><li>线程：任务调度的最小单位</li></ul></li><li>多处理器：实际上是并行，同一时间点上同时，因为现在已经是多核CPU的时代</li><li>简单认为：一个程序n个线程，每个线程在不同的CPU核心上<ul><li>线程也有单独的状态机模型，“子状态机”</li><li>non-deterministic finite automaton（NFA），非确定性有限自动机，多线程的程序具有不确定性</li></ul></li><li>直观认识：thread.h<ul><li>基本步骤：create，生成并启动线程；join，等待所有线程返回；</li><li>gcc编译时：<code>-l pthread</code>，文档：<code>man 7 pthreads</code></li><li>thread.h是可以修改的，实现各种不同的功能：超大线程栈、detach运行等</li><li>实际上是POSIX API</li></ul></li><li>线程的特点：共享内存，独立堆栈<ul><li>当然也可以定义线程本地变量：<code>__thread</code></li><li><code>__attribute__((noinline))</code></li></ul></li></ul><h3 id="多线程带来的三个问题"><a href="#多线程带来的三个问题" class="headerlink" title="多线程带来的三个问题"></a>多线程带来的三个问题</h3><ul><li>原子性：使某一条指令独占处理器执行<ul><li>那多线程呢？线程可能会被打断</li><li>多处理器呢？其他处理器也要等</li><li>现代处理器指令集呢？add都不是原子的（可能涉及隐含的mov操作）<ul><li><a href="https://stackoverflow.com/questions/35332057/is-the-following-assembly-atomic-if-not-why">c - Is the following Assembly Atomic, If not, Why? - Stack Overflow</a></li></ul></li><li>使用常见算法进行互斥？许多算法只适用于两个线程的原子性保持</li></ul></li><li>实现原子性：<ul><li>临界区，上锁，解锁；</li><li>使用队列解决，参照Windows API；<ul><li>要进行任务拆分，形成worker线程；</li><li>线程池；</li></ul></li></ul></li><li>执行顺序的丧失：<ul><li>一部分是由编译器优化造成的：内存读写次数的优化</li></ul></li><li>保护执行顺序：<ul><li>编译器屏障——内存屏障（memory barrier）<ul><li><code>asm volatile (&quot;&quot; ::: &quot;memory&quot;);</code></li><li>保持编译后的代码（汇编的语义）与C语言代码的语义一致；</li></ul></li><li>为什么带有缓冲区的printf可以在多线程情况下正常调用？已经考虑到了线程安全；<ul><li>即不会出现 一个长字符串 插入到 另一个长字符串中 的情况</li></ul></li><li>stdatomic.h</li><li>可以手动进行内存同步：<ul><li>设置一个全局变量FLAG，取FLAG中的后两位bit</li><li>（主线程，或者main函数里）FLAG初始化为0</li><li><code>_sync_synchronize()</code>进行全内存同步（确保线程看到的FLAG都是0）</li><li>子线程通过异或修改FLAG的位</li><li>[[TODO]]</li></ul></li></ul></li><li>多处理器情况下可见性的丧失<ul><li>[[TODO]]</li></ul></li></ul><h2 id="Peterson算法"><a href="#Peterson算法" class="headerlink" title="Peterson算法"></a>Peterson算法</h2><ul><li>使用共享内存实现互斥<ul><li>[[TODO]]</li></ul></li></ul><h2 id="互斥"><a href="#互斥" class="headerlink" title="互斥"></a>互斥</h2><ul><li>原子指令<ul><li>什么叫原子化？：执行过程中不能被打断；</li><li>x86<ul><li>lock指令前缀。为啥是前缀？因为要先去上锁；</li><li><code>xchg</code>，实际上是exchange</li></ul></li><li>其实原子化和自旋锁问题早就有了<ul><li>双路CPU，谁可以访问内存？</li><li>当时可以实现总线锁：CPU和缓存、内存间沟通都需要经过总线，总线加锁就安全了</li></ul></li><li>当代CPU<ul><li>缓存一致性</li><li>会给处理器增加很大性能负担</li></ul></li><li>其实都是load（读取或载入数据） -&gt; exec（执行一些步骤） -&gt; store（把执行结果写回）</li><li>RISC-V：LR&#x2F;SC，检测锁的拥堵</li></ul></li><li>自旋锁（spin lock）- 软件无法完美实现，就靠硬件来做<ul><li>一个线程加锁，其他线程重复询问锁，若仍获取不到锁则等待</li><li>特点：循环等待，也叫忙等</li><li>缺点：原子指令本身就有开销；忙等导致性能损失严重，处理器利用率低下；正在运行的线程可能会被调度，导致锁无法及时释放；</li><li>适用场景<ul><li>争抢锁的概率很小，或者几乎没有；</li><li>在抢占锁的时候禁止调度；</li><li>几乎只在操作系统内核代码里应用；</li></ul></li></ul></li><li>互斥锁（mutex lock） - 用户态无法完美实现，就靠内核态来做<ul><li>性能评价维度：伸缩性（Scalability）</li><li>互斥锁的锁一般由操作系统控制</li><li>一个线程加锁，其他线程询问锁，若获取不到则被调度；</li><li>特点：循环等待，但不忙等；</li><li>与自旋锁之间的区别<ul><li>自旋锁：下限很快（直接进临界区），上限很慢（忙等）</li><li>互斥锁：下限没那么快（进出内核），上限没那么慢（不会忙等）</li></ul></li></ul></li><li>Futex：快速的互斥锁<ul><li>futex &#x3D; fast user mutex</li><li>实际上是改良了的自旋锁和互斥锁</li><li>原子指令上锁<ul><li>上锁成功即直接进入互斥区</li><li>上锁失败自动调用内核API被调度</li></ul></li><li>二八定律</li><li>pthread_mutex</li><li>man futex</li><li>model checker?</li></ul></li><li>“找到你依赖的假设，并大胆地打破它”</li></ul><h2 id="PV问题（大题考点）"><a href="#PV问题（大题考点）" class="headerlink" title="PV问题（大题考点）"></a>PV问题（大题考点）</h2><ul><li>解题的一般流程<ul><li>检查有几类进程？一般每一类进程都对应着自己的函数</li><li>先在函数内部用中文描述进程动作；注意执行次数<ul><li>只做一次</li><li>不断重复：while(1)</li></ul></li><li>理清在执行进程前，要P什么<ul><li>注意：P和V是配对的，有P必有V；当发现需要P时，写完这个P必须先找它对应的V的位置，而不是去分析下一个P</li><li>注意隐含的互斥问题，例如缓冲区访问</li></ul></li><li>PV写完之后去定义信号量（和信号量本身的PV）</li><li>如果存在很多个P，需要检查会不会发生死锁，会发生的话则想办法解决<ul><li>只有多个P存在时才可能发生死锁，因为需要请求和保持条件</li></ul></li></ul></li></ul><h2 id="CPU指令流水线"><a href="#CPU指令流水线" class="headerlink" title="CPU指令流水线"></a>CPU指令流水线</h2><p>[[TODO]]</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;css&quot; href=&quot;https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css&quot;&gt;&lt;link rel=&quot;st</summary>
+      
+    
+    
+    
+    <category term="操作系统" scheme="http://wiki.zhouweitong.site/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+    <category term="笔记" scheme="http://wiki.zhouweitong.site/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="OS" scheme="http://wiki.zhouweitong.site/tags/OS/"/>
+    
+    <category term="进程" scheme="http://wiki.zhouweitong.site/tags/%E8%BF%9B%E7%A8%8B/"/>
+    
+    <category term="线程" scheme="http://wiki.zhouweitong.site/tags/%E7%BA%BF%E7%A8%8B/"/>
+    
+    <category term="锁" scheme="http://wiki.zhouweitong.site/tags/%E9%94%81/"/>
+    
+    <category term="互斥" scheme="http://wiki.zhouweitong.site/tags/%E4%BA%92%E6%96%A5/"/>
+    
+    <category term="操作系统" scheme="http://wiki.zhouweitong.site/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+  </entry>
   
   <entry>
     <title>Lua版本、特性、数据结构和变量</title>
@@ -539,100 +629,6 @@
     <category term="行列式" scheme="http://wiki.zhouweitong.site/tags/%E8%A1%8C%E5%88%97%E5%BC%8F/"/>
     
     <category term="笔记" scheme="http://wiki.zhouweitong.site/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C#基础</title>
-    <link href="http://wiki.zhouweitong.site/wiki/CSharp/CSharp%E5%9F%BA%E7%A1%80/"/>
-    <id>http://wiki.zhouweitong.site/wiki/CSharp/CSharp%E5%9F%BA%E7%A1%80/</id>
-    <published>2023-02-21T10:00:00.000Z</published>
-    <updated>2023-02-24T13:34:03.026Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="版本问题"><a href="#版本问题" class="headerlink" title="版本问题"></a>版本问题</h2><ul><li>目前最新的版本是C# 11（.Net 7），在研的版本是C# 12（.Net 8）</li><li>.Net版本和C#版本有对应关系：.Net相当于JDK（运行时），C#相当于Java（语言标准）</li><li>.Net经过多次分割和合并<ul><li>开始时.Net仅在Windows平台上开放（.Net Framework 3.x，4.x，目前仍在维护，即.Net Framework 4.8），截止到C# 7</li><li>因此开源的.Net运行时开始发展（Mono，等同于.Net Framework 4.x），截止到C# 7</li><li>.Net Framework 3.x在Windows 7上预装，.Net Framework 4.x 在Windows 8以上系统内预装</li><li>随后Microsoft推出了.Net Core计划，相当于把.Net部分开源，截止到.Net Core 3.1（C# 8）</li><li>之后，Microsoft宣布将.Net完全开源，推出了.Net 5.x（C# 9）、.Net 6.x（C# 10）、.Net 7.x（C# 11）</li></ul></li><li>.Net，.Net Framework和.Net Core的关系：.Net Framework是最“完整”的.Net，包含Windows窗口API、Windows服务API、Web支持等等；.Net Core是最初开源的.Net，.Net是完全开源的.Net，但仍然只有部分功能（可以类比Oracle Glassfish Server，OpenJDK和JDK）</li><li>Unity和C#之间的关系：<ul><li>Unity使用Roslyn编译器，也即.Net官方给出的编译器（<a href="https://github.com/dotnet/roslyn">dotnet&#x2F;roslyn: The Roslyn .NET compiler provides C# and Visual Basic languages with rich code analysis APIs. (github.com)</a>），将C#代码转换为中间码IL</li><li>随后依据平台的不同，使用Mono继续处理IL（IL到机器码）或者使用IL2CPP（IL到C++到机器码）或者使用.Net本身（IL到机器码）</li><li>目前的Unity版本与C#版本的对应关系<ul><li>Unity 2018.4<ul><li>.Net Framework 3.5（C# 4）</li><li>.Net Framework 4.6（C# 7.3）</li></ul></li><li>Unity 2019.4<ul><li>.Net Framework 4.6（C# 7.3）</li></ul></li><li>Unity 2020.3<ul><li>.Net Framework 4.6（C# 8.0）</li></ul></li><li>Unity 2021.3<ul><li>C# 9.0</li></ul></li><li>Unity 2022.2，Unity 2023.1<ul><li>C# 9.0</li></ul></li></ul></li></ul></li></ul><h2 id="环境搭建和使用"><a href="#环境搭建和使用" class="headerlink" title="环境搭建和使用"></a>环境搭建和使用</h2><ul><li>Windows下推荐使用Visual Studio,开启.Net&#x2F;ASP .Net开发功能<ul><li><a href="https://visualstudio.microsoft.com/zh-hans/">Visual Studio: 面向软件开发人员和 Teams 的 IDE 和代码编辑器</a></li><li>如果有在Windows上以Mono做开发的需求，可以安装Mono和MonoDevelop：<ul><li><a href="https://www.mono-project.com/download/stable/#download-win">Download - Stable | Mono</a></li><li><a href="https://www.monodevelop.com/download/#fndtn-download-win">Download | MonoDevelop</a></li></ul></li></ul></li><li>Linux下可选择.Net或Mono：<ul><li>Mono需要添加官方源：<a href="https://www.mono-project.com/download/stable/#download-lin">Download - Stable | Mono</a><ul><li><code>apt-get install mono-devel monodevelop</code></li></ul></li><li>.Net同样需要添加官方源：<a href="https://docs.microsoft.com/zh-cn/dotnet/core/install/linux">在 Linux 发行版上安装 .NET - .NET | Microsoft Docs</a><ul><li><code>apt-get install dotnet-sdk-6.0</code></li></ul></li></ul></li></ul><h2 id="基本结构"><a href="#基本结构" class="headerlink" title="基本结构"></a>基本结构</h2><ul><li>C#程序的基本结构：使用命名空间、定义命名空间、命名空间内定义类、类内定义方法、Main函数入口点</li><li>语句的结尾用分号（;），class、function、namespace算语句块，不需要分号</li><li>Main函数入口点的形式：<code>static void Main(string[] args) &#123;&#125;</code><ul><li>必须是静态函数：static</li><li>一定是无返回值的：void</li><li>参数是可选的，若有参数，则是字符串数组：string[]</li><li>因为是静态函数，所以Main函数中只能直接调用其他静态函数<ul><li>即：函数能静态最好设置为静态</li></ul></li></ul></li><li>示例程序</li></ul><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">namespace</span> <span class="title">TestNamespace</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">ExampleClass</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;Hello World!&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a>基本类型</h2><ul><li><p>也分常量&#x2F;变量类型和字面量（literal）类型</p></li><li><p>不符合“一切皆对象”的哲学：字面量不是对象</p></li><li><p>所有基本类型在定义时会被自动初始化为默认值。（一些编译器认为）如果需要变量在定义时保持其默认值，不应该将其初始化。（另一些编译器认为）变量使用前均应该被初始化。</p><ul><li>即：<code>bool m_a = false;</code> 应该写为 <code>bool m_a;</code></li></ul></li><li><p>值类型：数据存放在栈中，使用时也是直接从栈取数据、向栈写回数据；</p></li><li><p>内置的基本类型：均是值类型</p><ul><li><code>bool</code>：布尔类型，默认值为false</li><li><code>int</code>：32位整型，2^-31到2^31-1，默认值为0</li><li><code>uint</code>：32位无符号整型，0到2^32-1,默认值为0</li><li><code>short</code>：16位整型，-2^15到2^15-1，默认值为0</li><li><code>ushort</code>：16位无符号整型，0到2^16-1，默认值为0</li><li><code>long</code>：64位整型，-2^63到2^63-1,默认值为0L</li><li><code>ulong</code>：64位无符号整型，0到2^64-1，默认值为0UL</li><li><code>sbyte</code>：8位整型，-2^7到2^7-1，默认值为0</li><li><code>byte</code>：8位无符号整型，0到2^8-1，默认值为0</li><li><code>float</code>：32位单精度浮点型，默认值为0.0f</li><li><code>double</code>：64位双精度浮点型，默认值为0.0d</li><li><code>char</code>：16位UNICODE字符，默认值为’\u0000’，即’\0’</li><li><code>decimal</code>:128位整型（有效位数28～29位），默认值0.0M</li></ul></li><li><p>注意基本类型的变量和常量也是对象，提供了一些成员方法</p></li><li><p>引用类型：数据存放在堆中，但会在栈中保存数据的地址。使用时从栈中找地址，再从堆中读数据；</p><ul><li>字符串<code>string</code>是引用类型；</li><li>动态类型<code>dynamic</code>是引用类型；</li><li>对象类型（及其各种子类）<code>object</code>是引用类型：<code>string</code>和<code>dynamic</code>可看作是<code>object</code>的两个常用子类</li></ul></li><li><p>字符串类型：<code>string</code></p><ul><li><code>string</code> 本质上是一个对象</li><li>可以定义字符串数组：<code>string[]</code>，然后用下标去访问需要的字符串</li><li>字符串中部分字符需要反斜线转译，比如 <code>\n</code></li><li>可以使用“逐字字符串”，例如 <code>@&quot;A&quot;</code>，用法类似于Python中的raw string（<code>r&quot;A&quot;</code>），换行符、缩进、空格等都会被原样保留</li></ul></li><li><p>指针类型：与C++一样，使用 <code>*</code></p><ul><li>必须在指定不安全的上下文中使用，即unsafe的函数、变量或命名空间，且需在IDE的项目设置中开启“允许不安全的代码”选项（&#x2F;unsafe）</li><li>定义：<code>int *b = &amp;a;</code></li><li>使用：<code>*b;</code></li></ul></li><li><p>动态类型：<code>dynamic</code></p><ul><li>与C++中的std::any有些类似</li><li>变量的类型可在执行中改变，编译器不会对该变量进行类型检查</li><li>多用于函数的返回值</li></ul></li><li><p>对象类型：<code>object</code></p><ul><li><p><code>object</code>是所有基本类型变量的基类。更确切地说，它是所有类（类型）的终极父类；</p></li><li><p>所以理论上object类型可以“装入”并且“被读出”任意类型的数据</p></li><li><p>两种操作：</p><ul><li>将值类型转换为object类型的引用：装箱</li></ul>  <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">object</span> obj = <span class="number">9</span>;</span><br></pre></td></tr></table></figure><ul><li>将object类型的引用转化为原来的值类型：拆箱，要注意必须使用强制类型转换，且只能转换为object对象中值的真实类型（否则会抛出<code>InvalidCastExpection</code>异常）</li></ul>  <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> y = (<span class="built_in">int</span>)obj;</span><br></pre></td></tr></table></figure></li><li></li></ul></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;css&quot; href=&quot;https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css&quot;&gt;&lt;link rel=&quot;st</summary>
-      
-    
-    
-    
-    <category term="C#" scheme="http://wiki.zhouweitong.site/categories/C/"/>
-    
-    
-    <category term="编程语言" scheme="http://wiki.zhouweitong.site/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
-    
-    <category term="C#" scheme="http://wiki.zhouweitong.site/tags/C/"/>
-    
-    <category term="基础入门" scheme="http://wiki.zhouweitong.site/tags/%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>自定义Toolbox镜像</title>
-    <link href="http://wiki.zhouweitong.site/wiki/Fedora%20Silverblue/Toolbox/%E8%87%AA%E5%AE%9A%E4%B9%89Toolbox%E9%95%9C%E5%83%8F/"/>
-    <id>http://wiki.zhouweitong.site/wiki/Fedora%20Silverblue/Toolbox/%E8%87%AA%E5%AE%9A%E4%B9%89Toolbox%E9%95%9C%E5%83%8F/</id>
-    <published>2023-02-18T05:38:00.000Z</published>
-    <updated>2023-02-21T12:59:49.348Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Toolbox 可看做是Podman的Wrapper，力求将容器与主机的操作系统（Host OS）无缝集成。与Toolbox类似的工具还有Distrobox。它们在牺牲一些容器安全性（端口控制、资源控制、文件的独立性等）的情况下可以做到：</p><ul><li>用户穿透：在容器中使用与当前Host user一样的user与home目录；</li><li>设备穿透：直接使用Host的<code>/dev</code>、<code>/media</code>等；</li><li>网络穿透：直接使用Host网络，获得与主机一致的网络体验；</li><li>服务穿透：通过直接使用Host的<code>/run/user/&lt;uid&gt;</code>和<code>/tmp</code>以及关键服务的Socket，实现在容器中访问主机的显示服务（X11&#x2F;Wayland）、网络服务（Avahi）、D-Bus、systemd journal等；</li></ul><p>因此，Toolbox可以用来：</p><ul><li><p><strong>作为不可变系统的软件安装方式之一。</strong>如Fedora Silverblue、Fedora CoreOS等不可变系统中均预装Toolbox，另一些不可变系统中可能预装Distrobox；</p></li><li><p>使用其他发行版的镜像，<strong>在当前发行版中无缝运行针对其他发行版制作的程序</strong>。如在Fedora下运行只提供Ubuntu deb包的GUI程序；</p></li><li><p>在没有Host的root权限时<strong>创造一个假root环境</strong>。如非privileged的Toolbox容器同样可以使用<code>sudo dnf install</code>安装软件；</p><ul><li>需要镜像中预装sudo，并支持<code>sudo</code>、<code>wheel</code>组获取root权限，且支持<code>NOPASSWD</code>选项；</li></ul></li><li><p>使用不同版本的镜像实现<strong>“旧程序运行在新系统上”或“新程序运行在旧系统上”</strong>，或对程序进行兼容性测试；</p></li><li><p>可以通过对镜像进行自定义，实现<strong>快速且一致的开发环境搭建</strong>；</p></li></ul><h2 id="创建自己的Toolbox镜像"><a href="#创建自己的Toolbox镜像" class="headerlink" title="创建自己的Toolbox镜像"></a>创建自己的Toolbox镜像</h2><p>符合OCI标准的容器镜像均可被Toolbox使用。换言之，依照通常的Docker镜像构建方法就可以构建自己的Toolbox镜像。</p><p>Fedora社区持续维护着Fedora的Toolbox镜像构建文件 <a href="https://src.fedoraproject.org/container/fedora-toolbox">container&#x2F;fedora-toolbox</a>，GitHub上也有社区维护的各主流发行版的Toolbox镜像 <a href="https://github.com/toolbx-images/images">toolbx-images&#x2F;images</a>。</p><p>以Fedora的Toolbox镜像为例，以下是官方给出的Dockerfile示例：</p><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用fedora:37，而不是fedora-toolbox:37</span></span><br><span class="line"><span class="keyword">FROM</span> registry.fedoraproject.org/fedora:<span class="number">37</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 镜像标签</span></span><br><span class="line"><span class="keyword">ENV</span> NAME=fedora-toolbox VERSION=<span class="number">37</span></span><br><span class="line"><span class="keyword">LABEL</span><span class="language-bash"> com.github.containers.toolbox=<span class="string">&quot;true&quot;</span> \</span></span><br><span class="line"><span class="language-bash">      com.redhat.component=<span class="string">&quot;<span class="variable">$NAME</span>&quot;</span> \</span></span><br><span class="line"><span class="language-bash">      name=<span class="string">&quot;<span class="variable">$NAME</span>&quot;</span> \</span></span><br><span class="line"><span class="language-bash">      version=<span class="string">&quot;<span class="variable">$VERSION</span>&quot;</span> \</span></span><br><span class="line"><span class="language-bash">      usage=<span class="string">&quot;This image is meant to be used with the toolbox command&quot;</span> \</span></span><br><span class="line"><span class="language-bash">      summary=<span class="string">&quot;Base image for creating Fedora toolbox containers&quot;</span> \</span></span><br><span class="line"><span class="language-bash">      maintainer=<span class="string">&quot;Debarshi Ray &lt;rishi@fedoraproject.org&gt;&quot;</span></span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> README.md /</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使dnf安装软件包时 同步安装所有语言的语言文件 及文档文件</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> <span class="built_in">rm</span> /etc/rpm/macros.image-language-conf</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> sed -i <span class="string">&#x27;/tsflags=nodocs/d&#x27;</span> /etc/dnf/dnf.conf</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># [A] 安装完整的 核心工具（GNU Coreutils）及其语言文件</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> dnf -y upgrade</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> dnf -y swap coreutils-single coreutils-full</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> dnf -y swap glibc-minimal-langpack glibc-all-langpacks</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># [B] 通过重装的方式补齐语言和文档</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> missing-docs /</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> dnf -y reinstall $(&lt;missing-docs)</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> <span class="built_in">rm</span> /missing-docs</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># [C] 安装额外的软件包</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> extra-packages /</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> dnf -y install $(&lt;extra-packages)</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> <span class="built_in">rm</span> /extra-packages</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># [D] 保证关键文档文件存在</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> ensure-files /</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> ret_val=0; \</span></span><br><span class="line"><span class="language-bash">  <span class="keyword">while</span> <span class="built_in">read</span> file; <span class="keyword">do</span> \</span></span><br><span class="line"><span class="language-bash">    <span class="keyword">if</span> ! compgen -G <span class="string">&quot;<span class="variable">$file</span>&quot;</span> &gt;/dev/null; <span class="keyword">then</span> \</span></span><br><span class="line"><span class="language-bash">      <span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$file</span>: No such file or directory&quot;</span> &gt;&amp;2; \</span></span><br><span class="line"><span class="language-bash">      ret_val=1; \</span></span><br><span class="line"><span class="language-bash">      <span class="built_in">break</span>; \</span></span><br><span class="line"><span class="language-bash">    <span class="keyword">fi</span>; \</span></span><br><span class="line"><span class="language-bash">  <span class="keyword">done</span> &lt;ensure-files; \</span></span><br><span class="line"><span class="language-bash">  <span class="keyword">if</span> [ <span class="string">&quot;<span class="variable">$ret_val</span>&quot;</span> -ne 0 ]; <span class="keyword">then</span> \</span></span><br><span class="line"><span class="language-bash">    <span class="literal">false</span>; \</span></span><br><span class="line"><span class="language-bash">  <span class="keyword">fi</span></span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> <span class="built_in">rm</span> /ensure-files</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> dnf clean all</span></span><br></pre></td></tr></table></figure><p>同时还需要三个额外的文件 <code>ensure-files</code>、<code>extra-packages</code>和<code>missing-docs</code>。</p><p>想增加或删减Toolbox中的镜像，可直接修改<code>extra-packages</code>文件，修改时尽量保证每行只有一个软件包的包名。也可以仿照上述Dockerfile的<code>[C]</code>节，在不修改<code>extra-packages</code>文件时使用自定义文件；</p><p>仿写：</p><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">COPY</span><span class="language-bash"> added-packages /</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> dnf -y install $(&lt;added-packages)</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> <span class="built_in">rm</span> /added-packages</span></span><br></pre></td></tr></table></figure><p><code>added-packages</code>例子：</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">nodejs</span><br><span class="line">npm</span><br><span class="line">python3-pip</span><br><span class="line">gcc</span><br><span class="line">g++</span><br></pre></td></tr></table></figure><h3 id="给Toolbox镜像增加中文支持"><a href="#给Toolbox镜像增加中文支持" class="headerlink" title="给Toolbox镜像增加中文支持"></a>给Toolbox镜像增加中文支持</h3><p>可以通过修改<code>LANG</code>变量、重新生成语言文件、安装中文字体等方法使Toolbox内的命令行&#x2F;GUI程序支持并默认显示中文。</p><ol><li>添加语言文件：在上述Dockerfile示例的<code>[B]</code>节前添加如下内容</li></ol><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 中文语言</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> dnf install -y  glibc-locale-source glibc-langpack-zh langpacks-zh_CN</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> localedef -c -i zh_CN -f UTF-8 zh_CN.UTF-8</span></span><br></pre></td></tr></table></figure><ol start="2"><li>安装字体和输入法：在上述Dockerfile示例的<code>[C]</code>节或<code>[D]</code>节前添加如下内容</li></ol><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装字体和输入法</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> dnf install -y wqy-microhei-fonts wqy-zenhei-fonts fcitx5</span></span><br></pre></td></tr></table></figure><ol start="3"><li>设置<code>LANG</code>环境变量：在上述Dockerfile示例的最后添加如下内容</li></ol><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置环境变量</span></span><br><span class="line"><span class="keyword">ENV</span> LANG zh_CN.UTF-<span class="number">8</span></span><br></pre></td></tr></table></figure><h2 id="使用Toolbox镜像"><a href="#使用Toolbox镜像" class="headerlink" title="使用Toolbox镜像"></a>使用Toolbox镜像</h2><p>以自定义镜像的tag为<code>a.com/fedora-toolbox-customized:37</code>为例：</p><ol><li>通过<code>podman</code>拉取自定义镜像</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">podman pull a.com/fedora-toolbox-customized:37</span><br></pre></td></tr></table></figure><ol start="2"><li>使用<code>toolbox</code>创建容器</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 容器名可以随意指定</span></span><br><span class="line"><span class="comment"># 当主机为Fedora系统，且容器名为 fedora-toolbox-&lt;主机Fedora版本号&gt; 时，该容器为Toolbox默认容器</span></span><br><span class="line">toolbox create --image a.com/fedora-toolbox-customized:37 fedora-toolbox-37</span><br></pre></td></tr></table></figure><ol start="3"><li>进入容器环境或执行容器内特定程序</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 当主机只有一个Toolbox容器时，会直接进入该容器</span></span><br><span class="line"><span class="comment"># 当Fedora系统的主机有默认容器时，会直接进入默认容器</span></span><br><span class="line">toolbox enter</span><br><span class="line"><span class="comment"># 可以直接指定需要运行的命令</span></span><br><span class="line">toolbox run &lt;命令&gt;</span><br><span class="line"><span class="comment"># 在存在多个Toolbox容器时，可通过命令参数指定运行哪个容器</span></span><br><span class="line">toolbox enter &lt;容器名&gt;</span><br><span class="line">toolbox run --container &lt;容器名&gt; &lt;命令&gt;</span><br></pre></td></tr></table></figure><h2 id="删除Toolbox容器和镜像"><a href="#删除Toolbox容器和镜像" class="headerlink" title="删除Toolbox容器和镜像"></a>删除Toolbox容器和镜像</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 需要退出所有正在使用Toolbox Shell/命令行程序/GUI程序的窗口</span></span><br><span class="line"><span class="comment"># 停止容器</span></span><br><span class="line">podman stop &lt;容器名&gt;</span><br><span class="line"><span class="comment"># 删除容器</span></span><br><span class="line">toolbox <span class="built_in">rm</span> &lt;容器名&gt;</span><br><span class="line"><span class="comment"># 删除镜像</span></span><br><span class="line">podman rmi a.com/fedora-toolbox-customized:37</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;css&quot; href=&quot;https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css&quot;&gt;&lt;link rel=&quot;st</summary>
-      
-    
-    
-    
-    <category term="Fedora Silverblue" scheme="http://wiki.zhouweitong.site/categories/Fedora-Silverblue/"/>
-    
-    <category term="Toolbox" scheme="http://wiki.zhouweitong.site/categories/Fedora-Silverblue/Toolbox/"/>
-    
-    
-    <category term="Linux" scheme="http://wiki.zhouweitong.site/tags/Linux/"/>
-    
-    <category term="Docker" scheme="http://wiki.zhouweitong.site/tags/Docker/"/>
-    
-    <category term="Fedora" scheme="http://wiki.zhouweitong.site/tags/Fedora/"/>
-    
-    <category term="Toolbox" scheme="http://wiki.zhouweitong.site/tags/Toolbox/"/>
-    
-    <category term="Podman" scheme="http://wiki.zhouweitong.site/tags/Podman/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>科目一 口诀</title>
-    <link href="http://wiki.zhouweitong.site/wiki/%E9%A9%BE%E7%85%A7/%E7%A7%91%E7%9B%AE%E4%B8%80/%E7%A7%91%E7%9B%AE%E4%B8%80%20%E5%8F%A3%E8%AF%80/"/>
-    <id>http://wiki.zhouweitong.site/wiki/%E9%A9%BE%E7%85%A7/%E7%A7%91%E7%9B%AE%E4%B8%80/%E7%A7%91%E7%9B%AE%E4%B8%80%20%E5%8F%A3%E8%AF%80/</id>
-    <published>2023-02-14T12:30:00.000Z</published>
-    <updated>2023-02-14T14:51:08.433Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><ul><li><p>申请驾驶证年龄要求</p><ul><li><strong>最小18，最大不限</strong></li><li>70以上，每年体检</li></ul></li><li><p>驾驶证有效期</p><ul><li><strong>6 10 长</strong></li><li>刚拿时6年过期，然后换证10年过期，再换证长期有效</li></ul></li><li><p><strong>遇周期，找12</strong></p><ul><li>驾驶证周期是12个月</li><li>驾驶证实习期是12个月</li></ul></li><li><p><strong>遇时间，找9、3</strong></p><ul><li>选项有90日就选90日</li><li>没有90日就选30日</li></ul></li><li><p><strong>遇有效期，找3年</strong></p><ul><li>准考证有效期3年</li><li>实习期上高速找3年经验者陪同</li><li>因事不能审验延期3年</li></ul></li><li><p>大客中客牵引车，普通驾照也没辙</p></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;css&quot; href=&quot;https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css&quot;&gt;&lt;link rel=&quot;st</summary>
-      
-    
-    
-    
-    <category term="驾照" scheme="http://wiki.zhouweitong.site/categories/%E9%A9%BE%E7%85%A7/"/>
-    
-    <category term="科目一" scheme="http://wiki.zhouweitong.site/categories/%E9%A9%BE%E7%85%A7/%E7%A7%91%E7%9B%AE%E4%B8%80/"/>
-    
-    
-    <category term="驾照" scheme="http://wiki.zhouweitong.site/tags/%E9%A9%BE%E7%85%A7/"/>
-    
-    <category term="科目一" scheme="http://wiki.zhouweitong.site/tags/%E7%A7%91%E7%9B%AE%E4%B8%80/"/>
-    
-    <category term="口诀" scheme="http://wiki.zhouweitong.site/tags/%E5%8F%A3%E8%AF%80/"/>
-    
-    <category term="理论题" scheme="http://wiki.zhouweitong.site/tags/%E7%90%86%E8%AE%BA%E9%A2%98/"/>
     
   </entry>
   
