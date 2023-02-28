@@ -6,7 +6,7 @@
   <link href="http://wiki.zhouweitong.site/atom.xml" rel="self"/>
   
   <link href="http://wiki.zhouweitong.site/"/>
-  <updated>2023-02-27T15:27:31.565Z</updated>
+  <updated>2023-02-28T03:37:49.146Z</updated>
   <id>http://wiki.zhouweitong.site/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>认识CUDA</title>
+    <link href="http://wiki.zhouweitong.site/wiki/CUDA/%E8%AE%A4%E8%AF%86CUDA/"/>
+    <id>http://wiki.zhouweitong.site/wiki/CUDA/%E8%AE%A4%E8%AF%86CUDA/</id>
+    <published>2023-02-28T03:00:00.000Z</published>
+    <updated>2023-02-28T03:37:49.146Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="CUDA是？"><a href="#CUDA是？" class="headerlink" title="CUDA是？"></a>CUDA是？</h2><ul><li>是适用于NVIDIA GPU的通用目的GPU（GPGPU）并行编程平台</li><li>安装？：<a href="https://developer.nvidia.com/cuda-downloads">CUDA Toolkit 12.0 Update 1 Downloads | NVIDIA Developer</a></li><li>用什么编译器？：实际上是NVIDIA自己的nvcc<ul><li>CUDA语言是C++的超集，因此可以和C++混编</li><li>nvcc会将非CUDA部分的代码送给其他编译器（如MSVC或clang）编译，自己编译CUDA部分代码</li></ul></li><li>CMake、Visual Studio均支持CUDA项目</li><li>开发环境：Visual Studio + CUDA Toolkit最常见</li></ul><h2 id="基本结构"><a href="#基本结构" class="headerlink" title="基本结构"></a>基本结构</h2><ul><li>一般含有CUDA代码的源码文件，扩展名改为<code>.cu</code></li><li>头文件：<code>#include &lt;cuda_runtime.h&gt;</code></li><li>入口点<ul><li>程序入口点依然是C++中的<code>int main()</code>函数</li><li>程序不会在入口点就在GPU上执行，而是依然在CPU上执行</li></ul></li></ul><h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><ul><li>CUDA通过特殊定义的关键字标识代码在CPU上执行，还是在GPU上执行</li><li>修饰函数的关键字，用法：<code>__global__ void func() &#123;&#125;</code></li><li><code>__device__</code>：由GPU调用，在GPU上执行</li><li><code>__global__</code>：由CPU调用，在GPU上执行</li><li><code>__host__</code>：由CPU调用，在CPU上执行</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;css&quot; href=&quot;https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css&quot;&gt;&lt;link rel=&quot;st</summary>
+      
+    
+    
+    
+    <category term="CUDA" scheme="http://wiki.zhouweitong.site/categories/CUDA/"/>
+    
+    
+    <category term="编程语言" scheme="http://wiki.zhouweitong.site/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+    <category term="C++" scheme="http://wiki.zhouweitong.site/tags/C/"/>
+    
+    <category term="CUDA" scheme="http://wiki.zhouweitong.site/tags/CUDA/"/>
+    
+    <category term="NVIDIA" scheme="http://wiki.zhouweitong.site/tags/NVIDIA/"/>
+    
+    <category term="GPU" scheme="http://wiki.zhouweitong.site/tags/GPU/"/>
+    
+  </entry>
   
   <entry>
     <title>准备工作与K8s部署</title>
@@ -603,40 +635,6 @@
     <category term="发行版安装" scheme="http://wiki.zhouweitong.site/tags/%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%89%E8%A3%85/"/>
     
     <category term="速查表" scheme="http://wiki.zhouweitong.site/tags/%E9%80%9F%E6%9F%A5%E8%A1%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Flatpak概念</title>
-    <link href="http://wiki.zhouweitong.site/wiki/Fedora%20Silverblue/Flatpak/Flatpak%E6%A6%82%E5%BF%B5/"/>
-    <id>http://wiki.zhouweitong.site/wiki/Fedora%20Silverblue/Flatpak/Flatpak%E6%A6%82%E5%BF%B5/</id>
-    <published>2023-02-13T08:00:00.000Z</published>
-    <updated>2023-02-14T12:25:41.587Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="为什么使用Flatpak？"><a href="#为什么使用Flatpak？" class="headerlink" title="为什么使用Flatpak？"></a>为什么使用Flatpak？</h2><ul><li>问题：已经有了<code>apt</code>、<code>dnf</code>等这种系统级的包管理器，为什么还要使用Flatpak？<ol><li>Flatpak给软件提供<strong>相对独立的运行环境（沙箱）</strong>，并<strong>提供权限控制功能</strong>，避免软件破坏或任意修改系统；</li><li>Flatpak很大程度上<strong>解决了软件的兼容性问题</strong>，让“新系统跑旧软件”或“旧系统跑新软件”成为可能；因此Flatpak可以在非滚动更新的发行版上安装 比系统源内版本更高的软件；</li><li>Flatpak支持诸多发行版，在不同的发行版上能够<strong>获得几乎相同的软件使用体验</strong>；</li><li>Flatpak允许<strong>同一个软件的不同版本在系统内共存</strong>；</li><li>Flatpak允许<strong>非root用户在单用户作用域内安装软件</strong>；</li><li>……</li></ol></li><li>问题：我在用Snap或者AppImage，它们和Flatpak有什么区别嘛？<ol><li>Flatpak性能中等，略优于Snap，略差于AppImage；</li><li>Flatpak、AppImage不需要服务（Service），而Snap需要Snapd；</li><li>Flatpak、Snap提供权限控制功能，而AppImage不提供；</li><li>Flatpak、Snap统一提供所有软件包的更新，而AppImage需要打包者自行适配应用内更新或利用第三方工具更新；</li><li>Flatpak、Snap在发行版的预装情况方面有区别：<ul><li>Flatpak预装在这些发行版中：<ul><li>Fedora (Workstation&#x2F;Silverblue&#x2F;Kinoite)</li><li>Manjaro</li><li>Endless OS</li><li>Linux Mint</li><li>Rocky Linux (GNOME)</li><li>AlmaLinux (GNOME)</li><li>CentOS (GNOME)</li><li>EuroLinux (GNOME)</li><li>Pop!_OS</li><li>elementary OS</li><li>Clear Linux (Desktop)</li><li>PureOS</li><li>Zorin OS</li><li>MX Linux</li><li>KDE neon</li><li>……</li></ul></li><li>而Snap预装在这些发行版中：<ul><li>Ubuntu系列 (Ubuntu Desktop, Ubuntu Server, KUbuntu, XUbuntu……)</li><li>KDE neon</li><li>Manjaro</li><li>Solus</li><li>Zorin OS</li><li>……</li></ul></li></ul></li><li>Flatpak和Snap均得到了两个软件中心（GNOME Software Center、KDE Plasma Discover）的支持，而Appimage需要使用第三方软件中心（如<a href="https://github.com/prateekmedia/appimagepool">prateekmedia&#x2F;appimagepool</a>、<a href="https://github.com/app-outlet/app-outlet">app-outlet&#x2F;app-outlet（同样支持Flatpak）</a>）</li><li>……</li></ol></li></ul><h2 id="什么时候不用Flatpak？"><a href="#什么时候不用Flatpak？" class="headerlink" title="什么时候不用Flatpak？"></a>什么时候不用Flatpak？</h2><ul><li><strong>软件与系统结合非常紧密、不适合在沙箱中运行时</strong>不应该使用Flatpak<ul><li>或者说，这种情况下软件很难打包成Flatpak</li><li>例如：GParted、Wireshark、Virt-Manager</li><li>应当考虑系统软件包管理器（<code>apt</code>、<code>dnf</code>等）</li></ul></li><li><strong>需要软件的便携性时</strong>不应该使用Flatpak<ul><li>应当考虑将程序打包成单个文件的AppImage</li></ul></li><li><strong>命令行软件</strong>不应该使用Flatpak<ul><li>Flatpak有计划支持命令行程序，但目前体验不佳<ul><li>Flatpak不会自动创建软件包内程序文件的链接和别名，例如不能直接执行<code>go</code>只能执行<code>flatpak run --command=/usr/lib/sdk/golang/bin/go org.freedesktop.Sdk//21.08</code></li></ul></li><li>例如：Golang，Gcc，Docker，Minikube</li><li>应当考虑Snap或系统软件包管理器</li></ul></li><li><strong>运行内存（RAM）或存储空间（Storage）极为有限的时候</strong>不应该使用Flatpak<ul><li>应当考虑系统软件包管理器；</li></ul></li></ul><h2 id="App和Runtime"><a href="#App和Runtime" class="headerlink" title="App和Runtime"></a>App和Runtime</h2><p>Flatpak 分为两种软件包：</p><ul><li>Application（App）：应用本体；</li><li>Runtime：应用所需的运行时；</li></ul><p>“运行时”均是支持GUI显示的基本运行时（“没它打不开”），与桌面环境相关，一个“应用本体”只依赖一个“运行时”。</p><p>“运行时”目前主要有以下四种：</p><ol><li>FreeDesktop：最基础的运行时，提供D-Bus、GTK3、X11、Wayland等<ul><li><code>org.freedesktop.Platform</code></li><li><code>org.freedesktop.Sdk</code></li></ul></li><li>GNOME：GNOME&#x3D;FreeDesktop+GNOME_Specific；提供Gjs、GStreamer、GVFS等；<ul><li><code>org.gnome.Platform</code></li><li><code>org.gnome.Sdk</code></li></ul></li><li>KDE：KDE&#x3D;FreeDesktop+KDE_Specific；提供Qt等；<ul><li><code>org.kde.Platform</code></li><li><code>org.kde.Sdk</code></li></ul></li><li>elementary：elementary&#x3D;GNOME+elementary_Specific；提供elementaryOS专属的图标、Granite等；<ul><li><code>io.elementary.Platform</code></li><li><code>io.elementary.Sdk</code></li></ul></li></ol><h2 id="ID"><a href="#ID" class="headerlink" title="ID"></a>ID</h2><p>每个App或Runtime都有一个ID，类似Andorid下App的包名，例如：</p><ul><li>（App） Blender： <code>org.blender.Blender</code></li><li>（Runtime） Gnome Platform：<code>org.gnome.Platform</code></li></ul><p>加入架构和版本号，就构成了 ID三元组：</p><ul><li><code>org.blender.Blender/x86_64/stable</code></li><li><code>org.gnome.Platform/x86_64/43</code></li></ul><p>加入软件包类型，就构成了 该App对应的Flatpak ostree分支名：</p><ul><li><code>app/org.blender.Blender/x86_64/stable</code></li><li><code>runtime/org.gnome.Platform/x86_64/43</code></li></ul><h2 id="App和Extension"><a href="#App和Extension" class="headerlink" title="App和Extension"></a>App和Extension</h2><p>另一种对软件包的分类是：</p><ul><li>Application（App）：（主要）应用，即可直接打开或运行的应用，例如：VLC、Blender；</li><li>Extension：应用的扩展，有多种情况：<ul><li>支持特定应用正常运行的其他软件或库（“没它用不了”），如：Wine、FFMpeg、Mesa；</li><li>特定应用所需的程序包（“没它用不好”），如：TeX环境、Rust语言（编译器）、Go语言（编译器）；</li><li>软件自身的一部分，如：Blender的语言文件；</li></ul></li></ul><p>对应第一种分类时，App和Runtime都可以有Extension。Extension有自己的ID，命名规则是在App或Runtime的包名后加上Extension名：</p><ul><li>App的Extension，例如：&#96;</li></ul><p>应用安装时，应用依赖的运行时和扩展也会被安装；</p><h2 id="安装范围"><a href="#安装范围" class="headerlink" title="安装范围"></a>安装范围</h2><p>Flatpak 有两种安装范围：</p><ul><li>System：系统级安装，<strong>需要root权限</strong>，安装的应用 系统上所有的用户均可见；</li><li>User：用户级安装，安装的应用 仅当前用户（触发安装的用户）可见；</li></ul><h2 id="软件包的源"><a href="#软件包的源" class="headerlink" title="软件包的源"></a>软件包的源</h2><p>与其他的包管理器（系统级或Snap）一样，flatpak也有“软件源”的概念（即“软件包源”）。</p><h2 id="flatpakref"><a href="#flatpakref" class="headerlink" title=".flatpakref"></a>.flatpakref</h2><p><code>.flatpakref</code>文件描述了<strong>单个软件包</strong>的信息和获取方式，文件结构大致如下：</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[Faltpak Ref]</span><br><span class="line">Name=&lt;软件包的ID&gt;</span><br><span class="line">Branch=&lt;软件包的版本&gt;</span><br><span class="line">Title=&lt;描述该软件包的标题（软件包名字）&gt;</span><br><span class="line">Url=&lt;软件包所在的源的地址&gt;</span><br><span class="line">RuntimeRepo=&lt;软件包依赖的运行时所在的源的地址&gt;</span><br><span class="line">IsRuntime=&lt;本软件包是不是运行时&gt;</span><br><span class="line">GPGKey=&lt;Base64编码的GPG密钥&gt;</span><br></pre></td></tr></table></figure><p>示例：</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[Flatpak Ref]</span><br><span class="line">Name=fr.free.Homebank</span><br><span class="line">Branch=stable</span><br><span class="line">Title=fr.free.Homebank from flathub</span><br><span class="line">Url=https://dl.flathub.org/repo/</span><br><span class="line">RuntimeRepo=https://dl.flathub.org/repo/flathub.flatpakrepo</span><br><span class="line">IsRuntime=false</span><br><span class="line">GPGKey=mQINBFlD2sABEADsiUZUO...</span><br></pre></td></tr></table></figure><p><code>.flatpackref</code>文件可直接用于安装软件包的命令中，也可直接使用软件中心打开；</p><h2 id="flatpakrepo"><a href="#flatpakrepo" class="headerlink" title=".flatpakrepo"></a>.flatpakrepo</h2><blockquote><p>TODO：ostree相关</p></blockquote>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;css&quot; href=&quot;https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css&quot;&gt;&lt;link rel=&quot;st</summary>
-      
-    
-    
-    
-    <category term="Fedora Silverblue" scheme="http://wiki.zhouweitong.site/categories/Fedora-Silverblue/"/>
-    
-    <category term="Flatpak" scheme="http://wiki.zhouweitong.site/categories/Fedora-Silverblue/Flatpak/"/>
-    
-    
-    <category term="Linux" scheme="http://wiki.zhouweitong.site/tags/Linux/"/>
-    
-    <category term="Fedora" scheme="http://wiki.zhouweitong.site/tags/Fedora/"/>
-    
-    <category term="Flatpak" scheme="http://wiki.zhouweitong.site/tags/Flatpak/"/>
-    
-    <category term="Fedora Silverblue" scheme="http://wiki.zhouweitong.site/tags/Fedora-Silverblue/"/>
-    
-    <category term="概念" scheme="http://wiki.zhouweitong.site/tags/%E6%A6%82%E5%BF%B5/"/>
     
   </entry>
   
