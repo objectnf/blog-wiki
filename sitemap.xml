@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://wiki.zhouweitong.site/wiki/AI%E7%BB%98%E7%94%BB/AI%E7%BB%98%E7%94%BB%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%8F%92%E4%BB%B6%E6%B1%87%E6%80%BB/</loc>
+    
+    <lastmod>2023-02-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://wiki.zhouweitong.site/wiki/CUDA/%E8%AE%A4%E8%AF%86CUDA/</loc>
     
     <lastmod>2023-02-28</lastmod>
@@ -30,15 +39,6 @@
   
   <url>
     <loc>http://wiki.zhouweitong.site/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/%E8%AE%A1%E7%BB%84%E7%AC%94%E8%AE%B0_%E6%8C%87%E4%BB%A4%E3%80%81%E5%AD%98%E5%82%A8/</loc>
-    
-    <lastmod>2023-02-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://wiki.zhouweitong.site/wiki/AI%E7%BB%98%E7%94%BB/AI%E7%BB%98%E7%94%BB%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%8F%92%E4%BB%B6%E6%B1%87%E6%80%BB/</loc>
     
     <lastmod>2023-02-27</lastmod>
     

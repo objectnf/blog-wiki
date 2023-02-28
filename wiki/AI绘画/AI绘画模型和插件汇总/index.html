@@ -17,7 +17,7 @@
 <meta property="og:description" content="绘画模型（*.ckpt&#x2F;*.safetensors）Novel AI 泄露版模型 基于Stable Diffusion网络结构，使用Danbooru数据集进行多次训练后的权重 至少需 5.8GiB 存储空间 磁力链接，使用BitTorrent协议下载  1magnet:?xt&#x3D;urn:btih:5bde442da86265b670a3e5ea3163afad2c6f8ecc   SFW（">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-02-27T05:00:00.000Z">
-<meta property="article:modified_time" content="2023-02-27T05:07:14.547Z">
+<meta property="article:modified_time" content="2023-02-28T05:27:13.743Z">
 <meta property="article:author" content="ObjectNotFound">
 <meta property="article:tag" content="速查表">
 <meta property="article:tag" content="Stable Diffusion">
@@ -840,6 +840,18 @@
 <li>直接加权融合多个模型并进行使用，而不需要先合并网络参数制作模型文件</li>
 <li><a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/hako-mikan/sd-webui-supermerger/">hako-mikan&#x2F;sd-webui-supermerger: model merge extention for stable diffusion web ui</a></li>
 </ul>
+<h3 id="sd-webui-controlnet"><a href="#sd-webui-controlnet" class="headerlink" title="sd-webui-controlnet"></a>sd-webui-controlnet</h3><ul>
+<li>给WebUI增加ControlNet支持</li>
+<li><a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/Mikubill/sd-webui-controlnet">Mikubill&#x2F;sd-webui-controlnet: WebUI extension for ControlNet</a></li>
+</ul>
+<h3 id="openpose-editor"><a href="#openpose-editor" class="headerlink" title="openpose-editor"></a>openpose-editor</h3><ul>
+<li>直接在WebUI里通过摆放骨骼的方式生成OpenPose图像</li>
+<li><a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/fkunn1326/openpose-editor">Openpose Editor for AUTOMATIC1111’s stable-diffusion-webui</a></li>
+</ul>
+<h3 id="Auto-Photoshop-StableDiffusion-Plugin"><a href="#Auto-Photoshop-StableDiffusion-Plugin" class="headerlink" title="Auto-Photoshop-StableDiffusion-Plugin"></a>Auto-Photoshop-StableDiffusion-Plugin</h3><ul>
+<li>Photoshop插件的后端</li>
+<li><a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/AbdullahAlfaraj/Auto-Photoshop-StableDiffusion-Plugin">AbdullahAlfaraj&#x2F;Auto-Photoshop-StableDiffusion-Plugin: A user-friendly plug-in that makes it easy to generate stable diffusion images inside Photoshop using Automatic1111-sd-webui as a backend.</a></li>
+</ul>
 <h2 id="Textual-Inversion模型"><a href="#Textual-Inversion模型" class="headerlink" title="Textual Inversion模型"></a>Textual Inversion模型</h2><ul>
 <li>引入新的prompt，并将其与已有的prompt关联起来；</li>
 <li>放置在WebUI的<code>embeddings</code>文件夹下；</li>
@@ -859,6 +871,8 @@
 <li>Prompt：<code>ulzzang-6500-v1.1</code></li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://civitai.com/api/download/models/10107</span><br></pre></td></tr></table></figure>
+
+
 
 <h2 id="工具模型"><a href="#工具模型" class="headerlink" title="工具模型"></a>工具模型</h2><ul>
 <li>与绘画不直接相关，主要用于图片后处理、图片内容识别，以及图片放大</li>
@@ -882,13 +896,6 @@
 <li>放置在WebUI的<code>models/torch_deepdanbooru</code>文件夹下</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/AUTOMATIC1111/TorchDeepDanbooru/releases/download/v1/model-resnet_custom_v3.pt</span><br></pre></td></tr></table></figure>
-
-<h3 id="ScuNet-GAN"><a href="#ScuNet-GAN" class="headerlink" title="ScuNet GAN"></a>ScuNet GAN</h3><ul>
-<li>用于图片降噪，但可能会降低边缘锐利程度</li>
-<li><a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/cszn/KAIR">cszn&#x2F;KAIR: Image Restoration Toolbox (PyTorch). Training and testing codes for DPIR, USRNet, DnCNN, FFDNet, SRMD, DPSR, BSRGAN, SwinIR</a></li>
-<li>放置在WebUI的<code>models/ScuNET</code>文件夹下，改名为<code>ScuNET.pth</code></li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/cszn/KAIR/releases/download/v1.0/scunet_color_real_gan.pth</span><br></pre></td></tr></table></figure>
 
 <h3 id="RealESRGAN（R-ESRGAN4x）"><a href="#RealESRGAN（R-ESRGAN4x）" class="headerlink" title="RealESRGAN（R-ESRGAN4x）"></a>RealESRGAN（R-ESRGAN4x）</h3><ul>
 <li>通用图片放大器，4倍时最佳</li>
@@ -917,6 +924,20 @@
 <li>放置在WebUI的<code>models/CodeFormer</code>文件夹下</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/sczhou/CodeFormer/releases/download/v0.1.0/codeformer.pth</span><br></pre></td></tr></table></figure>
+
+<h3 id="ControlNet"><a href="#ControlNet" class="headerlink" title="ControlNet"></a>ControlNet</h3><ul>
+<li>用于部分控制Diffusion网络的参数，例如<ul>
+<li>固定生成图片的人物动作（OpenPose）</li>
+<li>通过精细线稿生成图片（Canny）</li>
+<li>通过简笔画生成图片（Scribble）</li>
+<li>通过景深生成图片（Depth）</li>
+<li>…</li>
+</ul>
+</li>
+<li><a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/lllyasviel/ControlNet">lllyasviel&#x2F;ControlNet: Let us control diffusion models!</a></li>
+<li>需要配合插件<code>sd-webui-controlnet</code>使用</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ControlNet差分模型，放置在WebUI的extensions/sd-webui-controlnet/models文件夹下</span></span><br><span class="line"><span class="comment"># Canny</span></span><br><span class="line">wget https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_canny-fp16.safetensors</span><br><span class="line"><span class="comment"># OpenPose</span></span><br><span class="line">wget https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_openpose-fp16.safetensors</span><br><span class="line"><span class="comment"># Scribble</span></span><br><span class="line">wget https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_scribble-fp16.safetensors</span><br><span class="line"></span><br><span class="line"><span class="comment"># OpenPose需要独立的数据模型，放置在WebUI的models/openpose文件夹下</span></span><br><span class="line">wget https://huggingface.co/lllyasviel/ControlNet/resolve/main/annotator/ckpts/body_pose_model.pth</span><br><span class="line">wget https://huggingface.co/lllyasviel/ControlNet/resolve/main/annotator/ckpts/hand_pose_model.pth</span><br></pre></td></tr></table></figure>
 
 
 
