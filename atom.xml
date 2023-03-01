@@ -6,7 +6,7 @@
   <link href="http://wiki.zhouweitong.site/atom.xml" rel="self"/>
   
   <link href="http://wiki.zhouweitong.site/"/>
-  <updated>2023-03-01T02:32:17.729Z</updated>
+  <updated>2023-03-01T06:27:49.063Z</updated>
   <id>http://wiki.zhouweitong.site/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://wiki.zhouweitong.site/wiki/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E5%87%BD%E6%95%B0%E4%B8%8E%E6%9E%81%E9%99%90/"/>
+    <id>http://wiki.zhouweitong.site/wiki/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E5%87%BD%E6%95%B0%E4%B8%8E%E6%9E%81%E9%99%90/</id>
+    <published>2023-03-01T04:00:00.000Z</published>
+    <updated>2023-03-01T06:27:49.063Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><ul><li>函数定义</li><li>复合函数<ul><li>注意内层值域&#x3D;外层定义域</li><li>不是任意函数都能复合</li></ul></li><li>反函数<ul><li>注意y到x要一一对应</li><li>性质</li></ul></li><li>初等函数<ul><li>基本初等函数<ul><li>幂函数</li><li>指数函数</li><li>对数函数</li><li>三角函数</li><li>反三角函数</li></ul></li><li>其他初等函数<ul><li>由常数或基本初等函数构成</li><li>由加减乘除或复合运算连接</li><li>能由一个解析式表示</li></ul></li></ul></li><li>函数性质<ul><li>单调性<ul><li>单调增</li><li>单调不减<ul><li>可出现水平线</li></ul></li><li>单调减</li><li>单调不增</li><li>性质<ul><li>注意是严格大于&#x2F;小于还是大于等于&#x2F;小于等于</li></ul></li><li>应用<ul><li>根的个数</li><li>不等式</li></ul></li><li>判定<ul><li>定义法</li><li>导数法</li></ul></li></ul></li><li>奇偶性<ul><li>性质</li><li>应用<ul><li>泰勒展开<ul><li>奇函数 在 x&#x3D;0 的 泰勒展开式中 没有偶次项</li><li>偶函数 在 x&#x3D;0 的 泰勒展开式中 没有奇次项</li></ul></li><li>原函数<ul><li>连续的奇函数 原函数都是偶函数</li><li>连续的偶函数 原函数之一是奇函数<ul><li>函数的原函数有无限多个</li><li>当引入的常数项 C 为 0（最简单的反函数）时，连续偶函数的原函数 f(t) 是奇函数    <img src="/wiki/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E5%87%BD%E6%95%B0%E4%B8%8E%E6%9E%81%E9%99%90/image-20230301142214414.png" alt="image-20230301142214414"></li><li>倒推积分时，注意奇函数的积分下限只能是0</li></ul></li></ul></li></ul></li></ul></li><li>周期性<ul><li>常见的周期函数    <img src="/wiki/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E5%87%BD%E6%95%B0%E4%B8%8E%E6%9E%81%E9%99%90/image-20230301142321368.png" alt="image-20230301142321368"><ul><li>出现三角函数，往往就暗示需要用到周期性</li></ul></li><li>周期性的判定<ul><li>定义法</li><li>周期函数可导，则导函数也是周期函数</li><li>周期函数的 原函数 不一定是周期函数<ul><li>当周期函数在一个周期上的积分为0时，其原函数是周期函数</li><li>反向也成立：若周期函数的原函数是周期函数，则当前周期函数在一个周期上的积分必为0</li></ul></li></ul></li></ul></li></ul></li></ul><h2 id="极限"><a href="#极限" class="headerlink" title="极限"></a>极限</h2><ul><li>“三基”<ul><li>基本概念</li><li>基本理论</li><li>基本方法</li></ul></li><li>常考题型</li><li>概念、理论<br>- 极限的概念、性质及存在准则</li><li></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;css&quot; href=&quot;https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css&quot;&gt;&lt;link rel=&quot;st</summary>
+      
+    
+    
+    
+    <category term="数学" scheme="http://wiki.zhouweitong.site/categories/%E6%95%B0%E5%AD%A6/"/>
+    
+    <category term="高等数学" scheme="http://wiki.zhouweitong.site/categories/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/"/>
+    
+    
+    <category term="数学" scheme="http://wiki.zhouweitong.site/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+    <category term="笔记" scheme="http://wiki.zhouweitong.site/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="函数" scheme="http://wiki.zhouweitong.site/tags/%E5%87%BD%E6%95%B0/"/>
+    
+    <category term="极限" scheme="http://wiki.zhouweitong.site/tags/%E6%9E%81%E9%99%90/"/>
+    
+    <category term="高等数学" scheme="http://wiki.zhouweitong.site/tags/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>当今的操作系统</title>
@@ -597,34 +631,6 @@
     <category term="Chromium" scheme="http://wiki.zhouweitong.site/tags/Chromium/"/>
     
     <category term="Microsoft Edge" scheme="http://wiki.zhouweitong.site/tags/Microsoft-Edge/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>计算机网络笔记-物理层、数据链路层、网络层</title>
-    <link href="http://wiki.zhouweitong.site/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0-%E7%89%A9%E7%90%86%E5%B1%82%E3%80%81%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%E3%80%81%E7%BD%91%E7%BB%9C%E5%B1%82/"/>
-    <id>http://wiki.zhouweitong.site/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0-%E7%89%A9%E7%90%86%E5%B1%82%E3%80%81%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%E3%80%81%E7%BD%91%E7%BB%9C%E5%B1%82/</id>
-    <published>2023-02-22T10:00:00.000Z</published>
-    <updated>2023-02-24T15:14:43.720Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h2><h3 id="理论概念"><a href="#理论概念" class="headerlink" title="理论概念"></a>理论概念</h3><ul><li>数据</li><li>信号</li><li>码元<ul><li>通过码元数量计算码元信息量：k进制码元 $ \log_2k $</li></ul></li><li>信源：发送信号</li><li>信宿：接受信号</li><li>信道<ul><li>信道≠电路</li><li>从信道数量上来看<ul><li>串行传输</li><li>并行传输：多信道</li></ul></li><li>从信号方向上来看<ul><li>单向通信：比如现实中光模块接的单模光纤</li><li>半双工通信：比如对讲机</li><li>全双工通信：比如打电话</li></ul></li></ul></li><li>波特（Baud）：单位时间内脉冲的个数<ul><li>即码元</li></ul></li><li>比特（Bit）：信息量的单位<ul><li>即二进制位</li></ul></li><li>速率：也叫数据率，一般指信息传输速率<ul><li>码元传输速率：单位时间（1s内）传输的码元个数，单位为波特</li><li>信息传输速率：单位时间（1s内）传输的比特数，单位为比特每秒（b&#x2F;s或bps）</li><li>波特率转比特率：比特率&#x3D;波特率x码元信息量</li></ul></li><li>带宽：单位是赫兹（Hz），一般是直接给出的物理参数</li><li>失真：也叫噪声<ul><li>较小的失真：信号经过处理后依然可以识别</li><li>较大的失真：信号通过处理也无法再被识别</li></ul></li><li>奈奎斯特定理：注意是定理不是频率，单位bps<ul><li>奈奎斯特率</li><li>避免码间串扰</li><li>理想情况下：无噪声，带宽有限</li><li>极限速率：$ MAX&#x3D;2W \log_2 V $</li></ul></li><li>香农定理：单位bps<ul><li>避免噪声干扰</li><li>非理想情况下：有噪声（一般是白噪声），带宽有限</li><li>极限速率：$ MAX &#x3D; W \log_2 (1 + \frac{S}{N})) $</li><li>[[TODO]]</li></ul></li></ul><h2 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h2><h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><ul><li>差错控制<ul><li>使用编码计算进行差错控制<ul><li>FEC：前向纠错，发现错误直接纠正</li><li>ARQ：自动重传，发现错误请求重传<ul><li>是主要应用的差错控制技术</li></ul></li></ul></li></ul></li></ul><h2 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h2><ul><li>目的：向传输层提供最大可能交付的、无连接的、简单的数据报服务。</li><li>异构网络互联<ul><li>寻址方法、路由算法、差错处理算法均可能不同</li></ul></li><li>[[TODO]]</li></ul><h3 id="IP协议"><a href="#IP协议" class="headerlink" title="IP协议"></a>IP协议</h3><ul><li>IP数据报格式<ul><li>首部：最先发送<ul><li>固定部分：大小相同，20字节，160bit<ul><li>版本 4bit：IPv4？IPv6？</li><li>首部长度 4bit：单位是半字节（4bit），最低为5；长度一定是4bit的整数倍，不足在末尾用填充位填充；</li><li>区分服务 8bit</li><li>总长度 16bit：首部长度+数据部分长度</li><li>标识 16bit</li><li>标志 4bit</li><li>片偏移 12bit</li><li>生存时间 8bit：即TTL值，为防止</li><li>协议 8bit：数据部分的协议类型。TCP：6，UDP：17。</li><li>首部校验和 16bit：只检验首部完整性；每经过一次路由器都要重新计算一次（首部会发生变化）</li><li>源地址 32bit</li><li>目的地址 32bit</li><li>可选字段 0～40bit</li><li>填充位</li></ul></li><li>可变部分：可有可无，大多数时间没有</li></ul></li><li>数据部分：传输层的报文段</li></ul></li><li>IP数据报分片<ul><li>MTU：最大传输单元，数据部分长度大于这个值必须分片</li><li>标识：同一个数据部分的不同分片使用同一个标识值</li><li>标志：共4bit，只有后两个bit有意义<ul><li>中间位DF：为1禁止分片，为0允许分片</li><li>最低位MF：为1表示还有分片，为0表示最后一片&#x2F;没有分片</li></ul></li><li>片偏移：分片在组中的相对位置（第几个片），单位为字节（8bit）；也即偏移的字节数<ul><li>字节数从0开始</li></ul></li><li>注意单位问题：总长度单位为1bit，片偏移单位为8bit，首部单位为4bit，“总1片8首4”</li></ul></li><li>IPv4地址<ul><li>使用点分十进制表示</li><li>IP地址分类<ul><li>IP地址是区域唯一的</li><li>IP地址只可以区分路由器或主机的<strong>接口</strong>：一个主机可能有多个接口</li><li>IP地址由网络号和主机号构成：各占多少位不固定</li><li>特殊的双主机逻辑网络：IP无编号网络<br><a href="https://networklessons.com/cisco/ccie-routing-switching/ip-unnumbered-explained">IP Unnumbered Explained</a></li><li>“类别位”：通过IP地址的前几位划分类型<ul><li>A类：0，0～8为网络号</li><li>B类：10，0～16位为网络号</li><li>C类：110，0～24位为网络号</li><li>D类：1110，多播地址</li><li>E类：1111，保留地址</li></ul></li><li>特殊IP地址：<ul><li>0.0.0.0：可表示任意地址（listen 0.0.0.0）或默认路由（0.0.0.0 route via X.X.X.X），也叫未指明地址</li><li>0.0.0.0&#x2F;8：网络号全0,主机号不为0，表示同一网络下的某个主机</li><li>255.255.255.255：本网广播地址，向它发送相当于向本网所有主机发送</li><li>X.X.X.0：网络号不为0、主机号为0，只用于表示一个网络，不能使用</li><li>X.X.X.255：网络号不为0、主机号位全为1，特定网络的广播地址</li><li>127.0.0.0&#x2F;8：环回地址，用于本地调试</li><li>169.254.0.0&#x2F;16：链路本地地址&#x2F;缺省IP地址，常见于DHCP分配失败时，相当于“目前还没有IP”</li><li><strong>始终注意X.X.X.0&#x2F;24和X.X.X.255&#x2F;24这两种IP地址，算可用地址数时要减去</strong></li></ul></li><li>私有IP地址：<ul><li>10.0.0.0&#x2F;8</li><li>172.16.X.X～172.31.X.X</li><li>192.168.0.0&#x2F;16</li></ul></li><li>记住特殊数字的二进制<ul><li>0：00000000</li><li>255：11111111</li><li>192：11000000</li><li>128：10000000</li><li>10：00001010</li><li>168：10101000</li><li>172：10101100</li><li>127：11111100</li></ul></li></ul></li><li>子网划分<ul><li>目的：便于扩展网络、管理网络、减少子网IP地址浪费；更灵活的控制一个子网中能容纳多少台设备</li><li>将两层IP地址转化为三层IP地址：网络号、子网号和主机号</li><li>子网号对外是透明的，看作是主机号的一部分</li><li>三层IP地址中，主机位最少是2位（去掉全0和全1，可提供给两台设备）</li><li>子网掩码：网络号部分的位为1，主机号部分的位为0</li><li>已知主机地址和子网掩码，求子网地址：二者按位相与（and），结果的四段式10进制就是子网地址</li><li>路由器路由表基本结构<ul><li>目的网络地址：发给谁？</li><li>目的网络地址的子网掩码：他在哪个子网？</li><li>下一跳的地址：通过什么发给他？</li></ul></li><li>路由器路由转发的基本流程<ul><li>找到分组IP地址：发给谁？</li><li>尝试直接交付：子网是不是直接和我连接？</li><li>不能直接交付，查路由表配置，进行IP完全匹配：是不是手动配置了发给他的路线？</li><li>没有配置，查路由表，进行IP前缀匹配（网络号匹配）：是不是手动配置了发给他所在的子网的路线？</li><li>以上均失败，发给默认路由：子网不在我这，是不是分组分配错了？</li><li>默认路由发给该路由器，路由器再发给默认路由，重复直到TTL&#x3D;0，直接丢弃并报错：分组出错，谁也联系不到他</li></ul></li></ul></li><li>CIDR组成超网</li><li>网络地址转换：NAT<ul><li>有流量时会通过路由器的NAT转换表转换为正确的IP地址，再发送信息</li><li>NAT转换表包含端口号</li></ul></li></ul></li><li>IPv6<ul><li>解决IPv4地址不够用的办法<ul><li>NAT</li><li>CIDR</li><li>治标不治本</li></ul></li><li>IPv6的主要目标<ul><li>从根本上解决IP地址不够用的问题</li><li>改进和精简首部格式，使路由器处理速度更快（快速处理&#x2F;转发数据报）</li><li>支持QoS服务模型</li></ul></li><li>IPv6封包格式<ul><li>基本首部，40字节，320bit<ul><li>版本 4bit<ul><li>值为“6”</li></ul></li><li>优先级 8bit<ul><li>标识数据报是否优先处理</li></ul></li><li>流标签 20bit<ul><li>类似IPv4中的标识，但是是“流”，与QoS有关</li></ul></li><li>有效载荷长度 16bit<ul><li>扩展首部+数据部分 大小</li></ul></li><li>下一个首部 8bit<ul><li>基本首部和每个扩展首部各有一个“下一个首部”字段</li><li>如果当前首部不是最后一个首部，该字段指向下一个首部的偏移</li><li>如果当前首部是最后一个首部，该字段指向数据部分的起始偏移</li><li>把所有部分“串在一起”</li></ul></li><li>跳数限制 8bit<ul><li>相当于IPv4中的TTL</li></ul></li><li>源地址 128bit</li><li>目标地址 128bit</li></ul></li><li>有效载荷，最高65535字节，64KB<ul><li>扩展首部：代替IPv4首部中的可变部分</li><li>数据部分</li></ul></li></ul></li><li>与IPv4的区别 <img src="/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0-%E7%89%A9%E7%90%86%E5%B1%82%E3%80%81%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%E3%80%81%E7%BD%91%E7%BB%9C%E5%B1%82/image-20230222175836723.png" alt="image-20230222175836723"></li><li>IPv6地址<ul><li>使用冒号16进制表示</li><li>连续的0可以用一个0代替<ul><li>0000:0000:0000变成0:0:0</li><li>0AAA:B000:000C变成 AAA:B000:C</li><li>缩头不缩尾</li></ul></li><li>双冒号零压缩，多组0用双冒号代替<ul><li>AAAA:0000:0000:0000:BBBB变为AAAA:0:0:0:BBBB再变为AAAA::BBBB</li><li>AAAA:0000:0000:0000:BBBB:0000:0000只能变为AAAA::BBBB:0:0</li><li>双冒号只能使用一次，压缩最前面的多组零</li></ul></li><li>网络号和主机号<ul><li>未指明情况下，网络号为64位（最后16位为子网号），主机号为64位</li><li>可以使用类似CIDR的表示法表示网络号的位数，如：&#x2F;24 代表网络号有24位，其他位是主机号</li></ul></li></ul></li><li>IPv6地址类型<ul><li>单播：一对一，可做源地址和目标地址</li><li>多播：一对多，只能作为目标地址</li><li>不存在广播：广播用多播实现</li><li>任播：本质一对多，实际一对一（一般是发给离本机最近的目标主机）<ul><li>例子：多台主机提供相同服务时使用任播负载均衡</li></ul></li></ul></li><li>IPv6地址划分<ul><li>全球单播：以001位开头，2000::&#x2F;3</li><li>链路本地：FE80::&#x2F;10</li><li>本地环回：::1&#x2F;128</li><li>未指明：::0&#x2F;0，也可写成::&#x2F;0</li><li>唯一本地地址&#x2F;私有地址：FC00::&#x2F;7</li><li>内嵌IPv4的IPv6地址</li></ul></li><li>IPv4向IPv6过渡<ul><li>双栈协议：主机同时使用IPv4和IPv6地址（不同接口）</li><li>隧道技术：IPv6-IPv4-发送，IPv4-IPv6-接收</li></ul></li></ul></li></ul><h3 id="ARP协议"><a href="#ARP协议" class="headerlink" title="ARP协议"></a>ARP协议</h3><ul><li>数据链路层需要本机MAC地址和目标主机MAC地址</li><li>每个主机维护一个ARP高速缓存：ARP表</li><li>维护ARP表<ul><li>已知IP，不知道MAC，发广播ARP请求分组（请求帧）<ul><li>广播ARP请求中，目标主机MAC地址为全1（FF-FF-FF-FF-FF-FF）</li></ul></li><li>目标主机识别到广播ARP请求中的IP地址是自己，发单播（点对点）ARP响应请求（响应帧）</li><li>本机得到响应帧，更新ARP表</li><li>后续的数据分组依照ARP表内的项，填充MAC地址并发送</li></ul></li><li>以上ARP表的维护适用于目标主机和本机在同一个局域网内的情况：较大的网络不适合进行广播寻找主机</li><li>[[TODO]]</li></ul><h3 id="DHCP协议"><a href="#DHCP协议" class="headerlink" title="DHCP协议"></a>DHCP协议</h3><ul><li>应用层协议，基于UDP</li></ul><h3 id="RIP协议"><a href="#RIP协议" class="headerlink" title="RIP协议"></a>RIP协议</h3><ul><li>应用层协议，基于UDP</li><li>一种分布式的、基于距离向量的路由选择协议</li><li>特点：简单，只能用于小范围互联网</li><li>主机维护路由表，存放当前路由器到其他每一个目的网络唯一的最佳距离记录<ul><li>距离一般指 跳数</li><li>距离值小于15为合法，距离值为16表示网络不可达</li><li>路由表重要的表项<ul><li>目的网络地址</li><li>距离值</li><li>下一跳的路由器地址</li></ul></li></ul></li><li>对路由表进行定时更新<ul><li>只和相邻路由器交换信息，相互交换自己的路由表</li><li>每30s交换一次，相邻路由器180s内无响应则判定失联<ul><li>初始情况下，路由器的路由表只包含相邻路由器的、距离为1的路由</li><li>若干次更新后，每个路由器均会获得当前路由器到所有可能的网络的最短距离（小于等于15），也称“收敛”。</li><li>若相邻的路由器之一失联，则从路由表中删除下一跳是该路由器的路由表项</li></ul></li><li>路由表更新算法</li><li>子主题 4</li></ul></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;css&quot; href=&quot;https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css&quot;&gt;&lt;link rel=&quot;st</summary>
-      
-    
-    
-    
-    <category term="计算机网络" scheme="http://wiki.zhouweitong.site/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-    
-    <category term="笔记" scheme="http://wiki.zhouweitong.site/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="计算机网络" scheme="http://wiki.zhouweitong.site/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-    <category term="Network" scheme="http://wiki.zhouweitong.site/tags/Network/"/>
     
   </entry>
   
