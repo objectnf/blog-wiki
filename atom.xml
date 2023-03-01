@@ -6,7 +6,7 @@
   <link href="http://wiki.zhouweitong.site/atom.xml" rel="self"/>
   
   <link href="http://wiki.zhouweitong.site/"/>
-  <updated>2023-02-28T14:54:32.685Z</updated>
+  <updated>2023-03-01T02:32:17.729Z</updated>
   <id>http://wiki.zhouweitong.site/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>当今的操作系统</title>
+    <link href="http://wiki.zhouweitong.site/wiki/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E5%BD%93%E4%BB%8A%E7%9A%84%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    <id>http://wiki.zhouweitong.site/wiki/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E5%BD%93%E4%BB%8A%E7%9A%84%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</id>
+    <published>2023-03-01T02:30:00.000Z</published>
+    <updated>2023-03-01T02:32:17.729Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="程序是什么？"><a href="#程序是什么？" class="headerlink" title="程序是什么？"></a>程序是什么？</h2><ul><li>程序 &#x3D; 状态机<ul><li>状态：数据（堆和栈） -&gt; 栈帧（含PC寄存器）</li><li>初始状态：刚装入内存时的状态 - <code>main()</code>刚进入</li><li>状态迁移：指令的执行<ul><li>函数调用：看作压栈</li><li>函数返回：看作出栈</li><li>随机数：看作上下限区间内这么多种状态 - 比如0~10之间的整数随机数就有11种状态</li><li>状态机的结束：trap，syscall</li></ul></li><li>也可以认为：程序 &#x3D; 计算+syscall</li></ul></li><li>操作系统 &#x3D; 对象（文件，进程etc.） + API &#x3D; C语言程序</li><li>编译器<ul><li>将源代码级别的状态机转化为二进制代码级别的状态机</li><li>二者的可观测行为要严格一致</li><li>可以这样理解编译器的优化过程：在可观测行为一致时改写代码<ul><li>compiler barrier：需要对内存进行操作</li></ul></li></ul></li></ul><h2 id="今天的操作系统"><a href="#今天的操作系统" class="headerlink" title="今天的操作系统"></a>今天的操作系统</h2><ul><li>“虚拟化”应用广泛</li><li>NUMA</li><li>非对称处理器（大小核：性能核与能效核）</li><li>Intel-VT&#x2F;AMD-V等等</li><li>各种设备</li><li>互联互通</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;css&quot; href=&quot;https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css&quot;&gt;&lt;link rel=&quot;st</summary>
+      
+    
+    
+    
+    <category term="操作系统" scheme="http://wiki.zhouweitong.site/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+    <category term="笔记" scheme="http://wiki.zhouweitong.site/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="OS" scheme="http://wiki.zhouweitong.site/tags/OS/"/>
+    
+    <category term="操作系统" scheme="http://wiki.zhouweitong.site/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+  </entry>
   
   <entry>
     <title>内存</title>
@@ -597,38 +625,6 @@
     <category term="计算机网络" scheme="http://wiki.zhouweitong.site/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
     <category term="Network" scheme="http://wiki.zhouweitong.site/tags/Network/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>P1-行列式</title>
-    <link href="http://wiki.zhouweitong.site/wiki/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/P1_%E8%A1%8C%E5%88%97%E5%BC%8F/"/>
-    <id>http://wiki.zhouweitong.site/wiki/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/P1_%E8%A1%8C%E5%88%97%E5%BC%8F/</id>
-    <published>2023-02-22T09:00:00.000Z</published>
-    <updated>2023-02-24T15:25:21.407Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>线性代数是数学的其中一个分支。主要研究向量、向量空间（线性空间）、线性变换及有限维度的线性方程组。<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="[线性代数（数学分支学科）_百度百科](https://baike.baidu.com/item/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/800)">[1]</span></a></sup>  <strong>线性</strong>指的是线性关系，即两个或多个变量（数学元素）间的关系程一次形式。例如：n元一次方程组、形如 $f(x+y) &#x3D; f(x) + f(y)$ 的函数关系等。<strong>代数</strong> 指的是用符号代替具体数值进行计算，化具体为抽象。</p><p>本提纲基于教材《工程数学线性代数（第六版）》（同济大学数学系），采用其表述及顺序。</p><h2 id="行列式"><a href="#行列式" class="headerlink" title="行列式"></a>行列式</h2><ul><li>行列式是一个数</li><li>区别于矩阵，矩阵是一个数表</li></ul><h3 id="二阶行列式"><a href="#二阶行列式" class="headerlink" title="二阶行列式"></a>二阶行列式</h3><ul><li>计算式共4项</li><li>明确每项的特点<ul><li>不同行不同列元素乘积</li></ul></li><li>明确项与项之间的组合<ul><li>加法或减法</li></ul></li></ul><h3 id="三阶行列式"><a href="#三阶行列式" class="headerlink" title="三阶行列式"></a>三阶行列式</h3><ul><li>速算法<ul><li>各主对角线方向的三个项 减去 各副对角线方向的三个项</li></ul></li></ul><h3 id="逆序数：判断项的正负"><a href="#逆序数：判断项的正负" class="headerlink" title="逆序数：判断项的正负"></a>逆序数：判断项的正负</h3><ul><li>n阶排列<ul><li>n个数</li></ul></li><li>逆序<ul><li>大数在前小数在后</li></ul></li><li>逆序数<ul><li>逆序的总数</li></ul></li><li>奇&#x2F;偶排列<ul><li>逆序数奇&#x2F;偶</li><li>逆序数为0时是偶排列</li></ul></li><li>怎么算<ul><li>选定当前的数</li><li>找当前数后面比他小的数的个数</li><li>依次向后进行这个操作，直到最后一个数</li><li>作和</li><li>t(31542)&#x3D;2+0+2+1&#x3D;5</li></ul></li></ul><h3 id="n阶行列式"><a href="#n阶行列式" class="headerlink" title="n阶行列式"></a>n阶行列式</h3><ul><li>利用逆序数写出项<ul><li>注意判断正负的方法：尽量将行标写成递增的，这样就只用算列标的逆序数</li></ul></li><li>共有 n! 项</li></ul><h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><ul><li>矩阵的行列式 与其转置矩阵的行列式 值相等</li><li>某行有公因数k，可将k提出行列式外</li><li>两行互换，行列式值变号<ul><li>两行相同，行列式值为0</li><li>两行成比例，行列式值为0</li></ul></li><li>一行是两数之和，可拆成两个行列式相加</li><li>某行k倍加到另一行，行列式值不变</li></ul><h3 id="重要公式"><a href="#重要公式" class="headerlink" title="重要公式"></a>重要公式</h3><ul><li>主对角线&#x2F;上三角&#x2F;下三角行列式<ul><li>结果是主对角线上元素的乘积</li></ul></li><li>副对角线&#x2F;副对角线上三角&#x2F;副对角线下三角行列式<ul><li>副对角线上元素的乘积，并计算符号正负</li></ul></li></ul><p><img src="/wiki/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/P1_%E8%A1%8C%E5%88%97%E5%BC%8F/image-20230222162859175.png" alt="image-20230222162859175"></p><ul><li>拉普拉斯公式</li></ul><p><img src="/wiki/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/P1_%E8%A1%8C%E5%88%97%E5%BC%8F/image-20230222162922803.png" alt="image-20230222162922803"></p><ul><li>副对角线拉普拉斯公式，m、n为A、B的行数</li></ul><p><img src="/wiki/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/P1_%E8%A1%8C%E5%88%97%E5%BC%8F/image-20230222162955878.png" alt="image-20230222162955878"></p><ul><li>范德蒙行列式</li></ul><p><img src="/wiki/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/P1_%E8%A1%8C%E5%88%97%E5%BC%8F/image-20230222163007608.png" alt="image-20230222163007608"></p><ul><li>爪形行列式<ul><li>一般变成上三角&#x2F;下三角行列式</li></ul></li></ul><h3 id="计算规律"><a href="#计算规律" class="headerlink" title="计算规律"></a>计算规律</h3><ul><li>数字型：行列式中的每个元素都是确定的数字<ul><li>！考虑展开公式</li><li>常用的恒等变形<ul><li>某行k倍加到另一行，行列式值不变</li><li>将每一行（的倍数）都加到第一行</li><li>逐行相加：L2+L3-&gt;L2，L1+L2-&gt;L1</li></ul></li></ul></li><li>抽象型：行列式中有未知数，需要求未知数的值&#x2F;范围<ul><li>！除了考虑行列式性质外还要考虑矩阵的性质</li><li>各种行列式的恒等变形</li><li>矩阵性质<ul><li>1 2 3 <img src="/wiki/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/P1_%E8%A1%8C%E5%88%97%E5%BC%8F/image-20230222163052337.png" alt="image-20230222163052337"></li><li>4 <img src="/wiki/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/P1_%E8%A1%8C%E5%88%97%E5%BC%8F/image-20230222163126301.png" alt="image-20230222163126301"><ul><li>注意|A|&#x3D;0的特殊情况，此时等式也成立，但是恒等，无法用于计算或证明</li></ul></li><li>5 6 <img src="/wiki/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/P1_%E8%A1%8C%E5%88%97%E5%BC%8F/image-20230222163300367.png" alt="image-20230222163300367"></li><li>7 <img src="/wiki/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/P1_%E8%A1%8C%E5%88%97%E5%BC%8F/image-20230222163309976.png" alt="image-20230222163309976"></li></ul></li><li>单位矩阵的恒等变形</li><li>特征值性质</li><li>相似矩阵性质</li></ul></li></ul><h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><ul><li>特征多项式</li><li>克拉默法则</li><li>矩阵的秩<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://baike.baidu.com/item/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/800">线性代数（数学分支学科）_百度百科</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;css&quot; href=&quot;https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css&quot;&gt;&lt;link rel=&quot;st</summary>
-      
-    
-    
-    
-    <category term="数学" scheme="http://wiki.zhouweitong.site/categories/%E6%95%B0%E5%AD%A6/"/>
-    
-    <category term="线性代数" scheme="http://wiki.zhouweitong.site/categories/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
-    
-    
-    <category term="数学" scheme="http://wiki.zhouweitong.site/tags/%E6%95%B0%E5%AD%A6/"/>
-    
-    <category term="线性代数" scheme="http://wiki.zhouweitong.site/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
-    
-    <category term="行列式" scheme="http://wiki.zhouweitong.site/tags/%E8%A1%8C%E5%88%97%E5%BC%8F/"/>
-    
-    <category term="笔记" scheme="http://wiki.zhouweitong.site/tags/%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
