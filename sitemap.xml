@@ -2,6 +2,69 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://wiki.zhouweitong.site/wiki/CPlusPlus/CMake/CMake%E5%9F%BA%E7%A1%80/</loc>
+    
+    <lastmod>2023-03-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://wiki.zhouweitong.site/wiki/CPlusPlus/%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/Google%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/</loc>
+    
+    <lastmod>2023-03-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://wiki.zhouweitong.site/wiki/CPlusPlus/%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E8%A7%84%E5%88%99/</loc>
+    
+    <lastmod>2023-03-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://wiki.zhouweitong.site/wiki/CPlusPlus/%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/%E5%85%B6%E4%BB%96%E8%A7%84%E5%88%99/</loc>
+    
+    <lastmod>2023-03-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://wiki.zhouweitong.site/wiki/CPlusPlus/%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/mangle%E4%B8%8Edemangle/</loc>
+    
+    <lastmod>2023-03-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://wiki.zhouweitong.site/wiki/CPlusPlus/%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E4%B8%8E%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95/</loc>
+    
+    <lastmod>2023-03-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://wiki.zhouweitong.site/wiki/CPlusPlus/STL/array%E3%80%81vector%E3%80%81tuple/</loc>
+    
+    <lastmod>2023-03-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://wiki.zhouweitong.site/wiki/AI%E7%BB%98%E7%94%BB/AI%E7%BB%98%E7%94%BB%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%8F%92%E4%BB%B6%E6%B1%87%E6%80%BB/</loc>
     
     <lastmod>2023-03-06</lastmod>
@@ -104,60 +167,6 @@
     <loc>http://wiki.zhouweitong.site/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/%E8%AE%A1%E7%BB%84%E7%AC%94%E8%AE%B0_%E6%8C%87%E4%BB%A4%E3%80%81%E5%AD%98%E5%82%A8/</loc>
     
     <lastmod>2023-02-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://wiki.zhouweitong.site/wiki/CPlusPlus/CMake/CMake%E5%9F%BA%E7%A1%80/</loc>
-    
-    <lastmod>2023-02-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://wiki.zhouweitong.site/wiki/CPlusPlus/%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/mangle%E4%B8%8Edemangle/</loc>
-    
-    <lastmod>2023-02-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://wiki.zhouweitong.site/wiki/CPlusPlus/%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E4%B8%8E%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95/</loc>
-    
-    <lastmod>2023-02-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://wiki.zhouweitong.site/wiki/CPlusPlus/%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/%E5%85%B6%E4%BB%96%E8%A7%84%E5%88%99/</loc>
-    
-    <lastmod>2023-02-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://wiki.zhouweitong.site/wiki/CPlusPlus/%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E8%A7%84%E5%88%99/</loc>
-    
-    <lastmod>2023-02-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://wiki.zhouweitong.site/wiki/CPlusPlus/%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/Google%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/</loc>
-    
-    <lastmod>2023-02-25</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1050,6 +1059,34 @@
   
   <url>
     <loc>http://wiki.zhouweitong.site/tags/variant/</loc>
+    <lastmod>2023-03-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://wiki.zhouweitong.site/tags/%E6%9C%AA%E5%86%99%E5%AE%8C/</loc>
+    <lastmod>2023-03-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://wiki.zhouweitong.site/tags/array/</loc>
+    <lastmod>2023-03-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://wiki.zhouweitong.site/tags/vector/</loc>
+    <lastmod>2023-03-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://wiki.zhouweitong.site/tags/tuple/</loc>
     <lastmod>2023-03-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
