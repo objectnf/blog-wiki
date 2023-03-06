@@ -6,7 +6,7 @@
   <link href="http://wiki.zhouweitong.site/atom.xml" rel="self"/>
   
   <link href="http://wiki.zhouweitong.site/"/>
-  <updated>2023-03-06T07:28:02.397Z</updated>
+  <updated>2023-03-06T13:41:54.474Z</updated>
   <id>http://wiki.zhouweitong.site/</id>
   
   <author>
@@ -20,10 +20,10 @@
     <title>array、vector、tuple</title>
     <link href="http://wiki.zhouweitong.site/wiki/CPlusPlus/STL/array%E3%80%81vector%E3%80%81tuple/"/>
     <id>http://wiki.zhouweitong.site/wiki/CPlusPlus/STL/array%E3%80%81vector%E3%80%81tuple/</id>
-    <published>2023-03-06T07:00:00.000Z</published>
-    <updated>2023-03-06T07:28:02.397Z</updated>
+    <published>2023-03-06T13:00:00.000Z</published>
+    <updated>2023-03-06T13:41:54.474Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><ul><li><code>array</code>：更高级一些的“数组”；固定长度，类型必须一致；</li><li><code>vector</code>：“向量”；可变长度，类型必须一致；</li><li><code>tuple</code>：“元组”；固定长度，类型可以不一致；</li></ul><h2 id="array"><a href="#array" class="headerlink" title="array"></a>array</h2><ul><li>特点：<ul><li>支持随机访问，适合线性搜索；</li><li>必须是在编译时确定的大小；</li><li>不支持扩容；</li><li>如果元素的初始化、移动等开销巨大，则会严重影响性能；</li><li>值存放在栈上；</li></ul></li></ul><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;array&gt;</span></span></span><br></pre></td></tr></table></figure><ul><li>定义数组时也可以直接初始化；</li></ul><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">std::array&lt;<span class="type">int</span>, 10&gt; arr_int = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">16</span>&#125;;</span><br></pre></td></tr></table></figure><ul><li>也可以定义二维数组：直接嵌套即可；</li></ul><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">std::array&lt;std::array&lt;<span class="type">int</span>, 10&gt;, 10&gt; a;</span><br></pre></td></tr></table></figure><ul><li><code>std::array</code>重载了<code>[]</code>，所以可以像传统数组一样对数组里的某个元素进行赋值；</li></ul><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">arr_int[<span class="number">0</span>] = <span class="number">2</span>;</span><br><span class="line">a[<span class="number">0</span>][<span class="number">1</span>] = <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于（看下文）</span></span><br><span class="line">arr_int.<span class="built_in">at</span>(<span class="number">0</span>) = <span class="number">2</span>;</span><br><span class="line">(a.<span class="built_in">at</span>(<span class="number">0</span>)).<span class="built_in">at</span>(<span class="number">1</span>) = <span class="number">5</span>;</span><br></pre></td></tr></table></figure><ul><li>成员方法：<ul><li>迭代器：头<code>begin()</code>；尾<code>end()</code>；常量迭代器<code>cbegin()</code>、<code>cend()</code>；逆向迭代器（相当于将原数组翻转了之后的迭代器）<code>rbegin()</code>、<code>rend()</code>；逆向常量迭代器<code>crbegin()</code>，<code>crend()</code></li><li>位于：<code>at()</code></li><li>快速访问：操作符<code>[]</code></li><li>已有元素个数：<code>size()</code></li><li>容量：<code>max_size()</code></li><li>判空：<code>empty()</code></li><li>头尾元素：<code>front()</code>，<code>back()</code></li><li>与另一个同长度同类型的数组交换元素：<code>xxx.swap(yyy)</code></li><li>访问底层的C式数组：<code>data()</code></li><li>运算符：按字典序比较，<code>== != &lt; &lt;= &gt; &gt;= &lt;=&gt;</code></li></ul></li></ul>]]></content>
     
     
       
