@@ -6,7 +6,7 @@
   <link href="http://wiki.zhouweitong.site/atom.xml" rel="self"/>
   
   <link href="http://wiki.zhouweitong.site/"/>
-  <updated>2023-03-07T06:53:31.605Z</updated>
+  <updated>2023-03-07T09:38:46.356Z</updated>
   <id>http://wiki.zhouweitong.site/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>匈牙利命名法</title>
+    <link href="http://wiki.zhouweitong.site/wiki/CPlusPlus/Windows/%E5%8C%88%E7%89%99%E5%88%A9%E5%91%BD%E5%90%8D%E6%B3%95/"/>
+    <id>http://wiki.zhouweitong.site/wiki/CPlusPlus/Windows/%E5%8C%88%E7%89%99%E5%88%A9%E5%91%BD%E5%90%8D%E6%B3%95/</id>
+    <published>2023-03-07T08:00:00.000Z</published>
+    <updated>2023-03-07T09:38:46.356Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>匈牙利命名法是Windows程序开发时经常用到&#x2F;见到的变量&#x2F;类型命名方法。</p><p>例如：下面是<code>winsock2.h</code>中的一个函数的文档：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">INT WSAAPI <span class="title">WSAAddressToStringW</span><span class="params">(</span></span></span><br><span class="line"><span class="params"><span class="function">  [in]           LPSOCKADDR          lpsaAddress,</span></span></span><br><span class="line"><span class="params"><span class="function">  [in]           DWORD               dwAddressLength,</span></span></span><br><span class="line"><span class="params"><span class="function">  [in, optional] LPWSAPROTOCOL_INFOW lpProtocolInfo,</span></span></span><br><span class="line"><span class="params"><span class="function">  [in, out]      LPWSTR              lpszAddressString,</span></span></span><br><span class="line"><span class="params"><span class="function">  [in, out]      LPDWORD             lpdwAddressStringLength</span></span></span><br><span class="line"><span class="params"><span class="function">)</span></span>;</span><br></pre></td></tr></table></figure><p>显然，变量名（类型名）具有某中规律，但：lpsz是什么？LPWSTR又是什么类型？DWORD和LPDWORD有什么区别？可以通过学习匈牙利命名法快速解决这些问题；</p><ul><li>匈牙利命名法分为“匈牙利应用命名法”和“系统匈牙利命名法”两种，可同时使用；</li><li>由 其他前缀（前前缀） + 匈牙利命名法前缀 + 实际变量&#x2F;类名 组成；</li><li>大小写规则（不是必须的）：<ul><li>类（数据类型）的匈牙利命名法前缀大写，类名大写；也即：全部大写；例如：<code>LPWSTR</code>；</li><li>变量（对象）的匈牙利命名法前缀小写，变量名只有首字母大写；例如：<code>lpwStr</code>；</li></ul></li></ul><h2 id="系统匈牙利命名法"><a href="#系统匈牙利命名法" class="headerlink" title="系统匈牙利命名法"></a>系统匈牙利命名法</h2><ul><li>匈牙利命名法的前缀 标识的是<strong>数据类型</strong></li><li>基础类型<ul><li><code>i</code>：<code>int</code>，整形</li><li><code>u</code>：<code>unsigned</code>，无符号的<ul><li>一般配合其他前缀，例如<code>ui</code>、<code>ul</code></li></ul></li><li><code>b</code>：<code>bool</code>，布尔型</li><li><code>l</code>：<code>long</code>，长<ul><li>一般配合其他前缀，例如<code>li</code></li></ul></li><li><code>v</code>：<code>void</code>，空类型</li><li><code>n</code>：number，即<code>short</code>，短整形</li><li><code>f</code>：<code>float</code>，单精度浮点数</li><li><code>d</code>：<code>double</code>，双精度浮点数</li><li><code>c</code>、<code>ch</code>：<code>char</code>，字符型</li><li><code>uc</code>、<code>cb</code>（char byte）：无符号字符型</li><li><code>p</code>：<code>pointer</code>，指针<ul><li><code>pi</code>、<code>pli</code>…… 类型指针</li><li><code>pfn</code>：<code>pointer (to) function</code>，函数指针</li><li><code>pfs</code>：<code>pointer (to) file stream</code>，文件流指针</li></ul></li></ul></li><li>有时可以在类型后加数字，代表类型的位数，如：16位无符号整形<code>ui16</code></li><li><h2 id="其他类型-s：string，字符串-sz：string-with-zero-endings-，以-0结尾的字符串-arr：array，数组-by：byte，字节"><a href="#其他类型-s：string，字符串-sz：string-with-zero-endings-，以-0结尾的字符串-arr：array，数组-by：byte，字节" class="headerlink" title="其他类型- s：string，字符串- sz：string (with) zero (endings)，以\0结尾的字符串- arr：array，数组- by：byte，字节"></a>其他类型<br>- <code>s</code>：<code>string</code>，字符串<br>- <code>sz</code>：<code>string (with) zero (endings)</code>，以<code>\0</code>结尾的字符串<br>- <code>arr</code>：<code>array</code>，数组<br>- <code>by</code>：<code>byte</code>，字节</h2></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;css&quot; href=&quot;https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css&quot;&gt;&lt;link rel=&quot;st</summary>
+      
+    
+    
+    
+    <category term="C++" scheme="http://wiki.zhouweitong.site/categories/C/"/>
+    
+    <category term="Windows" scheme="http://wiki.zhouweitong.site/categories/C/Windows/"/>
+    
+    
+    <category term="C++" scheme="http://wiki.zhouweitong.site/tags/C/"/>
+    
+    <category term="Windows" scheme="http://wiki.zhouweitong.site/tags/Windows/"/>
+    
+    <category term="匈牙利命名法" scheme="http://wiki.zhouweitong.site/tags/%E5%8C%88%E7%89%99%E5%88%A9%E5%91%BD%E5%90%8D%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>宏函数</title>
@@ -611,36 +641,6 @@
     <category term="数理统计" scheme="http://wiki.zhouweitong.site/tags/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/"/>
     
     <category term="随机事件" scheme="http://wiki.zhouweitong.site/tags/%E9%9A%8F%E6%9C%BA%E4%BA%8B%E4%BB%B6/"/>
-    
-    <category term="未写完" scheme="http://wiki.zhouweitong.site/tags/%E6%9C%AA%E5%86%99%E5%AE%8C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>UML图</title>
-    <link href="http://wiki.zhouweitong.site/wiki/CPlusPlus/UML%E5%9B%BE/"/>
-    <id>http://wiki.zhouweitong.site/wiki/CPlusPlus/UML%E5%9B%BE/</id>
-    <published>2023-02-24T13:00:00.000Z</published>
-    <updated>2023-03-06T11:42:27.995Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>UML包括许多种类的图，其中使用最广泛的就是类图（Class Diagram）和时序图（Sequence Diagram）。</p><h2 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h2><ul><li>表达类（Class）的结构、类与类之间关系和包（Package）的结构的图；</li></ul><h3 id="类的结构"><a href="#类的结构" class="headerlink" title="类的结构"></a>类的结构</h3><ul><li><p>属性（Attribute）：同一个类中的成员变量；<code>&lt;保护符&gt; &lt;属性名&gt;: &lt;属性类型&gt;</code>；</p><ul><li>例如：<code>- name: std::string</code></li></ul></li><li><p>操作（Operation）：同一个类中的成员方法；<code>&lt;保护符&gt; &lt;方法名&gt;(): &lt;返回值类型&gt;</code>；</p><ul><li>例如：<code>+ getName() : std::string</code></li></ul></li><li><p>三种详细等级</p><ul><li>概念型：只写类名 <img src="/wiki/CPlusPlus/UML%E5%9B%BE/image-20230224213326219.png" alt="image-20230224213326219"></li><li>标准型（说明型）：类名、属性名、重要的方法名以及成员可见性。此时可以省略属性和方法的类型。 <img src="/wiki/CPlusPlus/UML%E5%9B%BE/image-20230224213720917.png" alt="image-20230224213720917"></li><li>实现型，怎么详细怎么写，包括类名，属性名、属性类型，所有方法的方法名、方法形参、方法形参的出入类型、方法的返回值类型，成员可见性等。  <img src="/wiki/CPlusPlus/UML%E5%9B%BE/image-20230224213744120.png" alt="image-20230224213744120"></li></ul></li><li><p>四种成员可见性（Visibility）：同 面向对象编程语言中类的成员保护符；</p><ul><li>public：公开，<code>+</code></li><li>private：私有，<code>-</code></li><li>protected：受保护的，<code>#</code></li><li>package：在同一个包内，<code>~</code></li></ul></li><li><p>抽象方法：同面向对象编程语言中类的抽象方法，使用斜体表示 <img src="/wiki/CPlusPlus/UML%E5%9B%BE/image-20230224213929268.png" alt="image-20230224213929268"></p></li><li><p>成员方法的形参：<code>&lt;参数方向&gt; &lt;参数名&gt;: &lt;参数类型&gt;</code></p></li><li><p>三种参数方向类型</p><ul><li>in：仅供输入，类似于函数的普通形参，例如：<code>int test(int a)</code> 此处的 <code>a</code>。</li><li>out：仅供输出，类似于函数将指针&#x2F;引用作为形参，且函数内只修改、不读取该指针&#x2F;引用的值。</li><li>inout：</li><li>既是输入又是输出，类似于函数将指针&#x2F;引用作为形参，读取了该指针&#x2F;引用的值，修改后再写回。</li></ul></li><li><p>参数或属性拥有默认值：在参数后加上<code>=&lt;默认值&gt;</code>即可；  <img src="/wiki/CPlusPlus/UML%E5%9B%BE/image-20230224225816388.png" alt="image-20230224225816388"></p></li><li><p>抽象类&#x2F;接口：类名上方标<code>&lt;&lt;abstract&gt;&gt;</code>&#x2F;<code>&lt;&lt;interface&gt;&gt;</code>；  <img src="/wiki/CPlusPlus/UML%E5%9B%BE/image-20230224225921662.png" alt="image-20230224225921662"></p></li><li><p>对象图</p><ul><li>用于表示已实例化的类，即对象</li><li>标题带下划线，且会用冒号指明实例化自哪个类（对象名: 类名）</li><li>等号右侧的值是实际值&#x2F;期待返回的实际值，而不是默认值</li><li>对象间关系只有关联、依赖、共享聚集和组合聚集</li><li>对象图常常以独立的图的形式出现（即一张图都是对象）</li></ul></li></ul><p><img src="/wiki/CPlusPlus/UML%E5%9B%BE/image-20230224230012159.png" alt="image-20230224230012159"></p><h3 id="类间关系"><a href="#类间关系" class="headerlink" title="类间关系"></a>类间关系</h3><ul><li>关联（Association）<ul><li>单纯的一个类和另一个类有数量上的松散关系，两个类彼此是独立的</li><li>这种联系是松散的而不是逻辑的（即不是一个包含另一个或一个继承另一个之类的强联系）</li><li>举例：飞机关联航线，航线关联飞机</li><li>线型：实线，无箭头</li><li>线上写联系的简要描述（文字描述&#x2F;函数名），下同</li><li>数量关系，下同<ul><li>1：一对一</li><li>n：一对n</li><li>0…1：可选，即没有或有1个</li><li>0…n：至少0个（没有），至多n个</li><li>0…*：任意多个</li><li>1…*：至少有1个</li><li>m…n：至少有m个，至多有n个</li></ul></li></ul></li></ul><p><img src="/wiki/CPlusPlus/UML%E5%9B%BE/image-20230224230210668.png" alt="image-20230224230210668"></p><ul><li><p>单项关联（Unidirectional Association）</p><ul><li>只有一个类与另一个类有数量上的逻辑关系</li><li>举例：提现请求与支付宝账号</li><li>类型：实线，普通箭头，箭头从一个类出发指向与其关联的另一个类</li></ul></li><li><p>继承（Inheritance）</p><ul><li>同C++中类的继承，子类获得父类的部分属性和方法并可以重载</li><li>举例：老师继承自人</li><li>类型：实现，空心三角箭头，由子类指向父类</li><li>很少见到继承的数量关系</li></ul></li><li><p>实现（Implement）</p><ul><li>同C++&#x2F;Golang中的抽象类&#x2F;接口的实现，且一般只在有抽象类&#x2F;接口时才会使用</li><li>举例：正方形类实现了形状抽象类</li><li>类型：虚线，空心三角箭头，指向被实现的抽象类&#x2F;接口</li><li>很少见到实现的数量关系</li></ul></li><li><p>依赖（Dependency）</p><ul><li>表示一个类与另一个类有简单的依赖关系，一般是方法上的依赖</li><li>举例：学生类的阅读方法依赖书类</li><li>类型：虚线，普通箭头，指向被依赖的类</li></ul></li><li><p>共享聚集（Aggregation）</p><ul><li>类互相独立但可以聚集为一个新的类。当这个类消失时，聚集成它的类不会消失</li><li>举例：课桌类可由椅子类和桌子类聚集。课桌拆散时桌子、椅子还在</li><li>类型：实线，普通箭头，空心菱形线头。线头在聚集成的类处，箭头指向各个子类</li></ul></li><li><p>组合聚集（Combination）</p><ul><li>子类互相独立但必须依存于组合成的类存在。当组合成的类消失时，这些子类也会一并消失</li><li>举例：公司可由公司的各个部门组合。公司解散后各部门也不复存在</li><li>类型：实线，普通箭头，实心菱形线头。线头在组合成的类处，箭头指向各个子类</li></ul></li></ul><h3 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h3><ul><li>注释<ul><li>一般放置在图旁边（或包范围内），起解释说明作用；</li></ul></li></ul><p><img src="/wiki/CPlusPlus/UML%E5%9B%BE/image-20230224230250786.png" alt="image-20230224230250786"></p><ul><li>包</li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;css&quot; href=&quot;https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css&quot;&gt;&lt;link rel=&quot;st</summary>
-      
-    
-    
-    
-    <category term="C++" scheme="http://wiki.zhouweitong.site/categories/C/"/>
-    
-    
-    <category term="编程语言" scheme="http://wiki.zhouweitong.site/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
-    
-    <category term="C++" scheme="http://wiki.zhouweitong.site/tags/C/"/>
-    
-    <category term="UML" scheme="http://wiki.zhouweitong.site/tags/UML/"/>
     
     <category term="未写完" scheme="http://wiki.zhouweitong.site/tags/%E6%9C%AA%E5%86%99%E5%AE%8C/"/>
     
