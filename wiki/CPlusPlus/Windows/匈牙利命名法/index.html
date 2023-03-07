@@ -17,7 +17,7 @@
 <meta property="og:description" content="匈牙利命名法是Windows程序开发时经常用到&#x2F;见到的变量&#x2F;类型命名方法。 例如：下面是winsock2.h中的一个函数的文档： 1234567INT WSAAPI WSAAddressToStringW(  [in]           LPSOCKADDR          lpsaAddress,  [in]           DWORD               d">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-03-07T08:00:00.000Z">
-<meta property="article:modified_time" content="2023-03-07T09:38:46.356Z">
+<meta property="article:modified_time" content="2023-03-07T10:02:21.353Z">
 <meta property="article:author" content="ObjectNotFound">
 <meta property="article:tag" content="C++">
 <meta property="article:tag" content="Windows">
@@ -823,36 +823,46 @@
 <li>变量（对象）的匈牙利命名法前缀小写，变量名只有首字母大写；例如：<code>lpwStr</code>；</li>
 </ul>
 </li>
+<li>不同程序项目中的前缀的含义不一定相同，但同一个项目中的前缀含义一定相同<ul>
+<li>即：弄懂一个前缀的意思，就能快速了解其他变量或类的类型&#x2F;特征</li>
+</ul>
+</li>
 </ul>
 <h2 id="系统匈牙利命名法"><a href="#系统匈牙利命名法" class="headerlink" title="系统匈牙利命名法"></a>系统匈牙利命名法</h2><ul>
 <li>匈牙利命名法的前缀 标识的是<strong>数据类型</strong></li>
 <li>基础类型<ul>
 <li><code>i</code>：<code>int</code>，整形</li>
-<li><code>u</code>：<code>unsigned</code>，无符号的<ul>
-<li>一般配合其他前缀，例如<code>ui</code>、<code>ul</code></li>
-</ul>
-</li>
+<li><code>u</code>：<code>unsigned</code>，无符号的</li>
 <li><code>b</code>：<code>bool</code>，布尔型</li>
-<li><code>l</code>：<code>long</code>，长<ul>
-<li>一般配合其他前缀，例如<code>li</code></li>
-</ul>
-</li>
+<li><code>l</code>：<code>long</code>，长的</li>
 <li><code>v</code>：<code>void</code>，空类型</li>
 <li><code>n</code>：number，即<code>short</code>，短整形</li>
 <li><code>f</code>：<code>float</code>，单精度浮点数</li>
 <li><code>d</code>：<code>double</code>，双精度浮点数</li>
 <li><code>c</code>、<code>ch</code>：<code>char</code>，字符型</li>
 <li><code>uc</code>、<code>cb</code>（char byte）：无符号字符型</li>
-<li><code>p</code>：<code>pointer</code>，指针<ul>
-<li><code>pi</code>、<code>pli</code>…… 类型指针</li>
-<li><code>pfn</code>：<code>pointer (to) function</code>，函数指针</li>
-<li><code>pfs</code>：<code>pointer (to) file stream</code>，文件流指针</li>
-</ul>
-</li>
+<li><code>p</code>：<code>pointer</code>，指针</li>
+<li><code>np</code>：<code>near pointer</code>，近程指针</li>
+<li><code>fn</code>：<code>function</code>，函数</li>
+<li><code>fs</code>：<code>file stream</code>，文件流</li>
+<li><code>k</code>：<code>const</code>，常量</li>
+<li>……</li>
 </ul>
 </li>
 <li>有时可以在类型后加数字，代表类型的位数，如：16位无符号整形<code>ui16</code></li>
-<li><h2 id="其他类型-s：string，字符串-sz：string-with-zero-endings-，以-0结尾的字符串-arr：array，数组-by：byte，字节"><a href="#其他类型-s：string，字符串-sz：string-with-zero-endings-，以-0结尾的字符串-arr：array，数组-by：byte，字节" class="headerlink" title="其他类型- s：string，字符串- sz：string (with) zero (endings)，以\0结尾的字符串- arr：array，数组- by：byte，字节"></a>其他类型<br>- <code>s</code>：<code>string</code>，字符串<br>- <code>sz</code>：<code>string (with) zero (endings)</code>，以<code>\0</code>结尾的字符串<br>- <code>arr</code>：<code>array</code>，数组<br>- <code>by</code>：<code>byte</code>，字节</h2></li>
+<li>其他类型<ul>
+<li><code>s</code>：<code>string</code>，字符串</li>
+<li><code>sz</code>：<code>string (with) zero (endings)</code>，以<code>\0</code>结尾的字符串</li>
+<li><code>rg</code>：range，即<code>array</code>，数组</li>
+<li><code>by</code>：<code>byte</code>，字节</li>
+<li><code>w</code>：<code>word</code>，字</li>
+<li><code>dw</code>：<code>double word</code>，双字</li>
+<li><code>qw</code>：<code>quarter word</code>，四字</li>
+<li><code>t</code>、<code>st</code>：<code>struct</code>，结构体</li>
+<li><code>C</code>：<code>Class</code>，类</li>
+<li><code>I</code>：<code>Interface</code>，接口</li>
+</ul>
+</li>
 </ul>
 
             </div>
