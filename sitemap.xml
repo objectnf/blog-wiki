@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://wiki.zhouweitong.site/wiki/CPlusPlus/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/%E5%AE%8F%E5%87%BD%E6%95%B0/</loc>
+    
+    <lastmod>2023-03-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://wiki.zhouweitong.site/wiki/CPlusPlus/Windows/%E9%9D%99%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93%E4%B8%8E%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93/</loc>
     
     <lastmod>2023-03-09</lastmod>
@@ -21,15 +30,6 @@
   
   <url>
     <loc>http://wiki.zhouweitong.site/wiki/CPlusPlus/Windows/%E5%8C%88%E7%89%99%E5%88%A9%E5%91%BD%E5%90%8D%E6%B3%95/</loc>
-    
-    <lastmod>2023-03-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://wiki.zhouweitong.site/wiki/CPlusPlus/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/%E5%AE%8F%E5%87%BD%E6%95%B0/</loc>
     
     <lastmod>2023-03-07</lastmod>
     
