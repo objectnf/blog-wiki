@@ -6,7 +6,7 @@
     <title>Flatpak概念 | ObjectNotFound Wiki</title>
     
     
-        <meta name="keywords" content="Linux,Fedora,Flatpak,Fedora Silverblue,概念,未写完">
+        <meta name="keywords" content="Linux,Fedora,Flatpak,Fedora Silverblue,概念">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="为什么使用Flatpak？ 问题：已经有了apt、dnf等这种系统级的包管理器，为什么还要使用Flatpak？ Flatpak给软件提供相对独立的运行环境（沙箱），并提供权限控制功能，避免软件破坏或任意修改系统； Flatpak很大程度上解决了软件的兼容性问题，让“新系统跑旧软件”或“旧系统跑新软件”成为可能；因此Flatpak可以在非滚动更新的发行版上安装 比系统源内版本更高的软件； Flatp">
@@ -17,14 +17,13 @@
 <meta property="og:description" content="为什么使用Flatpak？ 问题：已经有了apt、dnf等这种系统级的包管理器，为什么还要使用Flatpak？ Flatpak给软件提供相对独立的运行环境（沙箱），并提供权限控制功能，避免软件破坏或任意修改系统； Flatpak很大程度上解决了软件的兼容性问题，让“新系统跑旧软件”或“旧系统跑新软件”成为可能；因此Flatpak可以在非滚动更新的发行版上安装 比系统源内版本更高的软件； Flatp">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-02-13T08:00:00.000Z">
-<meta property="article:modified_time" content="2023-03-06T11:42:27.996Z">
+<meta property="article:modified_time" content="2023-03-10T12:12:39.775Z">
 <meta property="article:author" content="ObjectNotFound">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Fedora">
 <meta property="article:tag" content="Flatpak">
 <meta property="article:tag" content="Fedora Silverblue">
 <meta property="article:tag" content="概念">
-<meta property="article:tag" content="未写完">
 <meta name="twitter:card" content="summary">
     
 
@@ -778,7 +777,7 @@
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/Fedora/" rel="tag">Fedora</a>, <a class="tag-link-link" href="/tags/Fedora-Silverblue/" rel="tag">Fedora Silverblue</a>, <a class="tag-link-link" href="/tags/Flatpak/" rel="tag">Flatpak</a>, <a class="tag-link-link" href="/tags/Linux/" rel="tag">Linux</a>, <a class="tag-link-link" href="/tags/%E6%9C%AA%E5%86%99%E5%AE%8C/" rel="tag">未写完</a>, <a class="tag-link-link" href="/tags/%E6%A6%82%E5%BF%B5/" rel="tag">概念</a>
+        <a class="tag-link-link" href="/tags/Fedora/" rel="tag">Fedora</a>, <a class="tag-link-link" href="/tags/Fedora-Silverblue/" rel="tag">Fedora Silverblue</a>, <a class="tag-link-link" href="/tags/Flatpak/" rel="tag">Flatpak</a>, <a class="tag-link-link" href="/tags/Linux/" rel="tag">Linux</a>, <a class="tag-link-link" href="/tags/%E6%A6%82%E5%BF%B5/" rel="tag">概念</a>
     </div>
 
                         
@@ -953,7 +952,9 @@
 <li>System：系统级安装，<strong>需要root权限</strong>，安装的应用 系统上所有的用户均可见；</li>
 <li>User：用户级安装，安装的应用 仅当前用户（触发安装的用户）可见；</li>
 </ul>
-<h2 id="软件包的源"><a href="#软件包的源" class="headerlink" title="软件包的源"></a>软件包的源</h2><p>与其他的包管理器（系统级或Snap）一样，flatpak也有“软件源”的概念（即“软件包源”）。</p>
+<h2 id="软件包的源"><a href="#软件包的源" class="headerlink" title="软件包的源"></a>软件包的源</h2><p>与其他的包管理器（系统级或Snap）一样，Flatpak也有“软件源”的概念（即“软件包源”）。</p>
+<p>Flatpak的软件包源是一个OSTree Repo，Flatpak包按照软件包类型、ID、架构与版本存储在对应的OSTree分支中；而软件包的各种信息和描述（元数据，MetaData）则存放在特定的分支中以供软件中心调取；</p>
+<p>每个Flatpak 的OSTree Repo就是一个文件夹；一般使用HTTPd&#x2F;NGINX&#x2F;Caddy做HTTP服务器分发该文件夹下的文件，而Flatpak及各软件中心使用HTTP协议访问和下载OSTree Repo内的文件。</p>
 <h2 id="flatpakref"><a href="#flatpakref" class="headerlink" title=".flatpakref"></a>.flatpakref</h2><p><code>.flatpakref</code>文件描述了<strong>单个软件包</strong>的信息和获取方式，文件结构大致如下：</p>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[Faltpak Ref]</span><br><span class="line">Name=&lt;软件包的ID&gt;</span><br><span class="line">Branch=&lt;软件包的版本&gt;</span><br><span class="line">Title=&lt;描述该软件包的标题（软件包名字）&gt;</span><br><span class="line">Url=&lt;软件包所在的源的地址&gt;</span><br><span class="line">RuntimeRepo=&lt;软件包依赖的运行时所在的源的地址&gt;</span><br><span class="line">IsRuntime=&lt;本软件包是不是运行时&gt;</span><br><span class="line">GPGKey=&lt;Base64编码的GPG密钥&gt;</span><br></pre></td></tr></table></figure>
 
@@ -961,9 +962,13 @@
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[Flatpak Ref]</span><br><span class="line">Name=fr.free.Homebank</span><br><span class="line">Branch=stable</span><br><span class="line">Title=fr.free.Homebank from flathub</span><br><span class="line">Url=https://dl.flathub.org/repo/</span><br><span class="line">RuntimeRepo=https://dl.flathub.org/repo/flathub.flatpakrepo</span><br><span class="line">IsRuntime=false</span><br><span class="line">GPGKey=mQINBFlD2sABEADsiUZUO...</span><br></pre></td></tr></table></figure>
 
 <p><code>.flatpackref</code>文件可直接用于安装软件包的命令中，也可直接使用软件中心打开；</p>
-<h2 id="flatpakrepo"><a href="#flatpakrepo" class="headerlink" title=".flatpakrepo"></a>.flatpakrepo</h2><blockquote>
-<p>TODO：ostree相关</p>
-</blockquote>
+<h2 id="flatpakrepo"><a href="#flatpakrepo" class="headerlink" title=".flatpakrepo"></a>.flatpakrepo</h2><p><code>.flatpakrepo</code>文件描述了单个软件包源的信息，文件结构大致如下：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[Flatpak Repo]</span><br><span class="line">Title=&lt;软件包源的名字&gt;</span><br><span class="line">Url=&lt;软件包源的地址&gt;</span><br><span class="line">Homepage=&lt;软件包源的主页，或软件包源维护者的主页&gt;</span><br><span class="line">Comment=&lt;软件包源的简单描述，或是软件包维护者的信息&gt;</span><br><span class="line">Description=&lt;软件包源的描述&gt;</span><br><span class="line">Icon=&lt;软件包源的图标&gt;</span><br><span class="line">GPGKey=&lt;软件包源的GPGKey&gt;</span><br></pre></td></tr></table></figure>
+
+<p>示例：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[Flatpak Repo]</span><br><span class="line">Title=Flathub</span><br><span class="line">Url=https://dl.flathub.org/repo/</span><br><span class="line">Homepage=https://flathub.org/</span><br><span class="line">Comment=Central repository of Flatpak applications</span><br><span class="line">Description=Central repository of Flatpak applications</span><br><span class="line">Icon=https://dl.flathub.org/repo/logo.svg</span><br><span class="line">GPGKey=mQINBFlD2sABEADsiUZUO...</span><br></pre></td></tr></table></figure>
+
+<p><code>.flatpakrepo</code>文件可用于<code>flatpak remote-add</code>命令添加软件源，也可以直接使用软件中心打开；</p>
 
             </div>
         
